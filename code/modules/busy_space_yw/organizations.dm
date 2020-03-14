@@ -290,7 +290,7 @@
 			"Gamma Librae",
 			"Gliese 667 C",
 			"LHS 1140",
-			"Phact",			
+			"Phact",
 			/* fictional systems from Polaris and other sources*/
 			"Zhu Que",
 			"Oasis",
@@ -1297,7 +1297,7 @@
 	work = "news media"
 	headquarters = ""
 	motto = "News from all across the spectrum"
-	
+
 	ship_prefixes = list("OBV" = "an investigation", "OBV" = "a distribution", "OBV" = "a journalism", "OBV" = "a general operations")
 	destination_names = list(
 			"Oculus HQ"
@@ -1312,7 +1312,7 @@
 	work = "catering, food, drinks"
 	headquarters = "Alpha Centauri"
 	motto = "The largest brands of food and drink - most of them are Centauri."
-	
+
 	ship_prefixes = list("CPTV" = "a transport", "CPCV" = "a catering", "CPRV" = "a resupply", "CPV" = "a general operations")
 	destination_names = list(
 			"Centauri Provisions HQ",
@@ -1329,7 +1329,7 @@
 	work = "catering, food, drinks"
 	headquarters = ""
 	motto = "Engine designs, emergency generators, and old memories"
-	
+
 	ship_prefixes = list("EETV" = "a transport", "EERV" = "a research", "EEV" = "a general operations")
 	destination_names = list(
 			"Einstein HQ"
@@ -1344,7 +1344,7 @@
 	work = "starship construction"
 	headquarters = ""
 	motto = "We build it - you fly it"
-	
+
 	ship_prefixes = list("WATV" = "a transport", "WARV" = "a repair", "WAV" = "a general operations")
 	destination_names = list(
 			"Wulf Aeronautics HQ",
@@ -1361,7 +1361,7 @@
 	work = "luxury goods"
 	headquarters = ""
 	motto = ""
-	
+
 	ship_prefixes = list("GETV" = "a transport", "GECV" = "a luxury catering", "GEV" = "a general operations")
 	//precious stones
 	ship_names = list(
@@ -1437,7 +1437,7 @@
 	work = "salvage and shipbreaking"
 	headquarters = "N/A"
 	motto = "one man's trash is another man's treasure"
-	
+
 	ship_prefixes = list("CSV" = "a salvage", "CRV" = "a recovery", "CTV" = "a transport", "CSV" = "a shipbreaking", "CHV" = "a towing")
 	//mostly-original, maybe some references, and more than a few puns
 	ship_names = list(
@@ -1972,7 +1972,7 @@
 	destination_names = list(
 			)
 	*/
-	
+
 /datum/lore/organization/other/uekatish
 	name = "Ue-Katish Pirates"
 	short_name = ""
@@ -1986,7 +1986,7 @@
 	lawful = FALSE
 	hostile = TRUE
 	autogenerate_destination_names = TRUE
-	
+
 	ship_prefixes = list("Ue-Katish pirate" = "a raiding", "Ue-Katish bandit" = "a raiding", "Ue-Katish raider" = "a raiding", "Ue-Katish enforcer" = "an enforcement")
 	ship_names = list(
 			"Keqxuer'xeu's Prize",
@@ -2173,7 +2173,7 @@
 			"a classified location"
 			)
 			// autogen will add a lot of other places as well.
-			
+
 /datum/lore/organization/gov/almachi
 	name = "Almach Association"
 	short_name = "Almachi "
@@ -2233,7 +2233,7 @@
 			"Alar-Selna, Arrakthiir",
 			"a minor colony in Arrakthiir",
 			"a Coalition outpost in Arrakthiir",
-			"a tajaran colony in Mesomori",			
+			"a tajaran colony in Mesomori",
 			"a Coalition outpost in Mesomori",
 			"a mining base in Mesomori"
 			)
