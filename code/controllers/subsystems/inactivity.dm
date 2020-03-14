@@ -16,7 +16,7 @@ SUBSYSTEM_DEF(inactivity)
 		var/client/C = client_list[client_list.len]
 		client_list.len--
 		if(!C.holder && C.is_afk(config.kick_inactive MINUTES) && !isobserver(C.mob))
-
+			
 			to_chat(C, "<span class='warning'>You have been inactive for more than [config.kick_inactive] minute\s and have been disconnected.</span>")
 
 			var/information
