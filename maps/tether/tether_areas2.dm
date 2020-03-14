@@ -201,9 +201,6 @@
 /area/tether/surfacebase/medical/patient_b
 	name = "\improper Surface Patient Room B"
 	lightswitch = 0
-/area/tether/surfacebase/medical/patient_c
-	name = "\improper Surface Patient Room C"
-	lightswitch = 0
 /area/tether/surfacebase/medical/lowerhall
 	name = "\improper Surface Medical Lower Hall"
 /area/tether/surfacebase/medical/storage
@@ -284,7 +281,8 @@
 	name = "Atmospherics Gas Storage"
 	icon_state = "atmos"
 
-/area/engineering/atmos/intake
+//TFF 11/12/19 - Minor refactor, makes mice spawn only in Atmos.
+/area/engineering/atmos_intake
 	name = "\improper Atmospherics Intake"
 	icon_state = "atmos"
 	sound_env = MOUNTAINS
@@ -342,6 +340,8 @@
 	name = "\improper Public Garden Maintenence"
 /area/maintenance/lower/public_garden_maintenence/upper
 	name = "\improper Upper Public Garden Maintenence"
+/area/maintenance/lower/medsec_maintenance
+	name = "\improper Surface MedSec Maintenance"
 
 // Research
 /area/rnd/xenobiology/xenoflora/lab_atmos
@@ -786,15 +786,8 @@
 
 /area/bridge/secondary
 	name = "\improper Secondary Command Office"
-
-/area/bridge/secondary/hallway
-	name = "\improper Secondary Command Hallway"
 /area/bridge/secondary/meeting_room
 	name = "\improper Secondary Command Meeting Room"
-	lightswitch = 0
-/area/bridge/secondary/teleporter
-	name = "\improper Secondary Teleporter"
-	lightswitch = 0
 
 /area/tether/station/visitorhallway
 	name = "\improper Visitor Hallway"
@@ -846,12 +839,9 @@
 	name = "\improper Abandoned Library Conference"
 	icon_state = "library"
 /area/maintenance/station/spacecommandmaint
-	name = "\improper Space Command Maintenance"
+	name = "\improper Secondary Command Maintenance"
 	icon_state = "bridge"
 	sound_env = SEWER_PIPE
-/area/maintenance/substation/spacecommand
-	name = "\improper Space Command Substation"
-	icon_state = "substation"
 
 /area/shuttle/tether/crash1
 	name = "\improper Crash Site 1"
@@ -921,6 +911,11 @@
 	name = "\improper Excursion Shuttle - Virgo3b Sky"
 	base_turf = /turf/simulated/sky/virgo3b/south
 
+// Belter Dock
+
+/area/quartermaster/belterdock
+	name = "\improper Cargo Belter Access"
+	icon_state = "mining"
 // Elevator area //
 
 /area/tether/elevator

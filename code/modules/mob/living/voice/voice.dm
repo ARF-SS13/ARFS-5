@@ -9,7 +9,7 @@
 
 /mob/living/voice/New(loc)
 	add_language(LANGUAGE_GALCOM)
-	set_default_language(all_languages[LANGUAGE_GALCOM])
+	set_default_language(GLOB.all_languages[LANGUAGE_GALCOM])
 
 	if(istype(loc, /obj/item/device/communicator))
 		comm = loc
@@ -83,7 +83,7 @@
 	var/new_name = sanitizeSafe(input(src, "Who would you like to be now?", "Communicator", src.client.prefs.real_name)  as text, MAX_NAME_LEN)
 	if(new_name)
 		if(comm)
-			comm.visible_message("<span class='notice'>\icon[comm] [src.name] has left, and now you see [new_name].</span>")
+			comm.visible_message("<span class='notice'>[bicon(comm)] [src.name] has left, and now you see [new_name].</span>")
 		//Do a bit of logging in-case anyone tries to impersonate other characters for whatever reason.
 		var/msg = "[src.client.key] ([src]) has changed their communicator identity's name to [new_name]."
 		message_admins(msg)

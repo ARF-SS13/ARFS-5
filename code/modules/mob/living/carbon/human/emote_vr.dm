@@ -27,6 +27,10 @@
 			m_type = 2
 			message = "lets out an awoo."
 			playsound(loc, 'sound/voice/awoo.ogg', 50, 1, -1)
+		if ("howl") // YW add begins
+			m_type = 2
+			message = "lets out a howl."
+			playsound(loc, 'sound/voice/howl.ogg', 50, 1, -1) // YW add ends
 		if ("nya")
 			message = "lets out a nya."
 			m_type = 2
@@ -68,6 +72,18 @@
 		if("chirp") //Yawn Addtion
 			message = "chirps!"
 			playsound(src.loc, 'sound/misc/nymphchirp.ogg', 50, 0)
+			m_type = 2
+		if ("hooh")
+			message = "lets out a hooh!"
+			playsound(src.loc, 'sound/items/hooh.ogg', 50, 1, -1)
+			m_type = 2
+		if ("ack")
+			message = "Acks!"
+			playsound(src.loc, 'sound/misc/ack.ogg', 50, 1 ,-1)
+			m_type = 2
+		if ("ough")
+			message = "makes a weird noise!"
+			playsound(src.loc, 'sound/misc/ough.ogg', 50, 1, -1)
 			m_type = 2 //End of Yawn Addtion
 		if ("flip")
 			var/list/involved_parts = list(BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT)
@@ -80,7 +96,7 @@
 				message = "does a flip!"
 				m_type = 1
 		if ("vhelp") //Help for Virgo-specific emotes.
-			to_chat(src, "vwag, vflap, mlem, awoo, nya, peep, chirp, weh, merp, bark, hiss, squeak, nsay, nme, flip")
+			to_chat(src, "vwag, vflap, mlem, awoo, howl, nya, peep, chirp, weh, merp, bark, hiss, squeak, nsay, nme, flip")
 
 	if (message)
 		custom_emote(m_type,message)

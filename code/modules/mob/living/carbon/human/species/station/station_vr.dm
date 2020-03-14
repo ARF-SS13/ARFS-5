@@ -379,7 +379,7 @@
 	wikilink="https://www.yawn.ocry.com/Diona"
 
 /datum/species/teshari
-	mob_size = MOB_MEDIUM
+	mob_size = MOB_SMALL //YW Edit: changed from MOB_MEDIUM to MOB_SMALL
 	spawn_flags = SPECIES_CAN_JOIN
 	icobase = 'icons/mob/human_races/r_seromi_vr.dmi'
 	deform = 'icons/mob/human_races/r_seromi_vr.dmi'
@@ -515,7 +515,7 @@ datum/species/harpy
 	heat_level_3 = 1150
 
 	flags =  NO_SCAN
-	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED | SPECIES_WHITELIST_SELECTABLE
+	spawn_flags = SPECIES_CAN_JOIN //YW Edit: Removed whitelist
 
 	reagent_tag = IS_SHADEKIN		// for shadekin-unqiue chem interactions
 

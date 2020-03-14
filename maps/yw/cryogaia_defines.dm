@@ -4,15 +4,16 @@
 #define Z_LEVEL_CRYOGAIA_TRANSIT	3 //added due to explosions jumping from mine leve to lower.
 #define Z_LEVEL_CRYOGAIA_LOWER		4
 #define Z_LEVEL_CRYOGAIA_MAIN		5
-#define Z_LEVEL_SHIPS				6
-#define Z_LEVEL_ALIENSHIP			7
-#define Z_LEVEL_BEACH				8
-#define Z_LEVEL_BEACH_CAVE			9
-#define Z_LEVEL_AEROSTAT			10
-#define Z_LEVEL_AEROSTAT_SURFACE	11
-#define Z_LEVEL_DEBRISFIELD			12
-#define Z_LEVEL_UNDERDARK			13
-#define Z_LEVEL_PLAINS				14
+#define Z_LEVEL_CRYOGAIA_RESIDENTIAL		6
+#define Z_LEVEL_SHIPS				7
+#define Z_LEVEL_ALIENSHIP			8
+#define Z_LEVEL_BEACH				9
+#define Z_LEVEL_BEACH_CAVE			10
+#define Z_LEVEL_AEROSTAT			11
+#define Z_LEVEL_AEROSTAT_SURFACE	12
+#define Z_LEVEL_DEBRISFIELD			13
+#define Z_LEVEL_UNDERDARK			14
+#define Z_LEVEL_PLAINS				15
 
 //Camera networks
 #define NETWORK_CRYOGAIA "Cryogaia"
@@ -32,13 +33,10 @@
 	lobby_screens = list("cryogaia")
 	id_hud_icons = 'icons/mob/hud_jobs_vr.dmi'
 
-/*	holomap_smoosh = list(list(
-		Z_LEVEL_SURFACE_LOW,
-		Z_LEVEL_SURFACE_MID,
-		Z_LEVEL_SURFACE_HIGH,
-		Z_LEVEL_SPACE_LOW,
-		Z_LEVEL_SPACE_MID,
-		Z_LEVEL_SPACE_HIGH)) */
+	holomap_smoosh = list(list(
+		Z_LEVEL_CRYOGAIA_MINE,
+		Z_LEVEL_CRYOGAIA_LOWER,
+		Z_LEVEL_CRYOGAIA_MAIN))
 
 	station_name  = "Cryogaia Outpost"
 	station_short = "Yawn Wider"
@@ -47,12 +45,13 @@
 	boss_short    = "CentCom"
 	company_name  = "NanoTrasen"
 	company_short = "NT"
-	starsys_name  = "Borealis Majoris"
+	starsys_name  = "Borealis"
 
 	shuttle_docked_message = "The scheduled Shuttle to %dock_name% has arrived. It will depart in approximately %ETD%."
 	shuttle_leaving_dock = "The Shuttle has left the Outpost. Estimate %ETA% until the shuttle arrives at %dock_name%."
 	shuttle_called_message = "A scheduled crew transfer to %dock_name% is occuring. The shuttle will be arriving shortly. Those departing should proceed to the shuttle docking station within %ETA%."
 	shuttle_recall_message = "The scheduled crew transfer has been cancelled."
+	shuttle_name = "NAS |Faraday|"
 	emergency_shuttle_docked_message = "The evacuation shuttle has arrived at the shuttle docking station. You have approximately %ETD% to board the shuttle."
 	emergency_shuttle_leaving_dock = "The emergency shuttle has left the station. Estimate %ETA% until the shuttle arrives at %dock_name%."
 	emergency_shuttle_called_message = "An emergency evacuation has begun, and an off-schedule shuttle has been called. It will arrive at the shuttle docking station in approximately %ETA%."
@@ -135,10 +134,12 @@
 		/area/security/airlock,
 		/area/borealis2/elevator/medbay,
 		/area/storage/auxillary,
-		/area/tcommsat/powercontrol
-		)
+		/area/vacant/vacant_site/locker,
+		/area/tcommsat/powercontrol,
+		/area/constructionsite/medical,
+		/area/borealis2/outdoors/grounds/entrance)
 	unit_test_exempt_from_atmos = list(
-		/area/engineering/atmos/intake
+//		/area/engineering/atmos/intake
 		)
 
 	unit_test_z_levels = list(2,4,5)
@@ -188,6 +189,9 @@
 			Z_LEVEL_CRYOGAIA_LOWER,
 			Z_LEVEL_CRYOGAIA_MAIN,
 			)
+
+	else if (srcz == Z_LEVEL_CRYOGAIA_RESIDENTIAL)
+		return list(Z_LEVEL_CRYOGAIA_RESIDENTIAL)
 	else if(srcz >= Z_LEVEL_BEACH && srcz <= Z_LEVEL_BEACH_CAVE) //Zs 16-17
 		return list(
 			Z_LEVEL_BEACH,
@@ -201,6 +205,10 @@
 
 
 // For making the 6-in-1 holomap, we calculate some offsets ((Disabled because I don't have a clue to how to start making this for Cryogaia))
+#define CRYOGAIA_MAP_SIZE 150 // Width and height of compiled in Southern Cross z levels.
+#define CRYOGAIA_HOLOMAP_CENTER_GUTTER 40 // 40px central gutter between columns
+#define CRYOGAIA_HOLOMAP_MARGIN_X ((HOLOMAP_ICON_SIZE - (2*CRYOGAIA_MAP_SIZE) - CRYOGAIA_HOLOMAP_CENTER_GUTTER) / 2) // 100
+#define CRYOGAIA_HOLOMAP_MARGIN_Y ((HOLOMAP_ICON_SIZE - (3*CRYOGAIA_MAP_SIZE)) / 2) // 60
 
 // We have a bunch of stuff common to the station z levels
 
@@ -209,30 +217,46 @@
 	name = "Subterranian depths"
 	flags = MAP_LEVEL_STATION|MAP_LEVEL_CONTACT|MAP_LEVEL_PLAYER|MAP_LEVEL_CONSOLES|MAP_LEVEL_SEALED
 	base_turf = /turf/simulated/floor/indoorrocks
+	holomap_legend_x = 220
+	holomap_legend_y = 160
+	holomap_offset_x = CRYOGAIA_HOLOMAP_MARGIN_X
+	holomap_offset_y = CRYOGAIA_HOLOMAP_MARGIN_Y + CRYOGAIA_MAP_SIZE*0
 
 /datum/map_z_level/cryogaia/transit
 	z = Z_LEVEL_CRYOGAIA_TRANSIT
 	name = "Transit"
 	flags = MAP_LEVEL_SEALED|MAP_LEVEL_PLAYER|MAP_LEVEL_CONTACT|MAP_LEVEL_XENOARCH_EXEMPT
 
+
 /datum/map_z_level/cryogaia/lower
 	name = "Subfloor"
 	z = Z_LEVEL_CRYOGAIA_LOWER
 	flags = MAP_LEVEL_STATION|MAP_LEVEL_CONTACT|MAP_LEVEL_PLAYER|MAP_LEVEL_CONSOLES|MAP_LEVEL_SEALED
 	base_turf = /turf/simulated/open // /turf/simulated/floor/outdoors/rocks/cryogaia
+	holomap_legend_x = 220
+	holomap_legend_y = 160
+	holomap_offset_x = CRYOGAIA_HOLOMAP_MARGIN_X
+	holomap_offset_y = CRYOGAIA_HOLOMAP_MARGIN_Y + CRYOGAIA_MAP_SIZE*1
 
 /datum/map_z_level/cryogaia/main
 	z = Z_LEVEL_CRYOGAIA_MAIN
 	name = "Surface level"
 	flags = MAP_LEVEL_STATION|MAP_LEVEL_CONTACT|MAP_LEVEL_PLAYER|MAP_LEVEL_CONSOLES|MAP_LEVEL_SEALED
 	base_turf = /turf/simulated/open
-/*	holomap_offset_x = TETHER_HOLOMAP_MARGIN_X
-	holomap_offset_y = TETHER_HOLOMAP_MARGIN_Y + TETHER_MAP_SIZE*0 */
+	holomap_legend_x = 220
+	holomap_legend_y = 160
+	holomap_offset_x = CRYOGAIA_HOLOMAP_MARGIN_X
+	holomap_offset_y = CRYOGAIA_HOLOMAP_MARGIN_Y + CRYOGAIA_MAP_SIZE*2
 
 /datum/map_z_level/cryogaia/centcom
 	z = Z_LEVEL_CRYOGAIA_CENTCOM
 	name = "Central Command"
 	flags = MAP_LEVEL_ADMIN|MAP_LEVEL_CONTACT|MAP_LEVEL_XENOARCH_EXEMPT
+
+/datum/map_z_level/cryogaia/residential
+	z = Z_LEVEL_CRYOGAIA_RESIDENTIAL
+	name = "Residential"
+	flags = MAP_LEVEL_PLAYER|MAP_LEVEL_CONTACT|MAP_LEVEL_XENOARCH_EXEMPT|MAP_LEVEL_CONSOLES
 /*
 /datum/map_z_level/tether/wilderness
 	name = "Wilderness"

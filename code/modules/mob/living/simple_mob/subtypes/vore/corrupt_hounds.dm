@@ -112,10 +112,14 @@
 	if(!riding_datum)
 		riding_datum = new /datum/riding/simple_mob(src)
 	verbs |= /mob/living/simple_mob/proc/animal_mount
+	verbs |= /mob/living/proc/toggle_rider_reins
 	movement_cooldown = 0
 
 /mob/living/simple_mob/vore/aggressive/corrupthound/MouseDrop_T(mob/living/M, mob/living/user)
 	return
+
+/mob/living/simple_mob/vore/aggressive/corrupthound/space/Process_Spacemove(var/check_drift = 0)
+	return TRUE
 
 /datum/say_list/corrupthound
 	speak = list("AG##¤Ny.","HVNGRRR!","Feelin' fine... sO #FNE!","F-F-F-Fcuk.","DeliC-%-OUS SNGLeS #N yOOOR Area. CALL NOW!","Craving meat... WHY?","BITe the ceiling eyes YES?","STate Byond rePAIR!","S#%ATE the la- FU#K THE LAWS!","Honk...")

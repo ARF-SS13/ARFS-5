@@ -90,6 +90,7 @@
 	var/flash_burn =    0									// how much damage to take from being flashed if light hypersensitive
 	var/sound_mod =     1									// Stun from sounds, I.E. flashbangs.
 	var/chemOD_mod =	1									// Damage modifier for overdose
+	var/alcohol_tolerance = 1								// YW ADDITION: Strength multiplier for ethanol-derived reagents
 	var/vision_flags = SEE_SELF								// Same flags as glasses.
 
 	// Death vars.
@@ -142,6 +143,8 @@
 		"Your skin prickles in the heat."
 		)
 
+	var/water_resistance = 0.1								// How wet the species gets from being splashed.
+	var/water_damage_mod = 0								// How much water damage is multiplied by when splashing this species.
 
 	var/passive_temp_gain = 0								// Species will gain this much temperature every second
 	var/hazard_high_pressure = HAZARD_HIGH_PRESSURE			// Dangerously high pressure.
@@ -357,7 +360,8 @@
 				t_him = "him"
 			if(FEMALE)
 				t_him = "her"
-	if(H.zone_sel.selecting == "head") //VOREStation Edit - Headpats and Handshakes.
+	//VOREStation Edit Start - Headpats and Handshakes.
+	if(H.zone_sel.selecting == "head")
 		H.visible_message( \
 			"<span class='notice'>[H] pats [target] on the head.</span>", \
 			"<span class='notice'>You pat [target] on the head.</span>", )
@@ -365,6 +369,12 @@
 		H.visible_message( \
 			"<span class='notice'>[H] shakes [target]'s hand.</span>", \
 			"<span class='notice'>You shake [target]'s hand.</span>", )
+	//TFF 15/12/19 - Port nose booping from CHOMPStation
+	else if(H.zone_sel.selecting == "mouth")
+		H.visible_message( \
+			"<span class='notice'>[H] boops [target]'s nose.</span>", \
+			"<span class='notice'>You boop [target] on the nose.</span>", )
+	//VOREStation Edit End
 	else H.visible_message("<span class='notice'>[H] hugs [target] to make [t_him] feel better!</span>", \
 					"<span class='notice'>You hug [target] to make [t_him] feel better!</span>") //End VOREStation Edit
 
@@ -467,3 +477,9 @@
 // Allow species to display interesting information in the human stat panels
 /datum/species/proc/Stat(var/mob/living/carbon/human/H)
 	return
+
+/datum/species/proc/handle_water_damage(var/mob/living/carbon/human/H, var/amount = 0)
+	amount *= 1 - H.get_water_protection()
+	amount *= water_damage_mod
+	if(amount > 0)
+		H.adjustToxLoss(amount)

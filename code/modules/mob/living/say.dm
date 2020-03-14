@@ -113,6 +113,11 @@ proc/get_radio_key_from_channel(var/channel)
 		whispering = 1
 		. = 1
 	//VOREStation Edit End
+	//YW Edit start
+	if(wingdings)
+		message = span("wingdings",(message))
+		. = 1
+	//YW Edit End
 
 	message_data[1] = message
 	message_data[2] = verb
@@ -183,7 +188,7 @@ proc/get_radio_key_from_channel(var/channel)
 		speaking = get_default_language()
 
 	if(!can_speak(speaking))
-		speaking = all_languages[LANGUAGE_GIBBERISH]
+		speaking = GLOB.all_languages[LANGUAGE_GIBBERISH]
 		var/babble_key = ",r"
 		message = babble_key + message
 

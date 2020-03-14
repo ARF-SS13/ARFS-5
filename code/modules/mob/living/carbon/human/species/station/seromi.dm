@@ -56,7 +56,7 @@
 	mob_size = MOB_SMALL
 	pass_flags = PASSTABLE
 	holder_type = /obj/item/weapon/holder/human
-//	short_sighted = 1
+	short_sighted = 1
 	gluttonous = 1
 	blood_volume = 400
 	hunger_factor = 0.2
@@ -148,6 +148,15 @@
 		// No point processing if we're already stressing the hell out.
 		if(H.hallucination >= hallucination_cap && H.loneliness_stage >= warning_cap)
 			return
+		// Vored? Not gonna get frightened.
+		if(isbelly(H.loc))
+			if(H.loneliness_stage > 0)
+				H.loneliness_stage -= 4
+			return
+		if(istype(H.loc, /obj/item/weapon/holder))
+			if(H.loneliness_stage > 0)
+				H.loneliness_stage -= 4
+			return
 		// Check for company.
 		for(var/mob/living/M in viewers(H))
 			if(!istype(M, /mob/living/carbon) && !istype(M, /mob/living/silicon/robot))
@@ -219,3 +228,9 @@
 	if(ms != "")
 		H << ms
 	H.next_loneliness_time = world.time+500
+
+/datum/species/teshari/get_vision_flags(var/mob/living/carbon/human/H)
+	if(!(H.sdisabilities & DEAF) && !H.ear_deaf)
+		return SEE_SELF|SEE_MOBS
+	else
+		return SEE_SELF

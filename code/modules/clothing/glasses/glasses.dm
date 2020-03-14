@@ -31,7 +31,8 @@ BLIND     // can't see anything
 	sprite_sheets = list(
 		"Teshari" = 'icons/mob/species/seromi/eyes.dmi',
 		"Vox" = 'icons/mob/species/vox/eyes.dmi',
-		"Sergal" = 'icons/mob/species/sergal/eyes_yw.dmi'
+		"Sergal" = 'icons/mob/species/sergal/eyes_yw.dmi',
+		SPECIES_GREY_YW = 'icons/mob/species/grey/eyes.dmi'/*ywedit*/
 		)
 
 /obj/item/clothing/glasses/update_clothing_icon()
@@ -441,7 +442,7 @@ BLIND     // can't see anything
 	emp_act(severity)
 		if(istype(src.loc, /mob/living/carbon/human))
 			var/mob/living/carbon/human/M = src.loc
-			M << "<font color='red'>The Optical Thermal Scanner overloads and blinds you!</font>"
+			to_chat(M, "<font color='red'>The Optical Thermal Scanner overloads and blinds you!</font>")
 			if(M.glasses == src)
 				M.Blind(3)
 				M.eye_blurry = 5

@@ -40,6 +40,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	pref.preview_icon = null
 	S["bgstate"]			>> pref.bgstate
 	S["body_descriptors"]	>> pref.body_descriptors
+	S["Wingdings"]          >> pref.wingdings //YWadd
 
 /datum/category_item/player_setup_item/general/body/save_character(var/savefile/S)
 	S["species"]			<< pref.species
@@ -70,9 +71,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	S["synth_markings"]		<< pref.synth_markings
 	S["bgstate"]			<< pref.bgstate
 	S["body_descriptors"]	<< pref.body_descriptors
+	S["Wingdings"]          << pref.wingdings //YWadd
 
 /datum/category_item/player_setup_item/general/body/sanitize_character(var/savefile/S)
-	if(!pref.species || !(pref.species in playable_species))
+	if(!pref.species || !(pref.species in GLOB.playable_species))
 		pref.species = SPECIES_HUMAN
 	pref.r_hair			= sanitize_integer(pref.r_hair, 0, 255, initial(pref.r_hair))
 	pref.g_hair			= sanitize_integer(pref.g_hair, 0, 255, initial(pref.g_hair))
@@ -125,6 +127,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	character.g_synth	= pref.g_synth
 	character.b_synth	= pref.b_synth
 	character.synth_markings = pref.synth_markings
+	if(pref.species == "Grey")//YWadd START
+		character.wingdings = pref.wingdings //YWadd END
 
 	// Destroy/cyborgize organs and limbs.
 	for(var/name in list(BP_HEAD, BP_L_HAND, BP_R_HAND, BP_L_ARM, BP_R_ARM, BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG, BP_GROIN, BP_TORSO))
@@ -174,7 +178,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		last_descriptors = pref.body_descriptors.Copy()
 	pref.body_descriptors = list()
 
-	var/datum/species/mob_species = all_species[pref.species]
+	var/datum/species/mob_species = GLOB.all_species[pref.species]
 	if(LAZYLEN(mob_species.descriptors))
 		for(var/entry in mob_species.descriptors)
 			var/datum/mob_descriptor/descriptor = mob_species.descriptors[entry]
@@ -192,7 +196,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		pref.update_preview_icon()
  	user << browse_rsc(pref.preview_icon, "previewicon.png")
 
-	var/datum/species/mob_species = all_species[pref.species]
+	var/datum/species/mob_species = GLOB.all_species[pref.species]
 	. += "<table><tr style='vertical-align:top'><td><b>Body</b> "
 	. += "(<a href='?src=\ref[src];random=1'>&reg;</A>)"
 	. += "<br>"
@@ -203,6 +207,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	. += "Needs Glasses: <a href='?src=\ref[src];disabilities=[NEARSIGHTED]'><b>[pref.disabilities & NEARSIGHTED ? "Yes" : "No"]</b></a><br>"
 	. += "Limbs: <a href='?src=\ref[src];limbs=1'>Adjust</a> <a href='?src=\ref[src];reset_limbs=1'>Reset</a><br>"
 	. += "Internal Organs: <a href='?src=\ref[src];organs=1'>Adjust</a><br>"
+	//YW Edit ADD
+	if(pref.species == "Grey")
+		. += "Speak Wingdings: <a href='?src=\ref[src];wingdings=1'><b>[pref.wingdings ? "Yes" : "No"]</b></a><br>"
+	//YW Edit End
 
 	//display limbs below
 	var/ind = 0
@@ -355,7 +363,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	return mob_species && (mob_species.appearance_flags & flag)
 
 /datum/category_item/player_setup_item/general/body/OnTopic(var/href,var/list/href_list, var/mob/user)
-	var/datum/species/mob_species = all_species[pref.species]
+	var/datum/species/mob_species = GLOB.all_species[pref.species]
 
 	if(href_list["random"])
 		pref.randomize_appearance_and_body_for()
@@ -379,7 +387,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 	else if(href_list["show_species"])
 		// Actual whitelist checks are handled elsewhere, this is just for accessing the preview window.
-		var/choice = input("Which species would you like to look at?") as null|anything in playable_species
+		var/choice = input("Which species would you like to look at?") as null|anything in GLOB.playable_species
 		if(!choice) return
 		pref.species_preview = choice
 		SetSpecies(preference_mob())
@@ -388,13 +396,13 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 	else if(href_list["set_species"])
 		user << browse(null, "window=species")
-		if(!pref.species_preview || !(pref.species_preview in all_species))
+		if(!pref.species_preview || !(pref.species_preview in GLOB.all_species))
 			return TOPIC_NOACTION
 
 		var/datum/species/setting_species
 
-		if(all_species[href_list["set_species"]])
-			setting_species = all_species[href_list["set_species"]]
+		if(GLOB.all_species[href_list["set_species"]])
+			setting_species = GLOB.all_species[href_list["set_species"]]
 		else
 			return TOPIC_NOACTION
 
@@ -595,7 +603,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		var/list/limb_selection_list = list("Left Leg","Right Leg","Left Arm","Right Arm","Left Foot","Right Foot","Left Hand","Right Hand","Full Body")
 
 		// Full prosthetic bodies without a brain are borderline unkillable so make sure they have a brain to remove/destroy.
-		var/datum/species/current_species = all_species[pref.species]
+		var/datum/species/current_species = GLOB.all_species[pref.species]
 		if(!current_species.has_organ["brain"])
 			limb_selection_list -= "Full Body"
 		else if(pref.organ_data[BP_TORSO] == "cyborg")
@@ -741,7 +749,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				organ = O_STOMACH
 			if("Brain")
 				if(pref.organ_data[BP_HEAD] != "cyborg")
-					user << "<span class='warning'>You may only select a cybernetic or synthetic brain if you have a full prosthetic body.</span>"
+					to_chat(user, "<span class='warning'>You may only select a cybernetic or synthetic brain if you have a full prosthetic body.</span>")
 					return
 				organ = "brain"
 
@@ -807,6 +815,12 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		pref.bgstate = next_in_list(pref.bgstate, pref.bgstate_options)
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
+	//YW Add Start
+	else if(href_list["wingdings"])
+		pref.wingdings = !pref.wingdings
+		return TOPIC_REFRESH_UPDATE_PREVIEW
+	//YW Add End
+
 	return ..()
 
 /datum/category_item/player_setup_item/general/body/proc/reset_limbs()
@@ -827,9 +841,9 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		pref.real_name      = random_name(pref.identifying_gender, pref.species)
 
 /datum/category_item/player_setup_item/general/body/proc/SetSpecies(mob/user)
-	if(!pref.species_preview || !(pref.species_preview in all_species))
+	if(!pref.species_preview || !(pref.species_preview in GLOB.all_species))
 		pref.species_preview = SPECIES_HUMAN
-	var/datum/species/current_species = all_species[pref.species_preview]
+	var/datum/species/current_species = GLOB.all_species[pref.species_preview]
 	var/dat = "<body>"
 	dat += "<center><h2>[current_species.name] \[<a href='?src=\ref[src];show_species=1'>change</a>\]</h2></center><hr/>"
 	dat += "<table padding='8px'>"

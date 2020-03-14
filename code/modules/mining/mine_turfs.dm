@@ -6,6 +6,7 @@ var/list/mining_overlay_cache = list()
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "rock-dark"
 	density = 1
+	opacity = 1 // YW edit. Stops all my unsimulated tiles from being seethrough.
 
 /turf/unsimulated/mineral/ice
 	name = "Ice wall"
@@ -131,15 +132,6 @@ turf/simulated/mineral/floor/light_corner
 		reconsider_lights()
 		if(air_master)
 			air_master.mark_for_update(src)
-
-/turf/simulated/mineral/Entered(atom/movable/M as mob|obj)
-	. = ..()
-	if(istype(M,/mob/living/silicon/robot))
-		var/mob/living/silicon/robot/R = M
-		if(R.module)
-			for(var/obj/item/weapon/storage/bag/ore/O in list(R.module_state_1, R.module_state_2, R.module_state_3))
-				attackby(O, R)
-				return
 
 /turf/simulated/mineral/proc/get_cached_border(var/cache_id, var/direction, var/icon_file, var/icon_state, var/offset = 32)
 	//Cache miss
