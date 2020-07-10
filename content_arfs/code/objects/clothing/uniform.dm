@@ -9,3 +9,9 @@
 		slot_l_hand_str = null,
 		slot_r_hand_str = null,
 		)
+/obj/item/clothing/under/cheongsam/pink
+	name = "white and pink cheongsam"
+	desc = "It is a white and pink cheongsam dress."
+	icon_state = "white_pink"
+	icon = 'content_arfs/icons/obj/clothing/uniform_obj.dmi'
+	icon_override = 'content_arfs/icons/mob/clothing/custom_clothing_arf.dmi'
