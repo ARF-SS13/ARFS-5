@@ -3,7 +3,10 @@ on: [push]
 jobs:
   test:
     runs-on: ubuntu-latest
-    container: tgstation/byond:513.1527
+    container: 
+      image: tgstation/byond:513.1527
+      volumes:
+        - $GITHUB_WORKSPACE:/mnt
     strategy:
       fail-fast: false
     steps:
@@ -12,4 +15,4 @@ jobs:
     
     - name: Run Dream Maker
       id: compile
-      run: DreamMaker *.dme
+      run: DreamMaker /mnt/*.dme
