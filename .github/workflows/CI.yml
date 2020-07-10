@@ -25,4 +25,4 @@ jobs:
     
     - name: Run Dream Maker
       id: compile
-      run: DreamMaker /mnt/*.dme
+      run: DreamMaker *.dme
