@@ -3,7 +3,7 @@ on: [push]
 jobs:
   test:
     runs-on: ubuntu-latest
-    container: byond:513.1527
+    container: tgstation/byond:513.1527
     strategy:
       fail-fast: false
     steps:
