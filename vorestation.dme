@@ -3744,6 +3744,7 @@
 #include "content_arfs\code\loadout\loadout_general.dm"
 #include "content_arfs\code\machinery\vending.dm"
 #include "content_arfs\code\mob\mobs.dm"
+#include "content_arfs\code\mob\sprite_accessories_arf.dm"
 #include "content_arfs\code\objects\balls.dm"
 #include "content_arfs\code\objects\clothing\accessories.dm"
 #include "content_arfs\code\objects\clothing\uniform.dm"
