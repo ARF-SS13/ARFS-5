@@ -3733,6 +3733,7 @@
 #include "code\ZAS\Variable Settings.dm"
 #include "code\ZAS\Zone.dm"
 #include "content_arfs\code\areas.dm"
+#include "content_arfs\code\ghost_pods_arfs.dm"
 #include "content_arfs\code\jukebox.dm"
 #include "content_arfs\code\donater\devices.dm"
 #include "content_arfs\code\donater\hats.dm"
