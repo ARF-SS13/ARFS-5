@@ -1161,7 +1161,7 @@
 	meat_amount = 6
 
 /mob/living/simple_mob/animal/passive/pokemon/leg/articuno
-	name = "\improper Articuno"
+	name = "Articuno"
 	icon_state = "articuno"
 	icon_living = "articuno"
 	icon_dead = "articuno_d"
