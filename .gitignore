@@ -15,9 +15,6 @@ data
 data/
 cfg/
 
-code/game/gamemodes/technomancer/spells/projectile/overload.dm
-code/game/gamemodes/technomancer/spells/projectile/overload.dm
-code/modules/client/preference_setup/loadout/loadout_xeno.dm
 temp.dmi
 /maps/RandomZLevels/backup/blackmarketpackers.dmm
 /maps/backup/virgo-1.dmm
@@ -44,3 +41,5 @@ maps/yw/cryogaia-03-transit.dmm.before
 maps/yw/cryogaia-02-mining.dmm.before
 maps/yw/cryogaia-01-centcomm.dmm.before
 maps/yw/residential/residential.dmm.before
+/data/**
+/config/*.txt
