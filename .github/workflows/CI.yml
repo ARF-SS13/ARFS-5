@@ -1,5 +1,5 @@
 name: BYOND Compile CI
-on: [push]
+on: [push, pull_request]
 jobs:
   Compile:
     runs-on: ubuntu-latest
