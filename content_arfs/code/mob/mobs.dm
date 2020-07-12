@@ -1119,15 +1119,21 @@
 	meat_amount = 3
 	makes_dirt = 0
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
-/*
-/mob/living/simple_mob/animal/passive/pokemon/attack_target(atom/A)
+
+/mob/living/simple_mob/animal/passive/pokemon/Life()
+	if(resting && stat < DEAD && health < maxHealth)
+		var/heal_amt = rand(1,3)
+		adjustBruteLoss(-heal_amt)
+		adjustOxyLoss(-heal_amt)
+		adjustFireLoss(-heal_amt)
+		if(health > maxHealth)
+			health = maxHealth
 	. = ..()
-	update_icon()
-*/
+
 /mob/living/simple_mob/animal/passive/pokemon/proc/simple_lay_down()
 	set name = "Rest"
 	set category = "IC"
-
+	set desc = "Lie down and rest in order to slowly heal or just relax."
 	resting = !resting
 	to_chat(src,"<span class='notice'>You are now [resting ? "resting" : "getting up"].</span>")
 	update_canmove()
@@ -1141,6 +1147,7 @@
 	..()
 	verbs += /mob/living/simple_mob/animal/passive/pokemon/proc/simple_lay_down
 	icon_rest = "[icon_state]_rest"
+	tt_desc = "[initial(name)]"
 
 /*
 /////TEMPLATE/////
@@ -1437,7 +1444,7 @@
 	icon_dead = "magicarp_d"
 
 /mob/living/simple_mob/animal/passive/pokemon/lapras
-	name = "mlapras"
+	name = "lapras"
 	icon_state = "lapras"
 	icon_living = "lapras"
 	icon_dead = "lapras_d"
