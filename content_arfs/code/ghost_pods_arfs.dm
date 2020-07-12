@@ -37,21 +37,22 @@
 	p_choice = p_list["[p_choice]"]
 	var/newname = sanitize(input(M, "Would you like to change your name or use the default one?)", "Name change") as null|text, MAX_NAME_LEN)
 	var/mob/living/simple_mob/animal/passive/pokemon/P = new p_choice(get_turf(src))
+
+	if (newname)
+		P.name = newname
 	if(M.mind)
 		M.mind.transfer_to(P)
 	if(m_ckey)
 		P.ckey = m_ckey
-	if (newname)
-		P.name = newname
+
+	log_and_message_admins("used \the [src] and became \an [initial(P.name)] named [P.name].")
 
 	to_chat(P, "<span class='notice'>You are a <b>Pokemon</b>, an artifically designed creature. Exiting the sleeve pod, your memories \
 	slowly start to come back to you as your mind adapts to this new body.</span>")
 	to_chat(P, "<span class='warning'>(OOC:While you may roleplay as the same pokemon each time you use this spawner, please respect \
-	normal resleeving rules regarding memory. Your mind is 'scanned' upon shift end or whenever you need to leave the game and it's \
-	uploaded when you use this pod to spawn in. Respawning in this manner does not upload your regular character's mind into this \
-	body.)</span>")
-
-	log_and_message_admins("used \the [src] and became a [initial(P.name)] named [P.name].")
+	normal resleeving rules regarding memory. Your mind is 'scanned' upon successful crew transfer or whenever you enter cryogenic \
+	storage and it's uploaded when you use this pod to spawn in. Respawning in this manner does not upload your regular character's \
+	mind into this body.)</span>")
 
 	visible_message("<span class='notice'>\the [src.name] hisses and slowly opens before \the [P.name] steps out!</span>")
 
