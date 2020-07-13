@@ -1109,17 +1109,15 @@
 	health = 100
 	maxHealth = 100
 	response_help = "pets"
-	universal_speak = 1
-	universal_understand = 1
 	layer = MOB_LAYER
-	vore_active = 0	//No vore for these guys.
-	has_hands = 0 //Why not
+	vore_active = 0
+	has_hands = 0
 	movement_cooldown = 2
 	meat_amount = 3
 	makes_dirt = 0
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
-	melee_damage_lower = 1
-	melee_damage_upper = 2
+	melee_damage_lower = 3
+	melee_damage_upper = 9
 
 /mob/living/simple_mob/animal/passive/pokemon/Life()
 	if(resting && stat < DEAD && health < maxHealth)
@@ -1146,12 +1144,14 @@
 	. = ..()
 	pixel_x = default_pixel_x //If they're somehow reset out of their offset, this will correct them. (grabs do this)
 
-/mob/living/simple_mob/animal/passive/pokemon/New()
-	..()
+/mob/living/simple_mob/animal/passive/pokemon/Initialize()
+	. = ..()
 	verbs += /mob/living/simple_mob/animal/passive/pokemon/proc/simple_lay_down
 	icon_rest = "[icon_state]_rest"
 	tt_desc = "[initial(name)]"
-
+	init_vore()
+	default_language = GLOB.all_languages[LANGUAGE_GALCOM]
+	add_language(LANGUAGE_POKEMON)
 /*
 /////TEMPLATE/////
 
@@ -1400,11 +1400,11 @@
 	icon_living = "tentacruel"
 	icon_dead = "tentacruel_d"
 
-/mob/living/simple_mob/animal/passive/pokemon/ninetails
-	name = "ninetails"
-	icon_state = "ninetails"
-	icon_living = "ninetails"
-	icon_dead = "ninetails_d"
+/mob/living/simple_mob/animal/passive/pokemon/ninetales
+	name = "ninetales"
+	icon_state = "ninetales"
+	icon_living = "ninetales"
+	icon_dead = "ninetales_d"
 
 /mob/living/simple_mob/animal/passive/pokemon/ponyta
 	name = "ponyta"
