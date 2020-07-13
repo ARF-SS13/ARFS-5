@@ -11,7 +11,8 @@
 	var/p_list_types = /mob/living/simple_mob/animal/passive/pokemon //Subtypes of this will be added to p_list
 	var/p_list_paths = list()
 	var/remove_paths = list(/mob/living/simple_mob/animal/passive/pokemon/leg, //These are removed from the final list of types
-						    /mob/living/simple_mob/animal/passive/pokemon)
+						    /mob/living/simple_mob/animal/passive/pokemon,
+						    /mob/living/simple_mob/animal/passive/pokemon/eevee/jolteon/bud)
 
 //Should move this into a global list if we need it for anything else.
 /obj/structure/ghost_pod/ghost_activated/pokemon/Initialize()

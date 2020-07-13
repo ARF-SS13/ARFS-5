@@ -1111,14 +1111,15 @@
 	response_help = "pets"
 	universal_speak = 1
 	universal_understand = 1
-	density = 0//stop fucking pushing me, I'm trying to cook
 	layer = MOB_LAYER
 	vore_active = 0	//No vore for these guys.
 	has_hands = 0 //Why not
-	movement_cooldown = 3
+	movement_cooldown = 2
 	meat_amount = 3
 	makes_dirt = 0
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	melee_damage_lower = 1
+	melee_damage_upper = 2
 
 /mob/living/simple_mob/animal/passive/pokemon/Life()
 	if(resting && stat < DEAD && health < maxHealth)
@@ -1136,6 +1137,8 @@
 	set desc = "Lie down and rest in order to slowly heal or just relax."
 	resting = !resting
 	to_chat(src,"<span class='notice'>You are now [resting ? "resting" : "getting up"].</span>")
+	if(resting && health < maxHealth)
+		to_chat(src,"<span class='green'>You feel your wounds mending as you rest.</span>")
 	update_canmove()
 	update_icon()
 
@@ -1276,35 +1279,39 @@
 	icon_state = "jolteon"
 	icon_living = "jolteon"
 	icon_dead = "jolteon_d"
-//	var/charge_cooldown_time = 50
-//	var/charge_cooldown = 0
-// This should actually work. I think. --Cebu
+	var/charge_cooldown_time = 100
+	var/charge_cooldown = 0
+
 
 /mob/living/simple_mob/animal/passive/pokemon/eevee/jolteon/attack_hand(mob/user)
 	..()
 	if(!stat)
 		electrocute_mob(user, get_area(src), src, 1)
-/*
+
 /mob/living/simple_mob/animal/passive/pokemon/eevee/jolteon/attackby(obj/item/weapon/W, mob/user, params)
 	electrocute_mob(user, get_area(src), src, W.siemens_coefficient)
-	if(!stat && istype(W, /obj/item/weapon/stock_parts/cell))
-		var/obj/item/weapon/stock_parts/cell/C = W
+	if(!stat && istype(W, /obj/item/weapon/cell))
+		var/obj/item/weapon/cell/C = W
 		if(charge_cooldown)
-			user << "<span class='red'>[src] is recharging!</span>"
+			to_chat(user,"<span class='red'>\the [src.name] is recharging!</span>")
 			return
 		if(C.charge == C.maxcharge)
-			user << "<span class='red'>[C] is already fully charged!</span>"
+			to_chat(user,"<span class='red'>[C] is already fully charged!</span>")
 			return
 		electrocute_mob(user, get_area(src), src, W.siemens_coefficient)
-		user << "<span class='green'>You charge [C] using [src].</span>"
-		C.give(100)
-		C.updateicon()
+		to_chat(user,"<span class='green'>You charge [C] using [src].</span>")
+		var/chargetogive = rand(50,250)
+		C.give(chargetogive)
+		C.update_icon()
 		charge_cooldown = 1
 		spawn(charge_cooldown_time)
 			charge_cooldown = 0
 		return
 	..()
-*/
+
+/mob/living/simple_mob/animal/passive/pokemon/eevee/jolteon/bud
+	name = "Bud"
+
 /mob/living/simple_mob/animal/passive/pokemon/larvitar
 	name = "larvitar"
 	desc = "It is born deep underground. It can't emerge until it has entirely consumed the soil around it."
