@@ -9,17 +9,13 @@
 	catalogue_data = list(/datum/category_item/catalogue/fauna/shadekin)
 
 	language = LANGUAGE_SHADEKIN
-	name_language = LANGUAGE_SHADEKIN
-	species_language = LANGUAGE_SHADEKIN
-	secondary_langs = list(LANGUAGE_SHADEKIN)
-	num_alternate_languages = 3
+	assisted_langs = list()
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws/shadekin, /datum/unarmed_attack/bite/sharp/shadekin)
 	rarity_value = 10	//INTERDIMENSIONAL FLUFFERS
 
 	darksight = 10
 
 	slowdown = -0.5
-	item_slowdown_mod = 0.5
 
 	brute_mod = 0.9	// Naturally sturdy.
 	burn_mod = 1.2	// Furry
@@ -34,7 +30,7 @@
 	cold_level_2 = -1
 	cold_level_3 = -1
 
-	flags =  NO_SCAN | NO_MINOR_CUT | NO_INFECT
+	flags =  NO_SCAN
 	spawn_flags = SPECIES_CAN_JOIN
 
 	reagent_tag = IS_SHADEKIN		// for shadekin-unqiue chem interactions
@@ -53,7 +49,7 @@
 
 	speech_bubble_appearance = "ghost"
 
-	genders = list(PLURAL, NEUTER, MALE, FEMALE)		//no sexual dymorphism
+	genders = list(PLURAL, NEUTER)		//no sexual dymorphism
 	ambiguous_genders = TRUE	//but just in case
 
 	breath_type = null
@@ -97,6 +93,3 @@
 
 /datum/species/shadekin_yw/can_breathe_water()
 	return TRUE	//they dont quite breathe
-
-/datum/species/shadekin/handle_environment_special(var/mob/living/carbon/human/H)
-	handle_shade(H)
