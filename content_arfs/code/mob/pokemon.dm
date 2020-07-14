@@ -31,16 +31,73 @@
 	melee_damage_lower = 3
 	melee_damage_upper = 9
 	var/list/p_types = list()
+	var/resting_heal_max = 2
+
+/mob/living/simple_mob/animal/passive/pokemon/Initialize()
+	. = ..()
+	verbs |= /mob/living/simple_mob/animal/passive/pokemon/proc/simple_lay_down
+	verbs |= /mob/living/proc/set_flavor_text
+	verbs |= /mob/living/proc/set_ooc_notes
+	icon_rest = "[icon_state]_rest"
+	tt_desc = "[initial(icon_state)]"//Icon state > name
+	init_vore()
+	default_language = GLOB.all_languages[LANGUAGE_GALCOM]
+	add_language(LANGUAGE_POKEMON)
+	mob_radio = new
+	if(p_types.len)
+		for(var/T in p_types)
+			give_moves(T)
 
 /mob/living/simple_mob/animal/passive/pokemon/Life()
 	if(resting && stat < DEAD && health < maxHealth)
-		var/heal_amt = rand(1,3)
+		var/heal_amt = rand(0,resting_heal_max)//Average of 1 health per second for normal pmon. 2 for legendaries.
 		adjustBruteLoss(-heal_amt)
 		adjustOxyLoss(-heal_amt)
 		adjustFireLoss(-heal_amt)
 		if(health > maxHealth)
 			health = maxHealth
 	. = ..()
+
+/mob/living/simple_mob/animal/passive/pokemon/Topic(href, href_list)
+	if(href_list["ooc_notes"])
+		src.Examine_OOC()
+		return 1
+	return ..()
+
+
+/mob/living/simple_mob/animal/passive/pokemon/examine(mob/user)
+	if(alpha <= EFFECTIVE_INVIS)
+		return src.loc.examine(user) // Returns messages as if they examined wherever the mob was
+	var/datum/gender/T = gender_datums[get_visible_gender()]
+	var/list/msg = list("<span class='info'>*---------*","This is [bicon(src)] <EM>[src.name]</EM>, a <span class ='red'>Pokemon</span>")
+	if(flavor_text)
+		msg += "[print_flavor_text()]"
+	else
+		msg += "[desc]" //If it's just a regular mob, print its usual description instead
+	if(ooc_notes)
+		msg += "<span class = 'deptradio'>OOC Notes:</span> <a href='?src=\ref[src];ooc_notes=1'>\[View\]</a>"
+
+	if(src.getBruteLoss())
+		if(src.getBruteLoss() < 40)
+			msg += "<span class='warning'>[T.He] looks bruised.</span>"
+		else
+			msg += "<span class='warning'><B>[T.He] looks severely bruised and bloodied!</B></span>"
+	if(src.getFireLoss())
+		if(src.getFireLoss() < 40)
+			msg += "<span class='warning'>[T.He] looks burned.</span>"
+		else
+			msg += "<span class='warning'><B>[T.He] looks severely burned.</B></span>"
+
+	if(client && ((client.inactivity / 10) / 60 > 10)) //10 Minutes
+		msg += "\[Inactive for [round((client.inactivity/10)/60)] minutes\]"
+	else if(disconnect_time)
+		msg += "\[Disconnected/ghosted [round(((world.realtime - disconnect_time)/10)/60)] minutes ago\]"
+
+	msg += "<span class='deptradio'><a href='?src=\ref[src];vore_prefs=1'>\[Mechanical Vore Preferences\]</a></span>"
+
+	msg += "*---------*"
+
+	return msg
 
 /mob/living/simple_mob/animal/passive/pokemon/proc/simple_lay_down()
 	set name = "Rest"
@@ -57,58 +114,47 @@
 	. = ..()
 	pixel_x = default_pixel_x //If they're somehow reset out of their offset, this will correct them. (grabs do this)
 
-/mob/living/simple_mob/animal/passive/pokemon/Initialize()
-	. = ..()
-	verbs += /mob/living/simple_mob/animal/passive/pokemon/proc/simple_lay_down
-	icon_rest = "[icon_state]_rest"
-	tt_desc = "[initial(icon_state)]"//Icon state > name
-	init_vore()
-	default_language = GLOB.all_languages[LANGUAGE_GALCOM]
-	add_language(LANGUAGE_POKEMON)
-	mob_radio = new
-	if(p_types.len)
-		for(var/T in p_types)
-			give_moves(T)
+/mob/living/proc/set_ooc_notes()
+	set name = "Set OOC Notes"
+	set category = "OOC"
+	set desc = "Edit your roleplaying preferences; your OOC notes."
+	if(usr != src)
+		to_chat(usr, "No.")
+	var/msg = sanitize(input(usr,"Set the OOC notes in your 'examine' verb. Not every mob type displays them.","OOC Notes",html_decode(ooc_notes)) as message|null, extra = 0)
+
+	if(msg != null)
+		ooc_notes = msg
+
+/mob/living/proc/set_flavor_text()
+	set name = "Set Flavortext"
+	set category = "IC"
+	set desc = "Edit your flavortext; a detailed description of your character."
+	if(usr != src)
+		to_chat(usr, "No.")
+	var/msg = sanitize(input(usr,"Set your character's flavortext; a detailed description of their physical appearance.","Flavortext",html_decode(flavor_text)) as message|null, extra = 0)
+
+	if(msg != null)
+		flavor_text = msg
 
 /mob/living/simple_mob/animal/passive/pokemon/proc/give_moves(var/typetogive)
 	if(!typetogive)
 		return FALSE
 	switch(typetogive)
 		if(P_TYPE_ICE)
-			minbodytemp = 100
-			heat_damage_per_tick = 6
+			src.minbodytemp = 100
+			src.heat_damage_per_tick = max(0, (heat_damage_per_tick + 3))
 		if(P_TYPE_FIRE)
-			maxbodytemp = 1000
-			cold_damage_per_tick = 6
+			src.maxbodytemp = 1000
+			src.cold_damage_per_tick = max(0, (heat_damage_per_tick - 3))
+		if(P_TYPE_WATER)
+			src.aquatic_movement = 1
+			src.heat_damage_per_tick = max(0, (heat_damage_per_tick - 3))
 		else
 			return FALSE
 
-/*
-/mob/living/simple_mob/animal/passive/pokemon/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
-	if(mob_radio)
-		switch(message_mode)
-			if("intercom")
-				for(var/obj/item/device/radio/intercom/I in view(1, null))
-					I.talk_into(src, message, verb, speaking)
-//					used_radios += I
-			if("headset")
-				if(mob_radio && istype(mob_radio,/obj/item/device/radio/headset/mob_headset))
-					mob_radio.talk_into(src,message,null,verb,speaking)
-//					used_radios += mob_radio
-			else
-				if(message_mode)
-					if(mob_radio && istype(mob_radio,/obj/item/device/radio/headset/mob_headset))
-						mob_radio.talk_into(src,message, message_mode, verb, speaking)
-//						used_radios += mob_radio
-	else
-		..()
-*/
-
-
-/*
 /////TEMPLATE/////
-
-/mob/living/simple_mob/animal/passive/pokemon/
+/*
+/mob/living/simple_mob/animal/passive/pokemon
 	name = ""
 	icon_state = ""
 	icon_living = ""
@@ -122,6 +168,7 @@
 	health = 200
 	maxHealth = 200
 	meat_amount = 6
+	resting_heal_max = 4
 
 /mob/living/simple_mob/animal/passive/pokemon/leg/articuno
 	name = "Articuno"
@@ -129,6 +176,7 @@
 	icon_living = "articuno"
 	icon_dead = "articuno_d"
 	p_types = list(P_TYPE_ICE, P_TYPE_FLY)
+	movement_cooldown = 1
 
 /mob/living/simple_mob/animal/passive/pokemon/leg/rayquaza
 	name = "Rayquaza"
@@ -136,6 +184,7 @@
 	icon_living = "rayquaza"
 	icon_dead = "rayquaza_d"
 	p_types = list(P_TYPE_FLY)
+	movement_cooldown = 1
 
 //ALPHABETICAL PLEASE
 
@@ -189,6 +238,7 @@
 	icon_state = "dratini"
 	icon_living = "dratini"
 	icon_dead = "dratini_d"
+	movement_cooldown = 3
 
 /mob/living/simple_mob/animal/passive/pokemon/eevee
 	name = "eevee"
@@ -298,6 +348,7 @@
 	icon_living = "miltank"
 	icon_dead = "miltank_d"
 	var/datum/reagents/udder = null
+	movement_cooldown = 3
 
 /mob/living/simple_mob/animal/passive/pokemon/miltank/New()
 	udder = new(50)
@@ -353,6 +404,7 @@
 	icon_state = "tentacruel"
 	icon_living = "tentacruel"
 	icon_dead = "tentacruel_d"
+	movement_cooldown = 3
 
 /mob/living/simple_mob/animal/passive/pokemon/ninetales
 	name = "ninetales"
@@ -391,24 +443,30 @@
 	icon_state = "omanyte"
 	icon_living = "omanyte"
 	icon_dead = "omanyte_d"
+	movement_cooldown = 3
 
 /mob/living/simple_mob/animal/passive/pokemon/magamar
 	name = "magamar"
 	icon_state = "magamar"
 	icon_living = "magamar"
 	icon_dead = "magamar_d"
+	movement_cooldown = 3
 
 /mob/living/simple_mob/animal/passive/pokemon/magicarp
 	name = "magicarp"
 	icon_state = "magicarp"
 	icon_living = "magicarp"
 	icon_dead = "magicarp_d"
+	movement_cooldown = 4
+	p_types = list(P_TYPE_WATER)
 
 /mob/living/simple_mob/animal/passive/pokemon/lapras
 	name = "lapras"
 	icon_state = "lapras"
 	icon_living = "lapras"
 	icon_dead = "lapras_d"
+	movement_cooldown = 3
+	p_types = list(P_TYPE_WATER)
 
 /mob/living/simple_mob/animal/passive/pokemon/kabuto
 	name = "kabuto"
