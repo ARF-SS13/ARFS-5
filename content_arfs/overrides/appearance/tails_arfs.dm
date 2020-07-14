@@ -122,8 +122,8 @@
 	color_blend_mode = ICON_MULTIPLY
 	do_colouration = 1
 
-/datum/sprite_accessory/tail/ninetails
-	name = "Ninetails"
+/datum/sprite_accessory/tail/ninetales
+	name = "ninetales"
 	desc = ""
 	icon = 'content_arfs/icons/mob/player/tails_arfs.dmi'
 	icon_state = "nine_tails"
