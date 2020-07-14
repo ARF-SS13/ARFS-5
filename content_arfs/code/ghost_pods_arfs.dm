@@ -55,6 +55,8 @@
 	if(m_ckey)
 		P.ckey = m_ckey
 
+	P.mob_radio = new //Implant a mob radio on them so they can at the very least hear what's going on.
+
 	log_and_message_admins("used \the [src] and became \an [initial(P.name)] named [P.name].")
 
 	to_chat(P, "<span class='notice'>You are a <b>Pokemon</b>, an artifically designed creature. Exiting the sleeve pod, your memories \

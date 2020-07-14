@@ -43,7 +43,6 @@
 	init_vore()
 	default_language = GLOB.all_languages[LANGUAGE_GALCOM]
 	add_language(LANGUAGE_POKEMON)
-	mob_radio = new
 	if(p_types.len)
 		for(var/T in p_types)
 			give_moves(T)
