@@ -78,24 +78,24 @@
 	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY
 
-/datum/sprite_accessory/wing/cyberdragon
-	name = "Cyber dragon wing (colorable)"
-	desc = ""
-	icon = 'content_arfs/icons/mob/player/wings_arfs.dmi'
-	icon_state = "cyberdragon_s"
-	do_colouration = 1
-	color_blend_mode = ICON_MULTIPLY
+///datum/sprite_accessory/wing/cyberdragon
+//	name = "Cyber dragon wing (colorable)"
+//	desc = ""
+//	icon = 'content_arfs/icons/mob/player/wings_arfs.dmi'
+//	icon_state = "cyberdragon_s"
+//	do_colouration = 1
+//	color_blend_mode = ICON_MULTIPLY
 
-/datum/sprite_accessory/wing/cyberdragon_red
-	name = "Cyber dragon wing (red)"
-	desc = ""
-	icon = 'content_arfs/icons/mob/player/wings_arfs.dmi'
-	icon_state = "cyberdragon_red_s"
-	do_colouration = 0
+///datum/sprite_accessory/wing/cyberdragon_red
+//	name = "Cyber dragon wing (red)"
+//	desc = ""
+//	icon = 'content_arfs/icons/mob/player/wings_arfs.dmi'
+//	icon_state = "cyberdragon_red_s"
+//	do_colouration = 0
 
-/datum/sprite_accessory/wing/cyberdoe
-	name = "Cyber doe wing"
-	desc = ""
-	icon = 'content_arfs/icons/mob/player/wings_arfs.dmi'
-	icon_state = "cyberdoe_s"
-	do_colouration = 0
+///datum/sprite_accessory/wing/cyberdoe
+//	name = "Cyber doe wing"
+//	desc = ""
+//	icon = 'content_arfs/icons/mob/player/wings_arfs.dmi'
+//	icon_state = "cyberdoe_s"
+//	do_colouration = 0
