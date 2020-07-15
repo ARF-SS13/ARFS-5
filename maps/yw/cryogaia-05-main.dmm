@@ -555,7 +555,7 @@
 "akI" = (/obj/structure/cable{icon_state = "1-2"},/turf/simulated/floor/tiled,/area/hallway/secondary/entry/docking_lounge)
 "akJ" = (/obj/structure/ghost_pod/ghost_activated/pokemon,/turf/simulated/floor/tiled,/area/hallway/secondary/entry/docking_lounge)
 "akK" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden,/obj/structure/disposalpipe/segment,/obj/item/device/radio/beacon,/turf/simulated/floor/tiled,/area/hallway/secondary/entry/docking_lounge)
-"akL" = (/obj/effect/floor_decal/rust,/turf/simulated/floor/tiled,/area/hallway/secondary/entry/docking_lounge)
+"akL" = (/obj/effect/floor_decal/rust,/obj/effect/landmark{name = "Observer-Start"},/turf/simulated/floor/tiled,/area/hallway/secondary/entry/docking_lounge)
 "akM" = (/obj/machinery/light{dir = 4; icon_state = "tube1"; pixel_x = 0},/obj/machinery/camera/network/northern_star{c_tag = "DOCK - Dock 2 Aft"; dir = 8},/obj/structure/table/standard,/obj/effect/floor_decal/corner/white{dir = 4},/obj/effect/floor_decal/corner/blue,/turf/simulated/floor/tiled,/area/hallway/secondary/entry/docking_lounge)
 "akN" = (/obj/structure/showcase/yw/plaque,/obj/machinery/camera/network/outside{c_tag = "Arrivals Landing Pad"; dir = 4; icon_state = "camera"},/turf/simulated/floor/tiled,/area/borealis2/outdoors/grounds)
 "akO" = (/obj/structure/undies_wardrobe,/obj/machinery/light{dir = 8; icon_state = "tube1"; pixel_x = 0},/turf/simulated/floor/wood,/area/chapel/monastery/recreation)
