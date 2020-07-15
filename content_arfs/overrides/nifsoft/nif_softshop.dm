@@ -1,5 +1,3 @@
-var/list/banned_nifs = list("Mass Alteration",)
-
 /obj/machinery/vending/nifsoft_shop/build_inventory()
 	//Firsties
 	if(!starting_legal_nifsoft)
