@@ -118,7 +118,7 @@
 	)
 */
 
-
+/*
 /obj/machinery/vending/arfsnifsoft
 	name = "NIFsoft"
 	desc = "Apparently, it's a knock-off of some other corporation's vendor and product-line."
@@ -417,7 +417,7 @@
 		currently_vending = null
 		GLOB.nanomanager.update_uis(src)
 	return 1*/
-
+*/
 //Clothing!
 
 //Hat vendor
