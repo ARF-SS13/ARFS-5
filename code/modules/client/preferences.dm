@@ -394,13 +394,16 @@ datum/preferences
 	if(S)
 		dat += "<b>Select a character slot to load</b><hr>"
 		var/name
+		var/nickname // ARFS add - Nicknames shown next to the character slot (helps to show which one's which)
 		for(var/i=1, i<= config.character_slots, i++)
 			S.cd = "/character[i]"
 			S["real_name"] >> name
+			S["nickname"] >> nickname // ARFS add - Nickname var to add to character loadout stuff
 			if(!name)	name = "Character[i]"
 			if(i==default_slot)
 				name = "<b>[name]</b>"
-			dat += "<a href='?src=\ref[src];changeslot=[i]'>[name]</a><br>"
+			dat += "<a href='?src=\ref[src];changeslot=[i]'>[name][nickname ? " ([nickname])" : ""]</a><br>" // ARFS edit again! I hate making comments like this, it gets pretty messy, totally should use git blame to see modifications by others!
+
 
 	dat += "<hr>"
 	dat += "</center></tt>"
