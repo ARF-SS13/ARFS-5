@@ -3778,10 +3778,7 @@
 #include "content_arfs\overrides\client\login.dm"
 #include "content_arfs\overrides\client\preference_setup\global\setting_datums.dm"
 #include "content_arfs\overrides\jobs\assistant.dm"
-<<<<<<< HEAD
 #include "content_arfs\overrides\mob\simple_mob_arfs.dm"
-=======
->>>>>>> upstream/master
 #include "content_arfs\overrides\traits_vr\traits_negative.dm"
 #include "content_arfs\overrides\traits_vr\traits_neutral.dm"
 #include "content_arfs\overrides\traits_vr\traits_positive.dm"
