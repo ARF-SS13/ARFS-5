@@ -515,27 +515,27 @@
 	color_blend_mode = ICON_MULTIPLY
 	extra_overlay = "robodragonalt"
 
-/datum/sprite_accessory/tail/cyberdragon
-	name = "cyberdragon tail"
-	desc = ""
-	icon = 'content_arfs/icons/mob/player/tails_arfs.dmi'
-	icon_state = "cyberdragon"
-	do_colouration = 0
+///datum/sprite_accessory/tail/cyberdragon
+//	name = "cyberdragon tail"
+//	desc = ""
+//	icon = 'content_arfs/icons/mob/player/tails_arfs.dmi'
+//	icon_state = "cyberdragon"
+//	do_colouration = 0
 
-/datum/sprite_accessory/tail/cyberdoe
-	name = "cyberdoe tail"
-	desc = ""
-	icon = 'content_arfs/icons/mob/player/tails_arfs.dmi'
-	icon_state = "cyberdoe"
-	do_colouration = 0
+///datum/sprite_accessory/tail/cyberdoe
+//	name = "cyberdoe tail"
+//	desc = ""
+//	icon = 'content_arfs/icons/mob/player/tails_arfs.dmi'
+//	icon_state = "cyberdoe"
+//	do_colouration = 0
 
-/datum/sprite_accessory/tail/cyberdoe_colorable
-	name = "cyberdoe tail (colorable)"
-	desc = ""
-	icon = 'content_arfs/icons/mob/player/tails_arfs.dmi'
-	icon_state = "cyberdoe"
-	do_colouration = 1
-	color_blend_mode = ICON_MULTIPLY
+///datum/sprite_accessory/tail/cyberdoe_colorable
+//	name = "cyberdoe tail (colorable)"
+//	desc = ""
+//	icon = 'content_arfs/icons/mob/player/tails_arfs.dmi'
+//	icon_state = "cyberdoe"
+//	do_colouration = 1
+//	color_blend_mode = ICON_MULTIPLY
 
 //Taurs
 
