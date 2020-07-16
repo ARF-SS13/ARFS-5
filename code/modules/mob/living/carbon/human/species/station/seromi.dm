@@ -56,7 +56,7 @@
 	mob_size = MOB_SMALL
 	pass_flags = PASSTABLE
 	holder_type = /obj/item/weapon/holder/human
-	short_sighted = 0
+	short_sighted = 1
 	gluttonous = 1
 	blood_volume = 400
 	hunger_factor = 0.2
@@ -191,16 +191,17 @@
 				if(world.time >= H.next_loneliness_time)
 					to_chat(H, "[A] calms you down...")
 					H.next_loneliness_time = world.time+500
-
-		for(var/obj/item/toy/plushie/P in range(5, H))
+					
+		/*for(var/obj/item/toy/plushie/P in range(5, H))
 			if(H.loneliness_stage > 0)
 				H.loneliness_stage -= 4
 				if(H.loneliness_stage < 0)
 					H.loneliness_stage = 0
 				if(world.time >= H.next_loneliness_time)
 					to_chat(H, "The [P] calms you down, reminding you of people...")
-					H.next_loneliness_time = world.time+500
+					H.next_loneliness_time = world.time+500*/
 
+		// No company? Suffer :(
 		if(H.loneliness_stage < warning_cap)
 			H.loneliness_stage += 1
 		handle_loneliness(H)
@@ -227,9 +228,8 @@
 		to_chat(H, ms)
 	H.next_loneliness_time = world.time+500
 
-/*/datum/species/teshari/get_vision_flags(var/mob/living/carbon/human/H)
+/datum/species/teshari/get_vision_flags(var/mob/living/carbon/human/H)
 	if(!(H.sdisabilities & DEAF) && !H.ear_deaf)
 		return SEE_SELF|SEE_MOBS
 	else
 		return SEE_SELF
-		*/
