@@ -20,6 +20,7 @@
 	default_pixel_x = -16
 	health = 100
 	maxHealth = 100
+	max_co2 = 10 //Lets them go outside without dying of co2
 	response_help = "pets"
 	layer = MOB_LAYER
 	vore_active = 0
