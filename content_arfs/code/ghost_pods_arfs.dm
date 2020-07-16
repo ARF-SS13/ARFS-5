@@ -50,12 +50,16 @@
 	var/mob/living/simple_mob/animal/passive/pokemon/P = new p_choice(get_turf(src))
 	if(newname)
 		P.name = newname
+	P.real_name = P.name
+
 	if(M.mind)
 		M.mind.transfer_to(P)
 	if(m_ckey)
 		P.ckey = m_ckey
 
-	P.mob_radio = new //Implant a mob radio on them so they can at the very least hear what's going on.
+	var/obj/item/device/radio/headset/mob_headset/R = new
+	R.forceMove(P)
+	P.mob_radio = R //Implant a mob radio on them so they can at the very least hear what's going on.
 
 	log_and_message_admins("used \the [src] and became \an [initial(P.name)] named [P.name].")
 
@@ -66,7 +70,7 @@
 	storage and it's uploaded when you use this pod to spawn in. Respawning in this manner does not upload your regular character's \
 	mind into this body. Additionally, you may set your OOC Notes and Flavortext with the <b>\"Set OOC Notes\"</b> and <b>\"Set Flavortext\"</b> verbs.)</span>")
 
-	visible_message("<span class='notice'>\the [src.name] dings and hisses before its doors slowly open and \the [P.name] steps out!</span>")
+	visible_message("<span class='notice'>[src] dings and hisses before its doors slowly open and \the [P.name] steps out!</span>")
 	playsound(src, 'sound/machines/microwave/microwave-end.ogg', 100)
 
 	P.forceMove(get_turf(src))
