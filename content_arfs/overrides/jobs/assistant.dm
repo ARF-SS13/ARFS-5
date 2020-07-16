@@ -35,7 +35,9 @@
 		"Pet",
 		"Laser Tag Warrior",
 		"Stripper",
+		"Exotic Dancer",
 		"Belly Dancer",
 		"Fashion Model",
-		"Live Preformer",
+		"Live Performer",
+		"Slacker",
 		"Nanotrasen Peace Officer")
