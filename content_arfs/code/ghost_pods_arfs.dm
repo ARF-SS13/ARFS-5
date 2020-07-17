@@ -7,10 +7,11 @@
 	icon_state = "borg_pod_closed"
 	icon_state_opened = "borg_pod_opened"
 	anchored = TRUE
-	var/p_list = list()
-	var/p_list_types = /mob/living/simple_mob/animal/passive/pokemon //Subtypes of this will be added to p_list
-	var/p_list_paths = list()
-	var/remove_paths = list(/mob/living/simple_mob/animal/passive/pokemon/leg, //These are removed from the final list of types
+	var/do_announcement = TRUE //FALSE won't give them a choice of announcing
+	var/list/p_list = list()
+	var/list/p_list_types = /mob/living/simple_mob/animal/passive/pokemon //Subtypes of this will be added to p_list
+	var/list/p_list_paths = list()
+	var/list/remove_paths = list(/mob/living/simple_mob/animal/passive/pokemon/leg, //These are removed from the final list of types
 						    /mob/living/simple_mob/animal/passive/pokemon,
 						    /mob/living/simple_mob/animal/passive/pokemon/eevee/jolteon/bud)
 
@@ -24,6 +25,9 @@
 		qdel(P)
 
 /obj/structure/ghost_pod/ghost_activated/pokemon/attack_ghost(var/mob/observer/dead/user)
+	if (ticker.current_state != GAME_STATE_PLAYING)
+		to_chat(user, "<span class='warning'>The round either hasn't started yet or has ended.</span>")
+		return
 	if (p_list == list() || !p_list)
 		to_chat(user, "<span class='warning'>Pod configuration error.</span>")
 		return
@@ -32,6 +36,8 @@
 
 /obj/structure/ghost_pod/ghost_activated/pokemon/create_occupant(var/mob/M)
 	var/m_ckey = M.ckey
+	var/turf/T = get_turf(src)
+	var/area/A
 	var/p_choice = input(M, "What would you like to spawn in as?", "[src.name]") as null|anything in p_list
 	if(!p_choice || isnull(p_choice))
 		to_chat(M, "<span class='notice'>Spawning aborted.</span>")
@@ -42,12 +48,17 @@
 		to_chat(M, "<span class='notice'>Spawning aborted.</span>")
 		return
 	newname = sanitize(newname, MAX_NAME_LEN)//Sanitize the name afterwards, so we know if they hit cancel or input an empty string
-
-	if(busy)
-		to_chat(M, "<span class='notice'>\the [src] is busy handling another request. Please try again.</span>")
-		return
-
-	var/mob/living/simple_mob/animal/passive/pokemon/P = new p_choice(get_turf(src))
+	var/announce_choice = FALSE
+	if(do_announcement)
+		announce_choice = input(M, "Would you like to announce your arrival over the common radio channel?", "[src.name]") as null|anything in list("Yes","No")
+		if(isnull(announce_choice))
+			to_chat(M, "<span class='notice'>Spawning aborted.</span>")
+			return
+		if(announce_choice == "Yes")
+			announce_choice = TRUE
+	T = get_turf(src)
+	A = T.loc
+	var/mob/living/simple_mob/animal/passive/pokemon/P = new p_choice(T)
 	if(newname)
 		P.name = newname
 	P.real_name = P.name
@@ -59,7 +70,7 @@
 
 	var/obj/item/device/radio/headset/mob_headset/R = new
 	R.forceMove(P)
-	P.mob_radio = R //Implant a mob radio on them so they can at the very least hear what's going on.
+	P.mob_radio = R //Implant a mob radio on them so they can communicate over a distance and hear what's going on. Being left in the dark isn't fun.
 
 	log_and_message_admins("used \the [src] and became \an [initial(P.name)] named [P.name].")
 
@@ -73,4 +84,8 @@
 	visible_message("<span class='notice'>[src] dings and hisses before its doors slowly open and \the [P.name] steps out!</span>")
 	playsound(src, 'sound/machines/microwave/microwave-end.ogg', 100)
 
-	P.forceMove(get_turf(src))
+	P.forceMove(T)
+
+	//Announce the pokemon spawning.
+	if(announce_choice && P.z)//We aren't in nullspace
+		AnnounceArrivalSimple(P.name, "Pokemon", "has been resleeved at [A]", "Common", P.z)
