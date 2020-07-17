@@ -41,10 +41,11 @@
 	verbs |= /mob/living/proc/set_flavor_text
 	verbs |= /mob/living/proc/set_ooc_notes
 	icon_rest = "[icon_state]_rest"
-	tt_desc = "[initial(icon_state)]"//Icon state > name
+	tt_desc = "[initial(icon_state)]"//Icon state is always the species
 	init_vore()
-	default_language = GLOB.all_languages[LANGUAGE_GALCOM]
+	add_language(LANGUAGE_GALCOM)
 	add_language(LANGUAGE_POKEMON)
+	set_default_language(GLOB.all_languages[LANGUAGE_GALCOM])
 	if(p_types.len)
 		for(var/T in p_types)
 			give_moves(T)
