@@ -198,7 +198,7 @@
 	prices = list(
 		/obj/item/weapon/disk/nifsoft/material=500,)
 
-/*//Custom vendors
+//Custom vendors
 /obj/machinery/vending/nifsoft_shop/arfs
 	name = "NIFSoft Shop"
 	desc = "For all your mindware and mindware accessories."
@@ -417,7 +417,7 @@
 		currently_vending = null
 		GLOB.nanomanager.update_uis(src)
 	return 1*/
-*/
+
 //Clothing!
 
 //Hat vendor

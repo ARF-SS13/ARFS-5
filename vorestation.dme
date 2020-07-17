@@ -3808,7 +3808,7 @@
 #include "maps\submaps\surface_submaps\plains\plains_areas.dm"
 #include "maps\submaps\surface_submaps\wilderness\wilderness.dm"
 #include "maps\submaps\surface_submaps\wilderness\wilderness_areas.dm"
-#include "maps\yw\cryogaia.dm"
+#include "maps\yw\cryogaia_arf.dm"
 #include "maps\yw\items\encryptionkey_sc.dm"
 #include "maps\yw\items\encryptionkey_vr.dm"
 #include "maps\yw\items\headset_sc.dm"
