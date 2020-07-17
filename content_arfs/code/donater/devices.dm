@@ -149,3 +149,52 @@
 				cooldown = 0
 	else
 		to_chat(user, "<span class='warning'>Your resizer is still recharging.</span>")
+
+/datum/nifsoft/sizechange/andy
+	name = "Mass Alteration"
+	desc = "A system that allows one to change their size, through drastic mass rearrangement. Causes significant wear when installed."
+	list_pos = NIF_SIZECHANGE
+	cost = 375
+	wear = 6
+	illegal = TRUE
+	access = 1001 //Take that, infinite loop detector
+
+	activate()
+		if((. = ..()))
+			var/new_size = input("Put the desired size (25-200%)", "Set Size", 300) as num
+
+			if (!ISINRANGE(new_size,25,300))
+				to_chat(nif.human,"<span class='notice'>The safety features of the NIF Program prevent you from choosing this size.</span>")
+				return
+			else
+				nif.human.resize(new_size/100)
+				to_chat(nif.human,"<span class='notice'>You set the size to [new_size]%</span>")
+
+			nif.human.visible_message("<span class='warning'>Swirling grey mist envelops [nif.human] as they change size!</span>","<span class='notice'>Swirling streams of nanites wrap around you as you change size!</span>")
+
+			spawn(0)
+				deactivate()
+
+	deactivate()
+		if((. = ..()))
+			return TRUE
+
+	stat_text()
+		return "Change Size"
+
+/obj/item/weapon/disk/nifsoft/sizechange/andy
+
+	name = "NIFSoft Uploader - Size Change"
+
+	desc = "Contains a specialized Size Change NIFSoft.\n\
+
+	It has a small label: \n\
+
+	\"Portable NIFSoft Installation Media. \n\
+
+	Align ocular port with eye socket and depress red plunger.\""
+
+
+	icon_state = "engineering"
+
+	stored = /datum/nifsoft/sizechange/andy
