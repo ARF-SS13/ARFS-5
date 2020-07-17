@@ -20,6 +20,7 @@
 	default_pixel_x = -16
 	health = 100
 	maxHealth = 100
+	max_co2 = 10 //Lets them go outside without dying of co2
 	response_help = "pets"
 	layer = MOB_LAYER
 	vore_active = 0
@@ -30,6 +31,7 @@
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
 	melee_damage_lower = 3
 	melee_damage_upper = 9
+	universal_understand = 1 //Until we can fix the inability to tell who is talking over radios and similar bugs, this will work
 	var/list/p_types = list()
 	var/resting_heal_max = 2
 
@@ -39,10 +41,11 @@
 	verbs |= /mob/living/proc/set_flavor_text
 	verbs |= /mob/living/proc/set_ooc_notes
 	icon_rest = "[icon_state]_rest"
-	tt_desc = "[initial(icon_state)]"//Icon state > name
+	tt_desc = "[initial(icon_state)]"//Icon state is always the species
 	init_vore()
-	default_language = GLOB.all_languages[LANGUAGE_GALCOM]
+	add_language(LANGUAGE_GALCOM)
 	add_language(LANGUAGE_POKEMON)
+	set_default_language(GLOB.all_languages[LANGUAGE_GALCOM])
 	if(p_types.len)
 		for(var/T in p_types)
 			give_moves(T)
