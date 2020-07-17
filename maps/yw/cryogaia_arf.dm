@@ -14,7 +14,7 @@
 	#include "elevator_areas.dm"
 	#include "service_elevator_things.dm"
 	#include "residential/_residential.dm"
-	#include "residential/residential_keys.dm"
+	#include "residential/residential_keys_arf.dm"
 
 	#if !AWAY_MISSION_TEST //Don't include these for just testing away missions
 		#include "arfs/cryogaia-01-centcomm.dmm" //centcom
