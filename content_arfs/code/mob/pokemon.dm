@@ -20,6 +20,7 @@
 	default_pixel_x = -16
 	health = 100
 	maxHealth = 100
+	max_co2 = 10 //Lets them go outside without dying of co2
 	response_help = "pets"
 	layer = MOB_LAYER
 	vore_active = 0
@@ -30,6 +31,7 @@
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
 	melee_damage_lower = 3
 	melee_damage_upper = 9
+	universal_understand = 1 //Until we can fix the inability to tell who is talking over radios and similar bugs, this will work
 	var/list/p_types = list()
 	var/resting_heal_max = 2
 
