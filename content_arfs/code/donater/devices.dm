@@ -151,13 +151,12 @@
 		to_chat(user, "<span class='warning'>Your resizer is still recharging.</span>")
 
 /datum/nifsoft/sizechange/andy
-	name = "Mass Alteration"
+	name = "Extreme Mass Alteration"
 	desc = "A system that allows one to change their size, through drastic mass rearrangement. Causes significant wear when installed."
 	list_pos = NIF_SIZECHANGE
-	cost = 375
-	wear = 6
+	cost = 10000
+	wear = 0
 	illegal = TRUE
-	access = 1001 //Take that, infinite loop detector
 
 	activate()
 		if((. = ..()))
@@ -184,9 +183,9 @@
 
 /obj/item/weapon/disk/nifsoft/sizechange/andy
 
-	name = "NIFSoft Uploader - Size Change"
+	name = "NIFSoft Uploader - Extreme Mass Alteration"
 
-	desc = "Contains a specialized Size Change NIFSoft.\n\
+	desc = "Contains a specialized Mass Alteration NIFSoft.\n\
 
 	It has a small label: \n\
 
