@@ -1,4 +1,4 @@
-/datum/gear.fluff/dameon_2
+/datum/gear/fluff/dameon_2
 	path = /obj/item/weapon/disk/nifsoft/sizechange/andy
 	display_name = "Size Change NIFSoft"
 	description = "A specialized size change NIFSoft"
