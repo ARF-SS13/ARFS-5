@@ -158,6 +158,13 @@
 	ckeywhitelist = list("lukevale", "cebutris", "gremlingss")
 	character_name = list("Luna", "Elizabeth Nayala", "Abby Gliese")
 
+/datum/gear/fluff/res_key_rm3
+	path = /obj/item/weapon/card/id/residential/rm3
+	display_name = "RM3 keys"
+	description = "residential"
+	ckeywhitelist = list("aruis")
+	character_name = list("Chance", "Sloan Lokhartt")
+
 // SMALL KEYS
 
 /datum/gear/fluff/res_key_rs1
