@@ -36,7 +36,7 @@
 
 /obj/structure/ghost_pod/ghost_activated/pokemon/create_occupant(var/mob/M)
 	var/m_ckey = M.ckey
-	var/turf/T = get_turf(src)
+	var/turf/T
 	var/area/A
 	var/p_choice = input(M, "What would you like to spawn in as?", "[src.name]") as null|anything in p_list
 	if(!p_choice || isnull(p_choice))
@@ -61,8 +61,8 @@
 	var/mob/living/simple_mob/animal/passive/pokemon/P = new p_choice(T)
 	if(newname)
 		P.name = newname
+		P.voice_name = P.name
 	P.real_name = P.name
-
 	if(M.mind)
 		M.mind.transfer_to(P)
 	if(m_ckey)
