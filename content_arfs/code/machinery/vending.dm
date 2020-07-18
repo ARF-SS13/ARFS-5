@@ -566,7 +566,9 @@
 	/obj/item/clothing/under/dress/dress_yellow=5,/obj/item/clothing/under/dress/dress_saloon=5,
 	/obj/item/clothing/under/dress/black_corset=5,/obj/item/clothing/under/dress/flower_dress=5,
 	/obj/item/clothing/under/dress/red_swept_dress=5,/obj/item/clothing/under/dress/flamenco=5,
-	/obj/item/clothing/under/dress/westernbustle=5)
+	/obj/item/clothing/under/dress/westernbustle=5,/obj/item/clothing/under/schoolgirl/red=5,
+	/obj/item/clothing/under/schoolgirl/green=5, /obj/item/clothing/under/schoolgirl/orange=5,
+	/obj/item/clothing/under/lobster=5, /obj/item/clothing/head/lobster=5)
 
 /obj/machinery/vending/arfs/hydroseeds
 	name = "Arfs Seed Servitor"
