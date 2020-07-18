@@ -42,6 +42,7 @@
 	verbs |= /mob/living/proc/set_ooc_notes
 	icon_rest = "[icon_state]_rest"
 	tt_desc = "[initial(icon_state)]"//Icon state is always the species
+	voice_name = name
 	init_vore()
 	add_language(LANGUAGE_GALCOM)
 	add_language(LANGUAGE_POKEMON)
