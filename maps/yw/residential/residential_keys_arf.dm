@@ -84,6 +84,22 @@
 	name = "RM6 residential key"
 	access = list(8106)
 
+/obj/item/weapon/card/id/residential/rm7
+	name = "RM6 residential key"
+	access = list(8107)
+
+/obj/item/weapon/card/id/residential/rm8
+	name = "RM6 residential key"
+	access = list(8108)
+
+/obj/item/weapon/card/id/residential/rm9
+	name = "RM6 residential key"
+	access = list(8109)
+
+/obj/item/weapon/card/id/residential/rm10
+	name = "RM6 residential key"
+	access = list(8110)
+
 /obj/item/weapon/card/id/residential/mansion
 	name = "Mansion residential key"
 	access = list(8100)
@@ -116,18 +132,65 @@
 
 
 //FLUFF SPAWNS
-/* Example for me later
+
 /datum/gear/fluff/res_key_s1
 	path = /obj/item/weapon/card/id/residential/s1
 	display_name = "S1 keys"
 	description = "residential"
-	ckeywhitelist = list("laylaveridian", "devilsaaron")
-	character_name = list("May Clark", "Vexilla", "Samantha Clark")
-*/
+	ckeywhitelist = list("joezill")
+	character_name = list("Ciri Vulture")
+
 
 
 // MEDIUM KEYS
 
+/datum/gear/fluff/res_key_rm1
+	path = /obj/item/weapon/card/id/residential/rm1
+	display_name = "RM1 keys"
+	description = "residential"
+	ckeywhitelist = list("thingpony")
+	character_name = list("Iris Miller")
 
+/datum/gear/fluff/res_key_rm2
+	path = /obj/item/weapon/card/id/residential/rm2
+	display_name = "RM2 keys"
+	description = "residential"
+	ckeywhitelist = list("lukevale", "cebutris", "gremlingss")
+	character_name = list("Luna", "Elizabeth Nayala", "Abby Gliese")
+
+/datum/gear/fluff/res_key_rm3
+	path = /obj/item/weapon/card/id/residential/rm3
+	display_name = "RM3 keys"
+	description = "residential"
+	ckeywhitelist = list("aruis")
+	character_name = list("Chance", "Sloan Lokhartt")
 
 // SMALL KEYS
+
+/datum/gear/fluff/res_key_rs1
+	path = /obj/item/weapon/card/id/residential/rs1
+	display_name = "RS1 keys"
+	description = "residential"
+	ckeywhitelist = list("eeveerocks1000")
+	character_name = list("Summer")
+
+/datum/gear/fluff/res_key_rs3
+	path = /obj/item/weapon/card/id/residential/rs3
+	display_name = "RS3 keys"
+	description = "residential"
+	ckeywhitelist = list("siorkillbow")
+	character_name = list("Hoi Blackburn")
+
+/datum/gear/fluff/res_key_rs5
+	path = /obj/item/weapon/card/id/residential/rs5
+	display_name = "RS5 keys"
+	description = "residential"
+	ckeywhitelist = list("semilargeman")
+	character_name = list("Joseph Reed", "Connor Lan")
+
+/datum/gear/fluff/res_key_rs7
+	path = /obj/item/weapon/card/id/residential/rs5
+	display_name = "RS7 keys"
+	description = "residential"
+	ckeywhitelist = list("gremlingss")
+	character_name = list("Kyle Seeger")
