@@ -7,14 +7,14 @@
 
 /datum/gear/fluff/dameon_3
 	path = /obj/item/device/communicator/andy
-	display_name = "Size Change NIFSoft"
-	description = "A specialized size change NIFSoft"
+	display_name = "Custom Communicator"
+	description = "A customized communicator"
 	ckeywhitelist = list("andyman105", "dameonowen")
 	character_name = list("Dameon Owen", "Amber Owen", "Jake Owen")
 
 /datum/gear/fluff/dameon_4
 	path = /obj/item/weapon/commcard/owen
-	display_name = "Size Change NIFSoft"
-	description = "A specialized size change NIFSoft"
+	display_name = "Enhanced GPS"
+	description = "An enhanced GPS device for communicators"
 	ckeywhitelist = list("andyman105", "dameonowen")
 	character_name = list("Dameon Owen", "Amber Owen", "Jake Owen")
