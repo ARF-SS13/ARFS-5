@@ -1,5 +1,6 @@
 //globals so the lists dont get generated more than once
 var/global/list/pokemon_choices_list = list()//Referenced list for use in input()
+var/global/list/pokemon_pods = list()//List of pods that ghosts can spawn at
 
 //Pod to spawn in as pokemon or other mobs.
 /obj/structure/ghost_pod/ghost_activated/pokemon
@@ -18,13 +19,8 @@ var/global/list/pokemon_choices_list = list()//Referenced list for use in input(
 /obj/structure/ghost_pod/ghost_activated/pokemon/Initialize()
 	. = ..()
 	generate_lists()
-	/*
-	pokemon_choices_list_paths = typesof(/mob/living/simple_mob/animal/passive/pokemon) - remove_paths//Create a list of mob paths
-	for (var/path in pokemon_choices_list_paths)//add the mobs to a list with their names referencing paths
-		var/mob/living/simple_mob/animal/passive/pokemon/P = new path()
-		pokemon_choices_list["[P.name]"] = P.type
-		qdel(P)
-	*/
+	var/turf/T = get_turf(src)
+	pokemon_pods["[T.loc]"] = src
 
 /obj/structure/ghost_pod/ghost_activated/pokemon/proc/generate_lists()
 	if(LAZYLEN(pokemon_choices_list))
@@ -64,7 +60,7 @@ var/global/list/pokemon_choices_list = list()//Referenced list for use in input(
 		to_chat(M, "<span class='notice'>Spawning aborted.</span>")
 		return
 	newname = sanitize(newname, MAX_NAME_LEN)//Sanitize the name afterwards, so we know if they hit cancel or input an empty string
-	var/new_gender = input(M, "Choose your Pokemon's gender:", "Character Preference", "neuter") as null|anything in gender_datums
+	var/new_gender = input(M, "Choose your Pokemon's gender:", "Character Preference", "neuter") as null|anything in list("neuter", "male", "female")
 	if(isnull(new_gender))
 		to_chat(M, "<span class='notice'>Spawning aborted.</span>")
 		return
