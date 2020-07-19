@@ -108,3 +108,10 @@
 	item_state = "equine"
 	force = 2
 	attack_verb = list("fucked", "probed", "violated", "teased", "prodded",)
+
+/obj/item/weapon/sextoy/dildo/chemicalkit
+	name = "Bimbo Chemical Kit"
+	desc = "All for your mind play needs! This special Kit is a delight in most space BDSM community, complete with all the chemical that you need for body alternation and a visor temporarily capable of altering the mind of its users to follow the instructions of another user! WARNING: The visor will actually install a failsafe as well for the user, remember consent when using! <3"
+	icon_state = "chemkit"
+	item_state = "chemkit"
+	force = 0

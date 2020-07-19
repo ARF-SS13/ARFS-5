@@ -23,11 +23,12 @@
 		/obj/item/weapon/sextoy/dildo/fleshlight=2,
 		/obj/item/weapon/sextoy/dildo/analbeads=2,
 		/obj/item/clothing/suit/stripper/stripper_pink=4,
-		/obj/item/clothing/suit/stripper/stripper_green=4)
+		/obj/item/clothing/suit/stripper/stripper_green=4,
 //		/obj/item/clothing/under/birthdaysuit=5,
 //		/obj/item/clothing/under/nuditypermit=5,
 //		/obj/item/clothing/suit/strapon = 5,
-//		/obj/item/clothing/suit/strapon/equine=5)
+//		/obj/item/clothing/suit/strapon/equine=5,
+		/obj/item/weapon/sextoy/dildo/chemicalkit=5 )
 //	prices = list(/obj/item/clothing/under/nuditypermit=500)  Cactus please why u do dis  ~TK
 
 //Commented out because none of this vendors contents are ported yet.
@@ -565,7 +566,9 @@
 	/obj/item/clothing/under/dress/dress_yellow=5,/obj/item/clothing/under/dress/dress_saloon=5,
 	/obj/item/clothing/under/dress/black_corset=5,/obj/item/clothing/under/dress/flower_dress=5,
 	/obj/item/clothing/under/dress/red_swept_dress=5,/obj/item/clothing/under/dress/flamenco=5,
-	/obj/item/clothing/under/dress/westernbustle=5)
+	/obj/item/clothing/under/dress/westernbustle=5,/obj/item/clothing/under/schoolgirl/red=5,
+	/obj/item/clothing/under/schoolgirl/green=5, /obj/item/clothing/under/schoolgirl/orange=5,
+	/obj/item/clothing/under/lobster=5, /obj/item/clothing/head/lobster=5)
 
 /obj/machinery/vending/arfs/hydroseeds
 	name = "Arfs Seed Servitor"
