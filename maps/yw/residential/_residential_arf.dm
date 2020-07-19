@@ -9,7 +9,7 @@
 	landmark_station = "residential_station"
 	landmark_transition = "residential_transit"
 	warmup_time = 3 SECONDS //30 seconds actually (SECONDS is multiplying it by 10)
-	move_time = 27 SECONDS //270 seconds actually (SECONDS is multiplying it by 10)
+	move_time = 12 SECONDS //270 seconds actually (SECONDS is multiplying it by 10)
 	var/announcer = "Automated Traffic Control"
 
 
@@ -68,7 +68,6 @@ var/global/list/latejoin_residential = list()
 
 /datum/spawnpoint/residential
 	display_name = "NCS Serenity Residential"
-	restrict_job = list("Off-duty Worker", "Off-duty Cargo", "Off-duty Engineer", "Off-duty Medic", "Off-duty Scientist", "Off-duty Officer", "Chef")
 	msg = "has arrived on the NCS Serenity Residential level"
 	announce_channel = "Common"
 

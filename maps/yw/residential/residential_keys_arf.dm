@@ -174,9 +174,9 @@
 	ckeywhitelist = list("eeveerocks1000")
 	character_name = list("Summer")
 
-/datum/gear/fluff/res_key_rs3
-	path = /obj/item/weapon/card/id/residential/rs3
-	display_name = "RS3 keys"
+/datum/gear/fluff/res_key_rs2
+	path = /obj/item/weapon/card/id/residential/rs2
+	display_name = "RS2 keys"
 	description = "residential"
 	ckeywhitelist = list("siorkillbow")
 	character_name = list("Hoi Blackburn")
