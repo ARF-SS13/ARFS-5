@@ -178,6 +178,8 @@
 		if(P_TYPE_FLY)
 			src.verbs |= /mob/living/simple_mob/animal/passive/pokemon/proc/move_fly
 			src.verbs |= /mob/living/simple_mob/animal/passive/pokemon/proc/move_hover
+		if(P_TYPE_POISON)
+			src.max_tox += 199 //can survive in phoron up to 200 moles
 		else
 			return FALSE
 
@@ -537,9 +539,9 @@
 
 /mob/living/simple_mob/animal/passive/pokemon/pinsir
 	name = "pinsir"
-	icon_state = "pincher"
-	icon_living = "pincher"
-	icon_dead = "pincher_d"
+	icon_state = "pinsir"
+	icon_living = "pinsir"
+	icon_dead = "pinsir_d"
 	p_types = list(P_TYPE_BUG)
 
 /mob/living/simple_mob/animal/passive/pokemon/omanyte
