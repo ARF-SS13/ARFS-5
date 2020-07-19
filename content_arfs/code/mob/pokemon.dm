@@ -122,6 +122,9 @@
 	set name = "Rest"
 	set category = "IC"
 	set desc = "Lie down and rest in order to slowly heal or just relax."
+	if(src.flying)
+		to_chat(src,"<span class='warning'>You need to land if you want to rest.</span>")
+		return
 	resting = !resting
 	to_chat(src,"<span class='notice'>You are now [resting ? "resting" : "getting up"].</span>")
 	if(resting && health < maxHealth)
@@ -180,6 +183,8 @@
 			src.verbs |= /mob/living/simple_mob/animal/passive/pokemon/proc/move_hover
 		if(P_TYPE_POISON)
 			src.max_tox += 199 //can survive in phoron up to 200 moles
+		if(P_TYPE_DARK)
+			src.see_in_dark = 5
 		else
 			return FALSE
 
@@ -189,7 +194,7 @@
 	set category = "Abilities"
 
 	var/mob/living/simple_mob/animal/passive/pokemon/P = src
-	if(P.stat)
+	if(P.stat || P.resting)
 		to_chat(src, "You cannot fly in this state!")
 		return
 
@@ -206,7 +211,7 @@
 	if(!P.flying)
 		to_chat(P, "You must be flying to hover!")
 		return
-	if(P.stat)
+	if(P.stat || P.resting)
 		to_chat(P, "You cannot hover in your current state!")
 		return
 	if(P.anchored)
@@ -222,6 +227,51 @@
 	else
 		return
 
+//Override to stop attacking while grabbing
+/mob/living/simple_mob/animal/passive/pokemon/UnarmedAttack(var/atom/A, var/proximity)
+	if(is_incorporeal())
+		return 0
+
+	if(!ticker)
+		to_chat(src, "You cannot attack people before the game has started.")
+		return 0
+
+	if(stat)
+		return 0
+
+	if(has_hands && istype(A,/obj) && a_intent != I_HURT)
+		var/obj/O = A
+		return O.attack_hand(src)
+
+	switch(a_intent)
+		if(I_HELP)
+			if(isliving(A))
+				custom_emote(1,"[pick(friendly)] \the [A]!")
+
+		if(I_HURT)
+			if(can_special_attack(A) && special_attack_target(A))
+				return
+
+			else if(melee_damage_upper == 0 && istype(A,/mob/living))
+				custom_emote(1,"[pick(friendly)] \the [A]!")
+
+			else
+				attack_target(A)
+
+		if(I_GRAB)
+			if(has_hands)
+				A.attack_hand(src)
+			else
+				if(isliving(A) && vore_active)//Don't attack what you're eating
+					animal_nom(A)
+				else
+					attack_target(A)
+		if(I_DISARM)
+			if(has_hands)
+				A.attack_hand(src)
+			else
+				attack_target(A)
+	return 1
 
 /////TEMPLATE/////
 /*
