@@ -46,7 +46,7 @@ var/global/list/pokemon_choices_list = list()//Referenced list for use in input(
 		to_chat(user, "<span class='warning'>The round either hasn't started yet or has ended.</span>")
 		return
 	if (!LAZYLEN(pokemon_choices_list))
-		to_chat(user, "<span class='warning'>Pod configuration error.</span>")
+		to_chat(user, "<span class='warning'>Pod configuration error. Report this to a developer.</span>")
 		return
 	create_occupant(user)
 
@@ -64,6 +64,10 @@ var/global/list/pokemon_choices_list = list()//Referenced list for use in input(
 		to_chat(M, "<span class='notice'>Spawning aborted.</span>")
 		return
 	newname = sanitize(newname, MAX_NAME_LEN)//Sanitize the name afterwards, so we know if they hit cancel or input an empty string
+	var/new_gender = input(M, "Choose your Pokemon's gender:", "Character Preference", "neuter") as null|anything in gender_datums
+	if(isnull(new_gender))
+		to_chat(M, "<span class='notice'>Spawning aborted.</span>")
+		return
 	var/announce_choice = FALSE
 	if(do_announcement)
 		announce_choice = input(M, "Would you like to announce your arrival over the common radio channel?", "[src.name]") as null|anything in list("Yes","No")
@@ -75,10 +79,12 @@ var/global/list/pokemon_choices_list = list()//Referenced list for use in input(
 	T = get_turf(src)
 	A = T.loc
 	var/mob/living/simple_mob/animal/passive/pokemon/P = new p_choice(T)
-	if(newname)
+	if(newname)//Still not empty after sanitization
 		P.name = newname
 		P.voice_name = P.name
 	P.real_name = P.name
+	if(new_gender)
+		P.gender = new_gender
 	if(M.mind)
 		M.mind.transfer_to(P)
 	if(m_ckey)
