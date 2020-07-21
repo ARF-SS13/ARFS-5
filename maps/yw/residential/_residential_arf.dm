@@ -183,8 +183,20 @@ var/global/list/latejoin_residential = list()
 	name = "\improper Residential - Medium Room 1"
 	icon_state = "mediumroom1"
 
+/area/residential/mroom1bed1
+	name = "\improper Residential - Medium Room 1 Bedroom"
+	icon_state = "mediumroom1"
+
 /area/residential/mroom2
 	name = "\improper Residential - Medium Room 2"
+	icon_state = "mediumroom2"
+
+/area/residential/mroom2bed1
+	name = "\improper Residential - Medium Room 2 Bedroom A"
+	icon_state = "mediumroom2"
+
+/area/residential/mroom2bed2
+	name = "\improper Residential - Medium Room 2 Bedroom B"
 	icon_state = "mediumroom2"
 
 /area/residential/mroom3
