@@ -263,3 +263,11 @@
 	icon_state = "lopunnybody"
 	do_colouration = 0
 	ckeys_allowed = list("killbow")
+
+/datum/sprite_accessory/ears/leaf
+	name = "Leaf ears"
+	desc = ""
+	icon = 'content_arfs/icons/mob/player/ears_arfs.dmi'
+	icon_state = "leaf_ears"
+	do_colouration = 0
+	ckeys_allowed = list("Alex123890")

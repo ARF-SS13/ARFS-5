@@ -1548,6 +1548,7 @@
 #include "code\game\turfs\simulated\wall_types_vr.dm"
 #include "code\game\turfs\simulated\walls.dm"
 #include "code\game\turfs\simulated\water.dm"
+#include "code\game\turfs\simulated\water_arf.dm"
 #include "code\game\turfs\simulated\water_vr.dm"
 #include "code\game\turfs\simulated\water_yw.dm"
 #include "code\game\turfs\simulated\dungeon\floor.dm"
