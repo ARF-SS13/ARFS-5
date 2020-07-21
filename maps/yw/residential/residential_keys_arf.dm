@@ -140,7 +140,12 @@
 	ckeywhitelist = list("joezill")
 	character_name = list("Ciri Vulture")
 
-
+/datum/gear/fluff/res_key_s5
+	path = /obj/item/weapon/card/id/residential/s5
+	display_name = "S5 keys"
+	description = "residential"
+	ckeywhitelist = list("truedark")
+	character_name = list("Squawks")
 
 // MEDIUM KEYS
 
@@ -164,6 +169,27 @@
 	description = "residential"
 	ckeywhitelist = list("aruis")
 	character_name = list("Chance", "Sloan Lokhartt")
+
+/datum/gear/fluff/res_key_rm3
+	path = /obj/item/weapon/card/id/residential/rm3
+	display_name = "RM3 keys"
+	description = "residential"
+	ckeywhitelist = list("disguiser")
+	character_name = list("Rak Woodrow")
+
+/datum/gear/fluff/res_key_rm5
+	path = /obj/item/weapon/card/id/residential/rm5
+	display_name = "RM5 keys"
+	description = "residential"
+	ckeywhitelist = list("theamazingdaito")
+	character_name = list("Madalyn Rose", "Kitsuno Harume")
+
+/datum/gear/fluff/res_key_rm10
+	path = /obj/item/weapon/card/id/residential/rm10
+	display_name = "RM10 keys"
+	description = "residential"
+	ckeywhitelist = list("tk420634")
+	character_name = list("Sugar Song")
 
 // SMALL KEYS
 
@@ -189,8 +215,29 @@
 	character_name = list("Joseph Reed", "Connor Lan")
 
 /datum/gear/fluff/res_key_rs7
-	path = /obj/item/weapon/card/id/residential/rs5
+	path = /obj/item/weapon/card/id/residential/rs7
 	display_name = "RS7 keys"
 	description = "residential"
 	ckeywhitelist = list("gremlingss")
 	character_name = list("Kyle Seeger")
+
+/datum/gear/fluff/res_key_rs8
+	path = /obj/item/weapon/card/id/residential/rs8
+	display_name = "RS8 keys"
+	description = "residential"
+	ckeywhitelist = list("gozulio")
+	character_name = list("Eira Glitterpaws", "Jessie Glitterpaws")
+
+/datum/gear/fluff/res_key_rs11
+	path = /obj/item/weapon/card/id/residential/rs11
+	display_name = "RS11 keys"
+	description = "residential"
+	ckeywhitelist = list("rouwren")
+	character_name = list("Rin Deimos")
+
+/datum/gear/fluff/res_key_rs13
+	path = /obj/item/weapon/card/id/residential/rs13
+	display_name = "RS13 keys"
+	description = "residential"
+	ckeywhitelist = list("secondattemps")
+	character_name = list("Alexandria Martin")
