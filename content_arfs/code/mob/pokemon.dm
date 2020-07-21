@@ -315,6 +315,7 @@
 	icon_living = "absol"
 	icon_dead = "absol_d"
 	p_types = list(P_TYPE_DARK)
+	additional_moves = list(/mob/living/proc/hide)
 
 /mob/living/simple_mob/animal/passive/pokemon/aggron
 	name = "aggron"
@@ -344,9 +345,9 @@
 	icon_living = "ditto"
 	icon_dead = "ditto_d"
 	p_types = list(P_TYPE_NORM)
+	additional_moves = list(/mob/living/proc/hide)
 
-
-/mob/living/simple_mob/animal/passive/pokemon/dratini/dragonair
+/mob/living/simple_mob/animal/passive/pokemon/dragonair
 	name = "dragonair"
 	desc = "A Dragonair stores an enormous amount of energy inside its body. It is said to alter the weather around it by loosing energy from the crystals on its neck and tail."
 	icon_state = "dragonair"
@@ -356,7 +357,7 @@
 	additional_moves = list(/mob/living/simple_mob/animal/passive/pokemon/proc/move_fly,
 							/mob/living/simple_mob/animal/passive/pokemon/proc/move_hover)
 
-/mob/living/simple_mob/animal/passive/pokemon/dratini/dragonair/dragonite
+/mob/living/simple_mob/animal/passive/pokemon/dragonite
 	name = "dragonite"
 	desc = "It can circle the globe in just 16 hours. It is a kindhearted Pokémon that leads lost and foundering ships in a storm to the safety of land."
 	icon_state = "dragonite"
@@ -373,6 +374,7 @@
 	icon_dead = "dratini_d"
 	movement_cooldown = 3
 	p_types = list(P_TYPE_DRAGON)
+	additional_moves = list(/mob/living/proc/hide)
 
 /mob/living/simple_mob/animal/passive/pokemon/eevee
 	name = "eevee"
@@ -383,16 +385,16 @@
 	response_help  = "pets"
 	response_harm   = "hits"
 	p_types = list(P_TYPE_NORM)
+	additional_moves = list(/mob/living/proc/hide)
 
-
-/mob/living/simple_mob/animal/passive/pokemon/eevee/espeon
+/mob/living/simple_mob/animal/passive/pokemon/espeon
 	name = "espeon"
 	desc = "Espeon is extremely loyal to any trainer it considers to be worthy. It is said to have developed precognitive powers to protect its trainer from harm."
 	icon_state = "espeon"
 	icon_living = "espeon"
 	icon_dead = "espeon_d"
 	p_types = list(P_TYPE_PSYCH)
-
+	additional_moves = list(/mob/living/proc/hide)
 
 /mob/living/simple_mob/animal/passive/pokemon/flaaffy
 	name = "flaaffy"
@@ -401,23 +403,25 @@
 	icon_dead = "flaaffy_d"
 	p_types = list(P_TYPE_ELEC)
 
-/mob/living/simple_mob/animal/passive/pokemon/eevee/flareon
+/mob/living/simple_mob/animal/passive/pokemon/flareon
 	name = "flareon"
 	desc = "Flareon's fluffy fur releases heat into the air so that its body does not get excessively hot. Its body temperature can rise to a maximum of 1,650 degrees F."
 	icon_state = "flareon"
 	icon_living = "flareon"
 	icon_dead = "flareon_d"
 	p_types = list(P_TYPE_FIRE)
+	additional_moves = list(/mob/living/proc/hide)
 
-/mob/living/simple_mob/animal/passive/pokemon/eevee/glaceon
+/mob/living/simple_mob/animal/passive/pokemon/glaceon
 	name = "glaceon"
 	desc = "By controlling its body heat, it can freeze the atmosphere around it to make a diamond-dust flurry."
 	icon_state = "glaceon"
 	icon_living = "glaceon"
 	icon_dead = "glaceon_d"
 	p_types = list(P_TYPE_ICE)
+	additional_moves = list(/mob/living/proc/hide)
 
-/mob/living/simple_mob/animal/passive/pokemon/eevee/jolteon
+/mob/living/simple_mob/animal/passive/pokemon/jolteon
 	name = "jolteon"
 	desc = "Its cells generate weak power that is amplified by its fur's static electricity to drop thunderbolts. The bristling fur is made of electrically charged needles."
 	icon_state = "jolteon"
@@ -426,13 +430,14 @@
 	var/charge_cooldown_time = 100
 	var/charge_cooldown = 0
 	p_types = list(P_TYPE_ELEC)
+	additional_moves = list(/mob/living/proc/hide)
 
-/mob/living/simple_mob/animal/passive/pokemon/eevee/jolteon/attack_hand(mob/user)
+/mob/living/simple_mob/animal/passive/pokemon/jolteon/attack_hand(mob/user)
 	..()
 	if(!stat)
 		electrocute_mob(user, get_area(src), src, 1)
 
-/mob/living/simple_mob/animal/passive/pokemon/eevee/jolteon/attackby(obj/item/weapon/W, mob/user, params)
+/mob/living/simple_mob/animal/passive/pokemon/jolteon/attackby(obj/item/weapon/W, mob/user, params)
 	electrocute_mob(user, get_area(src), src, W.siemens_coefficient)
 	if(!stat && istype(W, /obj/item/weapon/cell))
 		var/obj/item/weapon/cell/C = W
@@ -453,7 +458,7 @@
 		return
 	..()
 
-/mob/living/simple_mob/animal/passive/pokemon/eevee/jolteon/bud
+/mob/living/simple_mob/animal/passive/pokemon/jolteon/bud
 	name = "Bud"
 
 /mob/living/simple_mob/animal/passive/pokemon/larvitar
@@ -464,7 +469,7 @@
 	icon_living = "larvitar"
 	icon_dead = "larvitar_d"
 	p_types = list(P_TYPE_ROCK, P_TYPE_GROUND)
-
+	additional_moves = list(/mob/living/proc/hide)
 
 /mob/living/simple_mob/animal/passive/pokemon/growlithe
 	name = "growlithe"
@@ -472,6 +477,7 @@
 	icon_living = "growlithe"
 	icon_dead = "growlithe_d"
 	p_types = list(P_TYPE_FIRE)
+	additional_moves = list(/mob/living/proc/hide)
 
 /mob/living/simple_mob/animal/passive/pokemon/mareep
 	name = "mareep"
@@ -479,8 +485,9 @@
 	icon_living = "mareep"
 	icon_dead = "mareep_d"
 	p_types = list(P_TYPE_ELEC)
+	additional_moves = list(/mob/living/proc/hide)
 
-/mob/living/simple_mob/animal/passive/pokemon/poochyena/mightyena
+/mob/living/simple_mob/animal/passive/pokemon/mightyena
 	name = "mightyena"
 	icon_state = "mightyena"
 	icon_living = "mightyena"
@@ -496,7 +503,7 @@
 	var/datum/reagents/udder = null
 	movement_cooldown = 3
 
-/mob/living/simple_mob/animal/passive/pokemon/miltank/New()
+/mob/living/simple_mob/animal/passive/pokemon/miltank/Initialize()
 	udder = new(50)
 	udder.my_atom = src
 	..()
@@ -524,8 +531,9 @@
 	icon_living = "poochyena"
 	icon_dead = "poochyena_d"
 	p_types = list(P_TYPE_DARK)
+	additional_moves = list(/mob/living/proc/hide)
 
-/mob/living/simple_mob/animal/passive/pokemon/eevee/sylveon
+/mob/living/simple_mob/animal/passive/pokemon/sylveon
 	name = "sylveon"
 	desc = "Sylveon, the Intertwining Pokémon. Sylveon affectionately wraps its ribbon-like feelers around its Trainer's arm as they walk together."
 	icon_state = "sylveon"
@@ -534,13 +542,15 @@
 	response_help  = "pets"
 	response_harm   = "hits"
 	p_types = list(P_TYPE_FAIRY)
+	additional_moves = list(/mob/living/proc/hide)
 
-/mob/living/simple_mob/animal/passive/pokemon/eevee/umbreon
+/mob/living/simple_mob/animal/passive/pokemon/umbreon
 	name = "umbreon"
 	icon_state = "umbreon"
 	icon_dead = "umbreon_d"
 	icon_living = "umbreon"
 	p_types = list(P_TYPE_DARK)
+	additional_moves = list(/mob/living/proc/hide)
 
 /mob/living/simple_mob/animal/passive/pokemon/vulpix
 	name = "vulpix"
@@ -548,6 +558,7 @@
 	icon_living = "vulpix"
 	icon_dead = "vulpix_d"
 	p_types = list(P_TYPE_FIRE)
+	additional_moves = list(/mob/living/proc/hide)
 
 /mob/living/simple_mob/animal/passive/pokemon/tentacruel
 	name = "tentacruel"
@@ -563,7 +574,6 @@
 	icon_living = "ninetales"
 	icon_dead = "ninetales_d"
 	p_types = list(P_TYPE_FIRE)
-
 
 /mob/living/simple_mob/animal/passive/pokemon/ponyta
 	name = "ponyta"
@@ -601,6 +611,7 @@
 	icon_dead = "omanyte_d"
 	movement_cooldown = 3
 	p_types = list(P_TYPE_ROCK, P_TYPE_WATER)
+	additional_moves = list(/mob/living/proc/hide)
 
 /mob/living/simple_mob/animal/passive/pokemon/magamar
 	name = "magamar"
@@ -617,6 +628,7 @@
 	icon_dead = "magicarp_d"
 	movement_cooldown = 4
 	p_types = list(P_TYPE_WATER)
+	additional_moves = list(/mob/living/proc/hide)
 
 /mob/living/simple_mob/animal/passive/pokemon/lapras
 	name = "lapras"
@@ -624,6 +636,7 @@
 	icon_living = "lapras"
 	icon_dead = "lapras_d"
 	movement_cooldown = 3
+	can_buckle = TRUE
 	p_types = list(P_TYPE_WATER)
 
 /mob/living/simple_mob/animal/passive/pokemon/kabuto
@@ -632,6 +645,7 @@
 	icon_living = "Kabuto"
 	icon_dead = "Kabuto_d"
 	p_types = list(P_TYPE_ROCK, P_TYPE_WATER)
+	additional_moves = list(/mob/living/proc/hide)
 
 /mob/living/simple_mob/animal/passive/pokemon/aerodactyl
 	name = "aerodactyl"
@@ -653,6 +667,7 @@
 	icon_living = "cubone"
 	icon_dead = "cubone_d"
 	p_types = list(P_TYPE_GROUND)
+	additional_moves = list(/mob/living/proc/hide)
 
 /mob/living/simple_mob/animal/passive/pokemon/mewtwo
 	name = "mewtwo"

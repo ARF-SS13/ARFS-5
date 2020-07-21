@@ -515,6 +515,14 @@
 	color_blend_mode = ICON_MULTIPLY
 	extra_overlay = "robodragonalt"
 
+/datum/sprite_accessory/tail/leaf
+	name = "Leaf Tail"
+	desc = ""
+	icon = 'content_arfs/icons/mob/player/tails_arfs.dmi'
+	icon_state = "leaf_tail"
+	do_colouration = 0
+	ckeys_allowed = list("Alex123890")
+
 ///datum/sprite_accessory/tail/cyberdragon
 //	name = "cyberdragon tail"
 //	desc = ""
