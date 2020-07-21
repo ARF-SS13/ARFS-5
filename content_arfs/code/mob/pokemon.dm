@@ -54,7 +54,8 @@
 	verbs |= /mob/living/proc/set_flavor_text
 	verbs |= /mob/living/proc/set_ooc_notes
 	icon_rest = "[icon_state]_rest"
-	tt_desc = "[initial(icon_state)]"//Icon state is always the species
+	if(!tt_desc)
+		tt_desc = "[initial(icon_state)]"//icon_state will be the species if tt_desc isn't set
 	voice_name = name
 	init_vore()
 	add_language(LANGUAGE_GALCOM)
@@ -336,6 +337,7 @@
 	icon_state = "alolanvulpix"
 	icon_living = "alolanvulpix"
 	icon_dead = "alolanvulpix_d"
+	tt_desc = "alolan vulpix"
 	p_types = list(P_TYPE_ICE)
 	additional_moves = list(/mob/living/proc/hide)
 
