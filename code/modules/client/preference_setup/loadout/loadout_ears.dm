@@ -8,12 +8,13 @@
 /datum/gear/ears/headphones
 	display_name = "headphones"
 	path = /obj/item/clothing/ears/earmuffs/headphones
-
+/*
 /datum/gear/ears/circuitry
 	display_name = "earwear, circuitry (empty)"
 	path = /obj/item/clothing/ears/circuitry
-	
 
+*/
+//Edited, no longer exists for now
 /datum/gear/ears/earrings
 	display_name = "earring selection"
 	description = "A selection of eye-catching earrings."

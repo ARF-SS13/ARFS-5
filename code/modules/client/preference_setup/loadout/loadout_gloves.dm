@@ -101,7 +101,9 @@
 	ringtype["ring, wood"] = /obj/item/clothing/gloves/ring/material/wood
 	ringtype["ring, plastic"] = /obj/item/clothing/gloves/ring/material/plastic
 	gear_tweaks += new/datum/gear_tweak/path(ringtype)
-
+/*
 /datum/gear/gloves/circuitry
 	display_name = "gloves, circuitry (empty)"
 	path = /obj/item/clothing/gloves/circuitry
+*/
+//no existo

@@ -36,6 +36,11 @@
 	}\
 }
 
+//ported from bay
+/datum/controller/subsystem/proc/disable()
+	can_fire = FALSE
+//endport
+
 // SS runlevels
 
 #define RUNLEVEL_INIT 0			// "Initialize Only" - Used for subsystems that should never be fired (Should also have SS_NO_FIRE set)
@@ -57,6 +62,7 @@ var/global/list/runlevel_flags = list(RUNLEVEL_LOBBY, RUNLEVEL_SETUP, RUNLEVEL_G
 #define INIT_ORDER_SKYBOX		30
 #define INIT_ORDER_MAPPING		25
 #define INIT_ORDER_DECALS		20
+#define SS_INIT_MATERIALS		18
 #define INIT_ORDER_JOB			17
 #define INIT_ORDER_ATOMS		15
 #define INIT_ORDER_MACHINES		10
@@ -88,7 +94,8 @@ var/global/list/runlevel_flags = list(RUNLEVEL_LOBBY, RUNLEVEL_SETUP, RUNLEVEL_G
 #define FIRE_PRIORITY_NIGHTSHIFT	5
 #define FIRE_PRIORITY_ORBIT			8
 #define FIRE_PRIORITY_VOTE			9
-#define FIRE_PRIORITY_AI			10
+#define FIRE_PRIORITY_CIRCUIT_COMP	10
+#define FIRE_PRIORITY_AI			11
 #define FIRE_PRIORITY_GARBAGE		15
 #define FIRE_PRIORITY_ALARM			20
 #define FIRE_PRIORITY_CHARSETUP     25

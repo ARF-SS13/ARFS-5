@@ -355,11 +355,12 @@
 	cap_type["Black cap"] = /obj/item/clothing/head/surgery/black
 	cap_type["Navy cap"] = /obj/item/clothing/head/surgery/navyblue
 	gear_tweaks += new/datum/gear_tweak/path(cap_type)
-
+/*
 /datum/gear/head/circuitry
 	display_name = "headwear, circuitry (empty)"
 	path = /obj/item/clothing/head/circuitry
-
+*/
+//no longer existo
 /datum/gear/head/maangtikka
 	display_name = "maang tikka"
 	path = /obj/item/clothing/head/maangtikka

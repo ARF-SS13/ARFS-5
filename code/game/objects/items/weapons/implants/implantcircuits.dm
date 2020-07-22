@@ -46,3 +46,4 @@
 
 /obj/item/weapon/implant/integrated_circuit/attack_self(mob/user)
 	IC.attack_self(user)
+//turned this module off.

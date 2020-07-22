@@ -259,7 +259,7 @@
 
 	var/datum/matter_synth/medicine = new /datum/matter_synth/medicine(2000)
 	synths += medicine
-	
+
 	var/obj/item/stack/medical/advanced/clotting/C = new (src)
 	C.uses_charge = 1
 	C.charge_costs = list(1000)
@@ -560,7 +560,7 @@
 	src.modules += new /obj/item/weapon/dogborg/jaws/small(src)
 	src.modules += new /obj/item/device/dogborg/boop_module(src)
 	src.modules += new /obj/item/weapon/gripper(src)
-	src.modules += new /obj/item/weapon/gripper/circuit(src)
+	//src.modules += new /obj/item/weapon/gripper/circuit(src)
 	src.modules += new /obj/item/device/pipe_painter(src)
 	src.modules += new /obj/item/device/floor_painter(src)
 	src.modules += new /obj/item/weapon/rms(src)

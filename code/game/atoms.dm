@@ -1,6 +1,7 @@
 /atom
 	layer = TURF_LAYER //This was here when I got here. Why though?
 	var/level = 2
+	var/atom_flags = ATOM_FLAG_NO_TEMP_CHANGE
 	var/flags = 0
 	var/list/fingerprints
 	var/list/fingerprintshidden

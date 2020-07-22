@@ -1,13 +1,17 @@
 /obj/item/device/integrated_electronics/detailer
 	name = "assembly detailer"
 	desc = "A combination autopainter and flash anodizer designed to give electronic assemblies a colorful, wear-resistant finish."
-	icon = 'icons/obj/integrated_electronics/electronic_tools.dmi'
+	icon = 'icons/obj/assemblies/electronic_tools.dmi'
 	icon_state = "detailer"
-	item_flags = NOBLUDGEON
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	w_class = ITEMSIZE_SMALL
+	var/data_to_write = null
+	var/accepting_refs = FALSE
 	var/detail_color = COLOR_ASSEMBLY_WHITE
 	var/list/color_list = list(
 		"black" = COLOR_ASSEMBLY_BLACK,
+		"gray" = COLOR_GRAY40,
 		"machine gray" = COLOR_ASSEMBLY_BGRAY,
 		"white" = COLOR_ASSEMBLY_WHITE,
 		"red" = COLOR_ASSEMBLY_RED,
@@ -21,22 +25,21 @@
 		"green" = COLOR_ASSEMBLY_GREEN,
 		"light blue" = COLOR_ASSEMBLY_LBLUE,
 		"blue" = COLOR_ASSEMBLY_BLUE,
-		"purple" = COLOR_ASSEMBLY_PURPLE,
-		"hot pink" = COLOR_ASSEMBLY_HOT_PINK
+		"purple" = COLOR_ASSEMBLY_PURPLE
 		)
 
 /obj/item/device/integrated_electronics/detailer/Initialize()
+	.=..()
 	update_icon()
-	return ..()
 
-/obj/item/device/integrated_electronics/detailer/update_icon()
-	cut_overlays()
-	var/mutable_appearance/detail_overlay = mutable_appearance('icons/obj/integrated_electronics/electronic_tools.dmi', "detailer-color")
+/obj/item/device/integrated_electronics/detailer/on_update_icon()
+	overlays.Cut()
+	var/image/detail_overlay = image('icons/obj/assemblies/electronic_tools.dmi',src, "detailer-color")
 	detail_overlay.color = detail_color
-	add_overlay(detail_overlay)
+	overlays += detail_overlay
 
 /obj/item/device/integrated_electronics/detailer/attack_self(mob/user)
-	var/color_choice = input(user, "Select color.", "Assembly Detailer", detail_color) as null|anything in color_list
+	var/color_choice = input(user, "Select color.", "Assembly Detailer") as null|anything in color_list
 	if(!color_list[color_choice])
 		return
 	if(!in_range(src, user))

@@ -12,7 +12,7 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 10000)
 	build_path = /obj/item/device/integrated_circuit_printer
 	sort_string = "UAAAA"
-
+/*
 /datum/design/item/integrated_circuitry/custom_circuit_printer_upgrade
 	name = "Integrated circuit printer upgrade - advanced designs"
 	desc = "Allows the integrated circuit printer to create advanced circuits"
@@ -21,7 +21,8 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 2000)
 	build_path = /obj/item/weapon/disk/integrated_circuit/upgrade/advanced
 	sort_string = "UBAAA"
-
+*/
+//edited out, no longer used.
 /datum/design/item/integrated_circuitry/wirer
 	name = "Custom wirer tool"
 	id = "wirer"
@@ -88,7 +89,7 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 5000)
 	build_path = /obj/item/device/assembly/electronic_assembly
 	sort_string = "UDAAE"
-
+/*
 /datum/design/item/integrated_circuitry/assembly/custom_circuit_assembly_implant
 	name = "Implant custom assembly"
 	desc = "An customizable assembly for very small devices, implanted into living entities."
@@ -97,3 +98,5 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 2000)
 	build_path = /obj/item/weapon/implant/integrated_circuit
 	sort_string = "UDAAF"
+	*/
+	//turned it off

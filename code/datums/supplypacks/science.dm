@@ -49,14 +49,15 @@
 	cost = 15
 	containertype = /obj/structure/closet/crate
 	containername = "Integrated circuit crate"
-
+/*
 /datum/supply_pack/sci/integrated_circuit_printer_upgrade
 	name = "Integrated circuit printer upgrade - advanced designs"
 	contains = list(/obj/item/weapon/disk/integrated_circuit/upgrade/advanced)
 	cost = 30
 	containertype = /obj/structure/closet/crate
 	containername = "Integrated circuit crate"
-
+*/
+//edited out, no longer used.
 /datum/supply_pack/sci/xenoarch
 	name = "Xenoarchaeology Tech crate"
 	contains = list(

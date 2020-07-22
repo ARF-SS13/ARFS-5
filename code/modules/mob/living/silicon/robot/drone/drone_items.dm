@@ -122,7 +122,7 @@
 		/obj/item/weapon/reagent_containers/food/snacks/monkeycube
 
 		)
-
+/*
 /obj/item/weapon/gripper/circuit
 	name = "circuit assembly gripper"
 	icon_state = "gripper-circ"
@@ -143,7 +143,8 @@
 		/obj/item/integrated_circuit
 
 		)
-
+*/
+//this is off for now.
 /obj/item/weapon/gripper/service //Used to handle food, drinks, and seeds.
 	name = "service gripper"
 	icon_state = "gripper"
