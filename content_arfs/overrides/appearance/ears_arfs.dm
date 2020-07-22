@@ -270,4 +270,4 @@
 	icon = 'content_arfs/icons/mob/player/ears_arfs.dmi'
 	icon_state = "leaf_ears"
 	do_colouration = 0
-	ckeys_allowed = list("Alex123890")
+	ckeys_allowed = list("alex123890")
