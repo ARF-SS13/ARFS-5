@@ -183,8 +183,20 @@ var/global/list/latejoin_residential = list()
 	name = "\improper Residential - Medium Room 1"
 	icon_state = "mediumroom1"
 
+/area/residential/mroom1bed1
+	name = "\improper Residential - Medium Room 1 Bedroom"
+	icon_state = "mediumroom1"
+
 /area/residential/mroom2
 	name = "\improper Residential - Medium Room 2"
+	icon_state = "mediumroom2"
+
+/area/residential/mroom2bed1
+	name = "\improper Residential - Medium Room 2 Bedroom A"
+	icon_state = "mediumroom2"
+
+/area/residential/mroom2bed2
+	name = "\improper Residential - Medium Room 2 Bedroom B"
 	icon_state = "mediumroom2"
 
 /area/residential/mroom3
@@ -217,4 +229,40 @@ var/global/list/latejoin_residential = list()
 
 /area/residential/mansion
 	name = "\improper Residential -  Mansion"
+	icon_state = "mansion"
+
+/area/residential/mansion_ballroom
+	name = "\improper Residential -  Mansion BallRoom"
+	icon_state = "mansion"
+
+/area/residential/mansion_bed_1
+	name = "\improper Mansion -  Bedroom Amber"
+	icon_state = "mansion"
+
+/area/residential/mansion_bed_2
+	name = "\improper Mansion -  Bedroom Jake"
+	icon_state = "mansion"
+
+/area/residential/mansion_bed_3
+	name = "\improper Mansion -  Bedroom Lilith"
+	icon_state = "mansion"
+
+/area/residential/mansion_bed_4
+	name = "\improper Mansion -  Bedroom Dameon"
+	icon_state = "mansion"
+
+/area/residential/mansion_bed_5
+	name = "\improper Mansion -  Bedroom Guest"
+	icon_state = "mansion"
+
+/area/residential/mansion_office
+	name = "\improper Mansion - Dameon Office"
+	icon_state = "mansion"
+
+/area/residential/mansion_club
+	name = "\improper Mansion - Club"
+	icon_state = "mansion"
+
+/area/residential/mansion_gameroom
+	name = "\improper Mansion - Gameroom"
 	icon_state = "mansion"
