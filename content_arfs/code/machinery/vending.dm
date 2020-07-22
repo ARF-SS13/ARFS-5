@@ -23,11 +23,12 @@
 		/obj/item/weapon/sextoy/dildo/fleshlight=2,
 		/obj/item/weapon/sextoy/dildo/analbeads=2,
 		/obj/item/clothing/suit/stripper/stripper_pink=4,
-		/obj/item/clothing/suit/stripper/stripper_green=4)
+		/obj/item/clothing/suit/stripper/stripper_green=4,
 //		/obj/item/clothing/under/birthdaysuit=5,
 //		/obj/item/clothing/under/nuditypermit=5,
 //		/obj/item/clothing/suit/strapon = 5,
-//		/obj/item/clothing/suit/strapon/equine=5)
+//		/obj/item/clothing/suit/strapon/equine=5,
+		/obj/item/weapon/sextoy/dildo/chemicalkit=5 )
 //	prices = list(/obj/item/clothing/under/nuditypermit=500)  Cactus please why u do dis  ~TK
 
 //Commented out because none of this vendors contents are ported yet.
@@ -198,7 +199,7 @@
 	prices = list(
 		/obj/item/weapon/disk/nifsoft/material=500,)
 
-/*//Custom vendors
+//Custom vendors
 /obj/machinery/vending/nifsoft_shop/arfs
 	name = "NIFSoft Shop"
 	desc = "For all your mindware and mindware accessories."
@@ -417,7 +418,7 @@
 		currently_vending = null
 		GLOB.nanomanager.update_uis(src)
 	return 1*/
-*/
+
 //Clothing!
 
 //Hat vendor
@@ -565,7 +566,9 @@
 	/obj/item/clothing/under/dress/dress_yellow=5,/obj/item/clothing/under/dress/dress_saloon=5,
 	/obj/item/clothing/under/dress/black_corset=5,/obj/item/clothing/under/dress/flower_dress=5,
 	/obj/item/clothing/under/dress/red_swept_dress=5,/obj/item/clothing/under/dress/flamenco=5,
-	/obj/item/clothing/under/dress/westernbustle=5)
+	/obj/item/clothing/under/dress/westernbustle=5,/obj/item/clothing/under/schoolgirl/red=5,
+	/obj/item/clothing/under/schoolgirl/green=5, /obj/item/clothing/under/schoolgirl/orange=5,
+	/obj/item/clothing/under/lobster=5, /obj/item/clothing/head/lobster=5)
 
 /obj/machinery/vending/arfs/hydroseeds
 	name = "Arfs Seed Servitor"
@@ -594,18 +597,18 @@
 	products = list(/mob/living/simple_mob/animal/passive/pokemon/leg/articuno = 5,/mob/living/simple_mob/animal/passive/pokemon/absol = 5,
 	/mob/living/simple_mob/animal/passive/pokemon/aggron = 5,/mob/living/simple_mob/animal/passive/pokemon/ampharos = 5,
 	/mob/living/simple_mob/animal/passive/pokemon/charmander =5,/mob/living/simple_mob/animal/passive/pokemon/ditto = 5,
-	/mob/living/simple_mob/animal/passive/pokemon/dratini/dragonair =5,/mob/living/simple_mob/animal/passive/pokemon/dratini/dragonair/dragonite =5,
+	/mob/living/simple_mob/animal/passive/pokemon/dragonair =5,/mob/living/simple_mob/animal/passive/pokemon/dragonite =5,
 	/mob/living/simple_mob/animal/passive/pokemon/dratini =5,/mob/living/simple_mob/animal/passive/pokemon/eevee = 5,
-	/mob/living/simple_mob/animal/passive/pokemon/eevee/espeon =5,/mob/living/simple_mob/animal/passive/pokemon/flaaffy =5,
-	/mob/living/simple_mob/animal/passive/pokemon/eevee/flareon =5,/mob/living/simple_mob/animal/passive/pokemon/eevee/glaceon =5,
-	/mob/living/simple_mob/animal/passive/pokemon/eevee/jolteon =5,/mob/living/simple_mob/animal/passive/pokemon/larvitar = 5,
+	/mob/living/simple_mob/animal/passive/pokemon/espeon =5,/mob/living/simple_mob/animal/passive/pokemon/flaaffy =5,
+	/mob/living/simple_mob/animal/passive/pokemon/flareon =5,/mob/living/simple_mob/animal/passive/pokemon/glaceon =5,
+	/mob/living/simple_mob/animal/passive/pokemon/jolteon =5,/mob/living/simple_mob/animal/passive/pokemon/larvitar = 5,
 	/mob/living/simple_mob/animal/passive/pokemon/growlithe =5,/mob/living/simple_mob/animal/passive/pokemon/mareep =5,
-	/mob/living/simple_mob/animal/passive/pokemon/poochyena/mightyena =5,/mob/living/simple_mob/animal/passive/pokemon/miltank =5,
-	/mob/living/simple_mob/animal/passive/pokemon/poochyena =5,/mob/living/simple_mob/animal/passive/pokemon/eevee/sylveon =5,
-	/mob/living/simple_mob/animal/passive/pokemon/eevee/umbreon = 5,/mob/living/simple_mob/animal/passive/pokemon/vulpix =5,
+	/mob/living/simple_mob/animal/passive/pokemon/mightyena =5,/mob/living/simple_mob/animal/passive/pokemon/miltank =5,
+	/mob/living/simple_mob/animal/passive/pokemon/poochyena =5,/mob/living/simple_mob/animal/passive/pokemon/sylveon =5,
+	/mob/living/simple_mob/animal/passive/pokemon/umbreon = 5,/mob/living/simple_mob/animal/passive/pokemon/vulpix =5,
 	/mob/living/simple_mob/animal/passive/pokemon/tentacruel =5,/mob/living/simple_mob/animal/passive/pokemon/ninetales =5,
 	/mob/living/simple_mob/animal/passive/pokemon/ponyta =5,/mob/living/simple_mob/animal/passive/pokemon/tangela =5,
-	/mob/living/simple_mob/animal/passive/pokemon/pincer =5,/mob/living/simple_mob/animal/passive/pokemon/omanyte =5,
+	/mob/living/simple_mob/animal/passive/pokemon/pinsir =5,/mob/living/simple_mob/animal/passive/pokemon/omanyte =5,
 	/mob/living/simple_mob/animal/passive/pokemon/magamar =5,/mob/living/simple_mob/animal/passive/pokemon/magicarp =5,
 	/mob/living/simple_mob/animal/passive/pokemon/lapras =5,/mob/living/simple_mob/animal/passive/pokemon/kabuto =5,
 	/mob/living/simple_mob/animal/passive/pokemon/aerodactyl =5, /mob/living/simple_mob/animal/passive/pokemon/lickitung =5,
@@ -614,18 +617,18 @@
 	prices = list(/mob/living/simple_mob/animal/passive/pokemon/leg/articuno = 200,/mob/living/simple_mob/animal/passive/pokemon/absol = 200,
 	/mob/living/simple_mob/animal/passive/pokemon/aggron = 200, /mob/living/simple_mob/animal/passive/pokemon/ampharos = 200,
 	/mob/living/simple_mob/animal/passive/pokemon/charmander =200,/mob/living/simple_mob/animal/passive/pokemon/ditto = 200,
-	/mob/living/simple_mob/animal/passive/pokemon/dratini/dragonair =200,/mob/living/simple_mob/animal/passive/pokemon/dratini/dragonair/dragonite =200,
+	/mob/living/simple_mob/animal/passive/pokemon/dragonair =200,/mob/living/simple_mob/animal/passive/pokemon/dragonite =200,
 	/mob/living/simple_mob/animal/passive/pokemon/dratini =200,/mob/living/simple_mob/animal/passive/pokemon/eevee = 200,
-	/mob/living/simple_mob/animal/passive/pokemon/eevee/espeon =200,/mob/living/simple_mob/animal/passive/pokemon/flaaffy =200,
-	/mob/living/simple_mob/animal/passive/pokemon/eevee/flareon =200,/mob/living/simple_mob/animal/passive/pokemon/eevee/glaceon =200,
-	/mob/living/simple_mob/animal/passive/pokemon/eevee/jolteon =200,/mob/living/simple_mob/animal/passive/pokemon/larvitar =200,
+	/mob/living/simple_mob/animal/passive/pokemon/espeon =200,/mob/living/simple_mob/animal/passive/pokemon/flaaffy =200,
+	/mob/living/simple_mob/animal/passive/pokemon/flareon =200,/mob/living/simple_mob/animal/passive/pokemon/glaceon =200,
+	/mob/living/simple_mob/animal/passive/pokemon/jolteon =200,/mob/living/simple_mob/animal/passive/pokemon/larvitar =200,
 	/mob/living/simple_mob/animal/passive/pokemon/growlithe =200,/mob/living/simple_mob/animal/passive/pokemon/mareep = 200,
-	/mob/living/simple_mob/animal/passive/pokemon/poochyena/mightyena =200,/mob/living/simple_mob/animal/passive/pokemon/miltank =200,
-	/mob/living/simple_mob/animal/passive/pokemon/poochyena = 200,/mob/living/simple_mob/animal/passive/pokemon/eevee/sylveon = 200,
-	/mob/living/simple_mob/animal/passive/pokemon/eevee/umbreon = 200,/mob/living/simple_mob/animal/passive/pokemon/vulpix =200,
+	/mob/living/simple_mob/animal/passive/pokemon/mightyena =200,/mob/living/simple_mob/animal/passive/pokemon/miltank =200,
+	/mob/living/simple_mob/animal/passive/pokemon/poochyena = 200,/mob/living/simple_mob/animal/passive/pokemon/sylveon = 200,
+	/mob/living/simple_mob/animal/passive/pokemon/umbreon = 200,/mob/living/simple_mob/animal/passive/pokemon/vulpix =200,
 	/mob/living/simple_mob/animal/passive/pokemon/tentacruel =200,/mob/living/simple_mob/animal/passive/pokemon/ninetales = 200,
 	/mob/living/simple_mob/animal/passive/pokemon/ponyta = 200, /mob/living/simple_mob/animal/passive/pokemon/tangela = 200,
-	/mob/living/simple_mob/animal/passive/pokemon/pincer =200,/mob/living/simple_mob/animal/passive/pokemon/omanyte =200,
+	/mob/living/simple_mob/animal/passive/pokemon/pinsir =200,/mob/living/simple_mob/animal/passive/pokemon/omanyte =200,
 	/mob/living/simple_mob/animal/passive/pokemon/magamar =200,/mob/living/simple_mob/animal/passive/pokemon/magicarp =500,
 	/mob/living/simple_mob/animal/passive/pokemon/lapras =200,/mob/living/simple_mob/animal/passive/pokemon/kabuto =200,
 	/mob/living/simple_mob/animal/passive/pokemon/aerodactyl =200,/mob/living/simple_mob/animal/passive/pokemon/lickitung =200,
