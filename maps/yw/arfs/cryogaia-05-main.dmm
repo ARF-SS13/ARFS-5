@@ -5865,7 +5865,7 @@
 "cjt" = (/obj/item/weapon/stool/padded,/obj/effect/floor_decal/corner/lime{dir = 9},/turf/simulated/floor/tiled/white,/area/medical/surgery2)
 "cju" = (/turf/simulated/floor/tiled/white,/area/medical/surgery2)
 "cjv" = (/obj/structure/table/standard,/obj/machinery/button/windowtint{id = "surgeryobs2"; pixel_x = 26; pixel_y = 0},/obj/item/stack/nanopaste,/obj/effect/floor_decal/corner/lime{dir = 6},/turf/simulated/floor/tiled/white,/area/medical/surgery2)
-"cjw" = (/obj/machinery/light,/obj/effect/floor_decal/corner/yellow{dir = 10},/mob/living/simple_mob/animal/passive/pokemon/eevee/jolteon/bud,/turf/simulated/floor/tiled,/area/engineering/hallway)
+"cjw" = (/obj/machinery/light,/obj/effect/floor_decal/corner/yellow{dir = 10},/turf/simulated/floor/tiled,/area/engineering/hallway)
 "cjx" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 9},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 5},/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled/white,/area/medical/surgery)
 "cjy" = (/obj/effect/floor_decal/corner/lime{dir = 6},/obj/structure/sink{dir = 4; icon_state = "sink"; pixel_x = 11; pixel_y = 0},/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8},/turf/simulated/floor/tiled/white,/area/medical/surgery)
 "cjz" = (/obj/machinery/computer/cryopod{pixel_x = 32},/obj/machinery/cryopod,/obj/effect/floor_decal/corner/pink/full{dir = 4},/turf/simulated/floor/tiled/white,/area/medical/ward)
