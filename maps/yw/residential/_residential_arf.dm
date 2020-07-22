@@ -230,3 +230,39 @@ var/global/list/latejoin_residential = list()
 /area/residential/mansion
 	name = "\improper Residential -  Mansion"
 	icon_state = "mansion"
+
+/area/residential/mansion_ballroom
+	name = "\improper Residential -  Mansion BallRoom"
+	icon_state = "mansion"
+
+/area/residential/mansion_bed_1
+	name = "\improper Mansion -  Bedroom Amber"
+	icon_state = "mansion"
+
+/area/residential/mansion_bed_2
+	name = "\improper Mansion -  Bedroom Jake"
+	icon_state = "mansion"
+
+/area/residential/mansion_bed_3
+	name = "\improper Mansion -  Bedroom Lilith"
+	icon_state = "mansion"
+
+/area/residential/mansion_bed_4
+	name = "\improper Mansion -  Bedroom Dameon"
+	icon_state = "mansion"
+
+/area/residential/mansion_bed_5
+	name = "\improper Mansion -  Bedroom Guest"
+	icon_state = "mansion"
+
+/area/residential/mansion_office
+	name = "\improper Mansion - Dameon Office"
+	icon_state = "mansion"
+
+/area/residential/mansion_club
+	name = "\improper Mansion - Club"
+	icon_state = "mansion"
+
+/area/residential/mansion_gameroom
+	name = "\improper Mansion - Gameroom"
+	icon_state = "mansion"
