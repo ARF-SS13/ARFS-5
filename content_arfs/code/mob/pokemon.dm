@@ -54,7 +54,8 @@
 	verbs |= /mob/living/proc/set_flavor_text
 	verbs |= /mob/living/proc/set_ooc_notes
 	icon_rest = "[icon_state]_rest"
-	tt_desc = "[initial(icon_state)]"//Icon state is always the species
+	if(!tt_desc)
+		tt_desc = "[initial(icon_state)]"//icon_state will be the species if tt_desc isn't set
 	voice_name = name
 	init_vore()
 	add_language(LANGUAGE_GALCOM)
@@ -307,7 +308,13 @@
 	p_types = list(P_TYPE_FLY)
 	movement_cooldown = 1
 
-//ALPHABETICAL PLEASE
+
+
+///////////////////////
+//ALPHABETICAL PLEASE//
+///////////////////////
+
+
 
 /mob/living/simple_mob/animal/passive/pokemon/absol
 	name = "absol"
@@ -323,7 +330,16 @@
 	icon_living = "aggron"
 	icon_dead = "aggron_d"
 	p_types = list(P_TYPE_STEEL)
-	movement_cooldown = 4
+	movement_cooldown = 5
+
+/mob/living/simple_mob/animal/passive/pokemon/alolanvulpix
+	name = "alolan vulpix"
+	icon_state = "alolanvulpix"
+	icon_living = "alolanvulpix"
+	icon_dead = "alolanvulpix_d"
+	tt_desc = "alolan vulpix"
+	p_types = list(P_TYPE_ICE)
+	additional_moves = list(/mob/living/proc/hide)
 
 /mob/living/simple_mob/animal/passive/pokemon/ampharos
 	name = "ampharos"
@@ -364,7 +380,6 @@
 	icon_living = "dragonite"
 	icon_dead = "dragonite_d"
 	p_types = list(P_TYPE_DRAGON, P_TYPE_FLY)
-	additional_moves = list()
 
 /mob/living/simple_mob/animal/passive/pokemon/dratini
 	name = "dratini"
@@ -382,8 +397,6 @@
 	icon_state = "eevee"
 	icon_living = "eevee"
 	icon_dead = "eevee_d"
-	response_help  = "pets"
-	response_harm   = "hits"
 	p_types = list(P_TYPE_NORM)
 	additional_moves = list(/mob/living/proc/hide)
 
@@ -470,6 +483,13 @@
 	icon_dead = "larvitar_d"
 	p_types = list(P_TYPE_ROCK, P_TYPE_GROUND)
 	additional_moves = list(/mob/living/proc/hide)
+
+/mob/living/simple_mob/animal/passive/pokemon/leafeon
+	name = "leafeon"
+	icon_state = "leafeon"
+	icon_living = "leafeon"
+	icon_dead = "leafeon_d"
+	p_types = list(P_TYPE_GRASS)
 
 /mob/living/simple_mob/animal/passive/pokemon/growlithe
 	name = "growlithe"
@@ -636,7 +656,6 @@
 	icon_living = "lapras"
 	icon_dead = "lapras_d"
 	movement_cooldown = 3
-	can_buckle = TRUE
 	p_types = list(P_TYPE_WATER)
 
 /mob/living/simple_mob/animal/passive/pokemon/kabuto
@@ -684,3 +703,14 @@
 	icon_living = "snorlax"
 	icon_dead = "snorlax_d"
 	p_types = list(P_TYPE_NORM)
+
+/mob/living/simple_mob/animal/passive/pokemon/vaporeon
+	name = "vaporeon"
+	icon_state = "vaporeon"
+	icon_living = "vaporeon"
+	icon_dead = "vaporeon_d"
+	p_types = list(P_TYPE_WATER)
+
+///////////////////////
+//ALPHABETICAL PLEASE//
+///////////////////////
