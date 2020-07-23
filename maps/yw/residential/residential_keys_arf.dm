@@ -170,13 +170,6 @@
 	ckeywhitelist = list("aruis")
 	character_name = list("Chance", "Sloan Lokhartt")
 
-/datum/gear/fluff/res_key_rm3
-	path = /obj/item/weapon/card/id/residential/rm3
-	display_name = "RM3 keys"
-	description = "residential"
-	ckeywhitelist = list("disguiser")
-	character_name = list("Rak Woodrow")
-
 /datum/gear/fluff/res_key_rm5
 	path = /obj/item/weapon/card/id/residential/rm5
 	display_name = "RM5 keys"
@@ -190,6 +183,13 @@
 	description = "residential"
 	ckeywhitelist = list("tk420634")
 	character_name = list("Sugar Song")
+
+/datum/gear/fluff/res_key_rm6
+	path = /obj/item/weapon/card/id/residential/rm6
+	display_name = "RM6 keys"
+	description = "residential"
+	ckeywhitelist = list("disguiser")
+	character_name = list("Rak Woodrow")
 
 // SMALL KEYS
 
