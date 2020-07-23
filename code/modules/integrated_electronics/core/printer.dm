@@ -250,7 +250,7 @@
 			if("load")
 				if(cloning)
 					return
-				var/input = usr.get_input("Put your code there:", "loading", null, sanitizeSafe(input, MAX_MESSAGE_LEN, 0, 0), src)
+				var/input = usr.get_input("Put your code there:", "loading", null, MOB_INPUT_MESSAGE, src)
 				if(cloning)
 					return
 				if(!input)

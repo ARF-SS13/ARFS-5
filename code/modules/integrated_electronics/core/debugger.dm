@@ -18,14 +18,14 @@
 	switch(type_to_use)
 		if("string")
 			accepting_refs = FALSE
-			new_data = input("Now type in a string.","[src] string writing") as null|text
-			new_data = sanitizeSafe(new_data, MAX_MESSAGE_LEN, 0, 0)
+			new_data = user.get_input("Now type in a string", "[src] string writing", null, MOB_INPUT_TEXT, src)
+			new_data = sanitize(new_data,trim = 0)
 			if(istext(new_data) && user.IsAdvancedToolUser())
 				data_to_write = new_data
 				to_chat(user, "<span class='notice'>You set \the [src]'s memory to \"[new_data]\".</span>")
 		if("number")
 			accepting_refs = FALSE
-			new_data = input("Now type in a number.","[src] number writing") as null|num
+			new_data = user.get_input("Now type in a number", "[src] number writing", null, MOB_INPUT_NUM, src)
 			if(isnum(new_data) && user.IsAdvancedToolUser())
 				data_to_write = new_data
 				to_chat(user, "<span class='notice'>You set \the [src]'s memory to [new_data].</span>")

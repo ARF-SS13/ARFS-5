@@ -577,7 +577,7 @@
 			rift_location = get_step(rift_location, assembly.dir) || rift_location
 
 	if(tporter && !tporter.one_time_use && tporter.operable())
-		new /obj/effect/portal(rift_location, get_turf())
+//		new /obj/effect/portal(rift_location, get_turf(), 0, 0)
 	else
 		var/turf/destination = get_random_turf_in_range(src, 10)
 		if(destination)
@@ -646,7 +646,7 @@
 
 
 /obj/item/integrated_circuit/manipulation/ai/attackby(var/obj/item/I, var/mob/user)
-	if(is_type_in_list(I, list(/obj/item/weapon/aicard, /obj/item/device/paicard, /obj/item/device/mmi)))
+	if(is_type_in_list(I, list(/obj/item/device/aicard, /obj/item/device/paicard, /obj/item/device/mmi)))
 		load_ai(user, I)
 	else return ..()
 

@@ -430,3 +430,10 @@
 #define EXAMINE_SKIPFEET			0x0100
 
 #define MAX_NUTRITION	5000 //VOREStation Edit
+
+//bayadd
+#define MOB_INPUT_MESSAGE "message"
+#define MOB_INPUT_NUM "num"
+#define MOB_INPUT_TEXT "text"
+#define INJECTION_PORT 2
+#define INJECTION_PORT_DELAY 3 SECONDS // used by injectors to apply delay due to searching for a port on the injectee's suit

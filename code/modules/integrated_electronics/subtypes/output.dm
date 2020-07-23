@@ -113,7 +113,7 @@
 	var/brightness = get_pin_data(IC_INPUT, 2)
 
 	if(new_color && isnum(brightness))
-		brightness = Clamp(brightness, 0, 1)
+		brightness = clamp(brightness, 0, 1)
 		light_rgb = new_color
 		light_brightness = brightness
 
@@ -152,7 +152,7 @@
 		var/selected_sound = sounds[ID]
 		if(!selected_sound)
 			return
-		vol = Clamp(vol ,0 , 100)
+		vol = clamp(vol ,0 , 100)
 		playsound(get_turf(src), selected_sound, vol, freq, -1)
 
 /obj/item/integrated_circuit/output/sound/on_data_written()
@@ -216,7 +216,7 @@
 	desc = "Takes a string as a name and a boolean to determine whether it is on, and uses this to be a camera linked to the research network."
 	extended_desc = "The camera is linked to the Research camera network."
 	icon_state = "video_camera"
-	w_class = ITEM_SIZE_SMALL
+	w_class = ITEMSIZE_SMALL
 	complexity = 10
 	inputs = list(
 		"camera name" = IC_PINTYPE_STRING,

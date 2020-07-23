@@ -33,3 +33,8 @@
 	tag = null
 	SSnanoui.close_uis(src)
 	return QDEL_HINT_QUEUE
+
+//bayadd
+/datum/proc/Process()
+	set waitfor = 0
+	return PROCESS_KILL

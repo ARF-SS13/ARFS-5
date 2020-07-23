@@ -117,7 +117,7 @@
 	else
 		direction_mode = IC_REAGENTS_INJECT
 	if(isnum(new_amount))
-		new_amount = Clamp(new_amount, 0, volume)
+		new_amount = clamp(new_amount, 0, volume)
 		transfer_amount = new_amount
 
 
@@ -183,7 +183,7 @@
 
 		if(isliving(AM))
 			var/mob/living/L = AM
-			var/injection_status = L.can_inject(null, BP_CHEST)
+			var/injection_status = L.can_inject(null, BP_TORSO)
 			log_world("Injection status? [injection_status]")
 			var/injection_delay = 3 SECONDS
 			if(injection_status == INJECTION_PORT)
@@ -216,13 +216,15 @@
 
 		if(istype(AM, /mob/living/carbon))
 			var/mob/living/carbon/C = AM
-			var/injection_status = C.can_inject(null, BP_CHEST)
+			var/injection_status = C.can_inject(null, BP_TORSO)
 			var/injection_delay = 3 SECONDS
 			if(injection_status == INJECTION_PORT)
 				injection_delay += INJECTION_PORT_DELAY
+				/*
 			if(istype(C, /mob/living/carbon/slime) || !C.dna || !injection_status)
 				activate_pin(3)
 				return
+			*/
 			C.visible_message("<span class='danger'>\The [acting_object] is trying to take a blood sample from [C]!</span>", \
 								"<span class='danger'>\The [acting_object] is trying to take a blood sample from you!</span>")
 			busy = TRUE
@@ -270,7 +272,7 @@
 	else
 		direction_mode = IC_REAGENTS_INJECT
 	if(isnum(new_amount))
-		new_amount = Clamp(new_amount, 0, 50)
+		new_amount = clamp(new_amount, 0, 50)
 		transfer_amount = new_amount
 
 /obj/item/integrated_circuit/reagent/pump/do_work()
@@ -465,7 +467,7 @@
 	else
 		direction_mode = IC_REAGENTS_INJECT
 	if(isnum(new_amount))
-		new_amount = Clamp(new_amount, 0, 50)
+		new_amount = clamp(new_amount, 0, 50)
 		transfer_amount = new_amount
 
 /obj/item/integrated_circuit/reagent/filter/do_work()
