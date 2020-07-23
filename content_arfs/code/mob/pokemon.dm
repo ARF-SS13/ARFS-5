@@ -348,6 +348,13 @@
 	icon_dead = "ampharos_d"
 	p_types = list(P_TYPE_ELEC)
 
+/mob/living/simple_mob/animal/passive/pokemon/celebi
+	name = "celebi"
+	icon_state = "celebi"
+	icon_living = "celebi"
+	icon_dead = "celebi_d"
+	p_types = list(P_TYPE_PSYCH, P_TYPE_GRASS)
+
 /mob/living/simple_mob/animal/passive/pokemon/charmander
 	name = "charmander"
 	icon_state = "charmander"

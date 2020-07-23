@@ -521,7 +521,7 @@
 	icon = 'content_arfs/icons/mob/player/tails_arfs.dmi'
 	icon_state = "leaf_tail"
 	do_colouration = 0
-	ckeys_allowed = list("Alex123890")
+	ckeys_allowed = list("alex123890")
 
 ///datum/sprite_accessory/tail/cyberdragon
 //	name = "cyberdragon tail"
