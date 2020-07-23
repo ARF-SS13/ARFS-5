@@ -168,7 +168,7 @@
 	display_name = "RM3 keys"
 	description = "residential"
 	ckeywhitelist = list("aruis")
-	character_name = list("Chance", "Sloan Lokhartt")
+	character_name = list("Chance", "Sloan Lockhartt")
 
 /datum/gear/fluff/res_key_rm5
 	path = /obj/item/weapon/card/id/residential/rm5
