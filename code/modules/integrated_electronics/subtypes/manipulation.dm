@@ -283,7 +283,7 @@
 		if(contents.len)
 			var/obj/item/U = contents[1]
 			U.loc = T
-	if(mode == -1)
+	if(mode == -1) // Eject all items
 		if(contents.len)
 			var/obj/item/U
 			for(U in contents)
