@@ -210,7 +210,7 @@
 	desc = "Used to shock adjastent creatures with electricity."
 	icon_state = "shocker"
 	extended_desc = "The circuit accepts a reference to creature,who needs to be shocked. It can shock target on adjacent tiles. \
-	Severity determines  hardness of shock and it's power consumption. It's given between 0 and 60."
+	Severity determines hardness of shock and its power consumption. It's given between 0 and 60."
 	w_class = ITEMSIZE_TINY
 	complexity = 10
 	inputs = list("target" = IC_PINTYPE_REF,"severity" = IC_PINTYPE_NUMBER)
