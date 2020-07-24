@@ -48,7 +48,7 @@
 		return
 	for(var/material in O.matter)
 		if(materials[material] + O.matter[material] > metal_max)
-			var/material/material_datum = SSmaterials.get_material_by_name(material)
+			var/material/material_datum = get_material_by_name(material)
 			if(material_datum)
 				to_chat(user, "<span class='notice'>[src] can't hold any more [material_datum.display_name]!</span>")
 			return
@@ -148,7 +148,7 @@
 		HTML += "Materials: "
 		var/list/dat = list()
 		for(var/material in materials)
-			var/material/material_datum = SSmaterials.get_material_by_name(material)
+			var/material/material_datum = get_material_by_name(material)
 			dat += "[materials[material]]/[metal_max] [material_datum.display_name]"
 		HTML += jointext(dat, "; ")
 		HTML += ".<br><br>"
@@ -322,7 +322,7 @@
 /obj/item/device/integrated_circuit_printer/proc/subtract_material_costs(var/list/cost, var/mob/user)
 	for(var/material in cost)
 		if(materials[material] < cost[material])
-			var/material/material_datum = SSmaterials.get_material_by_name(material)
+			var/material/material_datum = get_material_by_name(material)
 			to_chat(user, "<span class='warning'>You need [cost[material]] [material_datum.display_name] to build that!</span>")
 			return FALSE
 	for(var/material in cost) //Iterate twice to make sure it's going to work before deducting
@@ -336,7 +336,7 @@
 	icon = 'icons/obj/assemblies/electronic_tools.dmi'
 	icon_state = "upgrade_disk"
 	item_state = "card-id"
-	w_class = ITEM_SIZE_SMALL
+	w_class = ITEMSIZE_SMALL
 
 /obj/item/disk/integrated_circuit/upgrade/advanced
 	name = "integrated circuit printer upgrade disk - advanced designs"

@@ -32,6 +32,7 @@
 
 	var/static/list/failure_strikes //How many times we suspect a subsystem type has crashed the MC, 3 strikes and you're out!
 
+//bayadd start
 //Do not override
 ///datum/controller/subsystem/New()
 
@@ -210,8 +211,13 @@
 	can_fire = FALSE
 	// Safely sleep in a loop until the subsystem is idle, (or its been un-suspended somehow)
 	while(can_fire <= 0 && state != SS_IDLE)
-		stoplag() // Safely sleep in a loop until 
+		stoplag() // Safely sleep in a loop until
 
 // Wakes a suspended subsystem.
 /datum/controller/subsystem/proc/wake()
 	can_fire = TRUE
+
+/datum/controller/subsystem/proc/enable()
+	if (!can_fire)
+		next_fire = world.time + wait
+		can_fire = TRUE

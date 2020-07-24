@@ -1,7 +1,6 @@
 /atom
 	layer = TURF_LAYER //This was here when I got here. Why though?
 	var/level = 2
-	var/atom_flags = ATOM_FLAG_NO_TEMP_CHANGE
 	var/flags = 0
 	var/list/fingerprints
 	var/list/fingerprintshidden
@@ -16,7 +15,12 @@
 	var/fluorescent // Shows up under a UV light.
 
 	var/last_bumped = 0
+	//bayadd
 
+//	var/temperature = T20C
+	var/atom_flags = ATOM_FLAG_NO_TEMP_CHANGE
+
+	//bayadd end
 	///Chemistry.
 	var/datum/reagents/reagents = null
 

@@ -115,7 +115,7 @@
 	default_apply_parts()
 	if(anchored)
 		connect_to_network()
-		
+
 /obj/machinery/power/port_gen/pacman/Destroy()
 	DropFuel()
 	return ..()

@@ -564,7 +564,7 @@
 	var/target_temp = T20C
 	var/last_temperature = 0
 	var/mode = IC_HEATER_MODE_HEAT
-
+/*
 /obj/item/integrated_circuit/reagent/temp/Initialize()
 	. = ..()
 
@@ -579,7 +579,7 @@
 				return
 
 			// +/- T0C to convert to/from kelvin
-			target_temp = Clamp(target_temp + T0C, min_temp, max_temp)
+			target_temp = clamp(target_temp + T0C, min_temp, max_temp)
 			set_pin_data(IC_INPUT, 1, target_temp - T0C)
 
 			active = !active
@@ -644,5 +644,6 @@
 
 #undef IC_HEATER_MODE_HEAT
 #undef IC_HEATER_MODE_COOL
+*/
 #undef IC_REAGENTS_DRAW
 #undef IC_REAGENTS_INJECT

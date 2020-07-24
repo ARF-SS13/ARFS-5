@@ -65,7 +65,7 @@
 	if((isobserver(user) && ckeys_allowed_to_scan[user.ckey]) || check_rights(R_ADMIN, 0, user))
 		to_chat(user, "You can <a href='?src=\ref[src];ghostscan=1'>scan</a> this circuit.");
 
-
+/*
 /obj/item/device/electronic_assembly/proc/take_damage(var/amnt)
 	health = health - amnt
 	if(health <= 0)
@@ -73,7 +73,7 @@
 		qdel(src)
 	else if(health < initial(health)*0.15 && prob(5))
 		visible_message("<span class='danger'>\The [src] starts to break apart!</span>")
-
+*/
 
 /obj/item/device/electronic_assembly/proc/check_interactivity(mob/user)
 	return (!user.incapacitated() && CanUseTopic(user))
@@ -283,7 +283,7 @@
 /obj/item/device/electronic_assembly/proc/can_move()
 	return FALSE
 
-/obj/item/device/electronic_assembly/on_update_icon()
+/obj/item/device/electronic_assembly/update_icon()
 	if(opened)
 		icon_state = initial(icon_state) + "-open"
 	else

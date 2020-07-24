@@ -2,7 +2,7 @@ SUBSYSTEM_DEF(materials)
 	name = "Materials"
 	init_order = SS_INIT_MATERIALS
 	flags = SS_NO_FIRE
-
+/*
 	var/list/materials
 	var/list/materials_by_name
 	var/list/alloy_components
@@ -50,3 +50,4 @@ SUBSYSTEM_DEF(materials)
 	if(material)
 		return material.display_name
 	return null
+*/

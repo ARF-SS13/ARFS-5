@@ -72,7 +72,7 @@
 /obj/item/integrated_circuit/input/numberpad/OnICTopic(href_list, user)
 	if(href_list["enter_number"])
 		var/new_input = input(user, "Enter a number, please.","Number pad") as null|num
-		if(isnum(new_input) && CanInteract(user, GLOB.physical_state))
+		if(isnum(new_input) && CanInteract(user, physical_state))
 			set_pin_data(IC_OUTPUT, 1, new_input)
 			push_data()
 			activate_pin(1)
@@ -95,7 +95,7 @@
 /obj/item/integrated_circuit/input/textpad/OnICTopic(href_list, user)
 	if(href_list["enter_words"])
 		var/new_input = input(user, "Enter some words, please.","Number pad") as null|text
-		if(istext(new_input) && CanInteract(user, GLOB.physical_state))
+		if(istext(new_input) && CanInteract(user, physical_state))
 			set_pin_data(IC_OUTPUT, 1, new_input)
 			push_data()
 			activate_pin(1)
@@ -132,7 +132,7 @@
 	inputs = list("target" = IC_PINTYPE_REF)
 	outputs = list(
 		"brain activity" = IC_PINTYPE_BOOLEAN,
-		"pulse" = IC_PINTYPE_NUMBER,
+//		"pulse" = IC_PINTYPE_NUMBER,
 		"is conscious" = IC_PINTYPE_BOOLEAN
 		)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
@@ -146,7 +146,7 @@
 	if(H.Adjacent(get_turf(src))) // Like normal analysers, it can't be used at range.
 		var/obj/item/organ/internal/brain/brain = H.internal_organs_by_name[O_BRAIN]
 		set_pin_data(IC_OUTPUT, 1, (brain && H.stat != DEAD))
-		set_pin_data(IC_OUTPUT, 2, H.get_pulse_as_number())
+//		set_pin_data(IC_OUTPUT, 2, victim.get_pulse(GETPULSE_TOOL))
 		set_pin_data(IC_OUTPUT, 3, (H.stat == 0))
 
 	push_data()
@@ -168,9 +168,9 @@
 		"tox damage"			= IC_PINTYPE_NUMBER,
 		"oxy damage"			= IC_PINTYPE_NUMBER,
 		"clone damage"			= IC_PINTYPE_NUMBER,
-		"pulse"                 = IC_PINTYPE_NUMBER,
-		"oxygenation level"     = IC_PINTYPE_NUMBER,
-		"pain level"            = IC_PINTYPE_NUMBER,
+//		"pulse"                 = IC_PINTYPE_NUMBER,
+//		"oxygenation level"     = IC_PINTYPE_NUMBER,
+//		"pain level"            = IC_PINTYPE_NUMBER,
 		"radiation"             = IC_PINTYPE_NUMBER
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
@@ -206,9 +206,9 @@
 		set_pin_data(IC_OUTPUT, 5, damage_to_severity(100 * H.getToxLoss() / H.maxHealth))
 		set_pin_data(IC_OUTPUT, 6, damage_to_severity(100 * H.getOxyLoss() / H.maxHealth))
 		set_pin_data(IC_OUTPUT, 7, damage_to_severity(100 * H.getCloneLoss() / H.maxHealth))
-		set_pin_data(IC_OUTPUT, 8, H.get_pulse_as_number())
-		set_pin_data(IC_OUTPUT, 9, H.get_blood_oxygenation())
-		set_pin_data(IC_OUTPUT, 10, damage_to_severity(H.get_shock()))
+//		set_pin_data(IC_OUTPUT, 8, H.pulse())
+//		set_pin_data(IC_OUTPUT, 9, H.get_blood_oxygenation())
+//		set_pin_data(IC_OUTPUT, 10, damage_to_severity(H.get_shock()))
 		set_pin_data(IC_OUTPUT, 11, H.radiation)
 
 	push_data()
@@ -807,7 +807,7 @@
 	. = list()
 	. += "Current selection: [(current_console && current_console.id) || "None"]"
 	. += "Please select a teleporter to lock in on:"
-	for(var/obj/machinery/teleport/hub/R in SSmachines.machinery)
+	for(var/obj/machinery/teleport/hub/R in machines)
 		var/obj/machinery/computer/teleporter/com = R.com
 		if (istype(com, /obj/machinery/computer/teleporter) && !com.one_time_use && com.operable() && AreConnectedZLevels(get_z(src), get_z(com)))
 			.["[com.id] ([R.icon_state == "tele1" ? "Active" : "Inactive"])"] = "tport=[any2ref(com)]"
@@ -870,10 +870,10 @@
 
 /obj/item/integrated_circuit/input/microphone/Initialize()
 	. = ..()
-	GLOB.listening_objects += src
+	listening_objects += src
 
 /obj/item/integrated_circuit/input/microphone/Destroy()
-	GLOB.listening_objects -= src
+	listening_objects -= src
 	. = ..()
 
 /obj/item/integrated_circuit/input/microphone/hear_talk(var/mob/living/M as mob, text, verb, datum/language/speaking)

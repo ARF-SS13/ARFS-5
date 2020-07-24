@@ -409,7 +409,7 @@
 	if(!amount)
 		return
 
-	var/datum/reagents/F = new /datum/reagents(amount, GLOB.temp_reagents_holder)
+	var/datum/reagents/F = new /datum/reagents(amount, /*GLOB.temp_reagents_holder*/)
 	var/tmpdata = get_data(type)
 	F.add_reagent(type, amount, tmpdata)
 	remove_reagent(type, amount)

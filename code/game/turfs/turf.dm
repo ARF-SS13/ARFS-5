@@ -42,7 +42,7 @@
 	//Lighting related
 	luminosity = !(dynamic_lighting)
 	has_opaque_atom |= (opacity)
-	
+
 	//Pathfinding related
 	if(movement_cost && pathweight == 1) // This updates pathweight automatically.
 		pathweight = movement_cost

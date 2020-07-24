@@ -577,7 +577,7 @@
 			rift_location = get_step(rift_location, assembly.dir) || rift_location
 
 	if(tporter && !tporter.one_time_use && tporter.operable())
-//		new /obj/effect/portal(rift_location, get_turf(), 0, 0)
+		new /obj/effect/portal(rift_location, get_turf(src))
 	else
 		var/turf/destination = get_random_turf_in_range(src, 10)
 		if(destination)
