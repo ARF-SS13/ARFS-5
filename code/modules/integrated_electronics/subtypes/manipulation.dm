@@ -279,7 +279,7 @@
 					var mob/A = AM
 					if(istiny(A))
 						AM.loc = src
-	if(mode == 0)
+	if(mode == 0) // Eject first item
 		if(contents.len)
 			var/obj/item/U = contents[1]
 			U.loc = T
