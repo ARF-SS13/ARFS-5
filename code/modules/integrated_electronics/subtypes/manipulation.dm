@@ -268,7 +268,7 @@
 	var/turf/T = get_turf(src)
 	var/atom/movable/AM = get_pin_data_as_type(IC_INPUT, 1, /obj/item)
 	var/mode = get_pin_data(IC_INPUT, 2)
-	if(mode == 1)
+	if(mode == 1) // Grab item
 		if(AM.Adjacent(T))
 			if(contents.len < 10)
 				if(istype(AM,/obj/item))
