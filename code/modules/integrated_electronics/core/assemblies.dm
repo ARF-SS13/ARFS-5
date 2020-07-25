@@ -1,5 +1,5 @@
-#define IC_MAX_SIZE_BASE		25
-#define IC_COMPLEXITY_BASE		75
+#define IC_MAX_SIZE_BASE		50
+#define IC_COMPLEXITY_BASE		150
 
 /obj/item/device/electronic_assembly
 	name = "electronic assembly"
@@ -14,8 +14,8 @@
 	var/max_components = IC_MAX_SIZE_BASE
 	var/max_complexity = IC_COMPLEXITY_BASE
 	var/opened = TRUE
-	var/obj/item/weapon/cell/battery // Internal cell which most circuits need to work.
-	var/cell_type = /obj/item/weapon/cell
+	var/obj/item/weapon/cell/device/battery // Internal cell which most circuits need to work.
+	var/cell_type = /obj/item/weapon/cell/device
 	var/can_charge = TRUE //Can it be charged in a recharger?
 	var/circuit_flags = IC_FLAG_ANCHORABLE
 	var/charge_sections = 4
@@ -104,7 +104,7 @@
 		qdel(circ)
 	return ..()
 
-/obj/item/device/electronic_assembly/Process()
+/obj/item/device/electronic_assembly/process()
 	// First we generate power.
 	for(var/obj/item/integrated_circuit/passive/power/P in assembly_components)
 		P.make_energy()
@@ -412,7 +412,7 @@
 		if(istype(loc, /turf) && (IC_FLAG_ANCHORABLE & circuit_flags))
 			user.visible_message("\The [user] wrenches \the [src]'s anchoring bolts [anchored ? "back" : "into position"].")
 			playsound(get_turf(user), 'sound/items/Ratchet.ogg',50)
-			if(do_after(5 SECONDS, src))
+			if(do_after(user, 1 SECONDS,))
 				anchored = !anchored
 	else if(istype(I, /obj/item/integrated_circuit))
 		if(!user.canUnEquip(I))
@@ -746,5 +746,17 @@
 				M.Turn(90)
 		transform = M
 
-#undef IC_MAX_SIZE_BASE
-#undef IC_COMPLEXITY_BASE
+/obj/item/device/electronic_assembly/proc/on_anchored()
+	for(var/obj/item/integrated_circuit/IC in contents)
+		IC.on_anchored()
+
+/obj/item/device/electronic_assembly/proc/on_unanchored()
+	for(var/obj/item/integrated_circuit/IC in contents)
+		IC.on_unanchored()
+
+/obj/item/device/electronic_assembly/proc/resolve_nano_host()
+	return src
+
+/obj/item/device/electronic_assembly/proc/force_add_circuit(var/obj/item/integrated_circuit/IC)
+	IC.forceMove(src)
+	IC.assembly = src

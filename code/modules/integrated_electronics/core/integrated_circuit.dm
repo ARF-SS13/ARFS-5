@@ -406,3 +406,9 @@ a creative player the means to solve many problems.  Circuits are held inside an
 
 /obj/item/integrated_circuit/proc/removed_from_assembly(var/obj/item/device/electronic_assembly/assembly)
 	return
+
+/obj/item/integrated_circuit/proc/on_anchored()
+	return
+
+/obj/item/integrated_circuit/proc/on_unanchored()
+	return
