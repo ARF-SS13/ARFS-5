@@ -597,7 +597,7 @@
 	cooldown_per_use = 1 SECOND
 	power_draw_per_use = 20
 	var/obj/item/aicard
-	activators = list("Upwards" = IC_PINTYPE_PULSE_OUT, "Downwards" = IC_PINTYPE_PULSE_OUT, "Left" = IC_PINTYPE_PULSE_OUT, "Right" = IC_PINTYPE_PULSE_OUT)
+	activators = list("Upwards" = IC_PINTYPE_PULSE_OUT, "Downwards" = IC_PINTYPE_PULSE_OUT, "Right" = IC_PINTYPE_PULSE_OUT, "Left" = IC_PINTYPE_PULSE_OUT)
 	origin_tech = list(TECH_DATA = 4)
 	spawn_flags = IC_SPAWN_RESEARCH
 
