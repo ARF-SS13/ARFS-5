@@ -223,7 +223,7 @@
 	attached_grenade.dropInto(loc)
 	attached_grenade = null
 	desc = initial(desc)
-/*
+/* Leaving these in in case someone decides to fix. NOT ME THO! I don't have the slightest idea how to, at least for now. -Dr0ppy
 /obj/item/integrated_circuit/manipulation/plant_module
 	name = "plant manipulation module"
 	desc = "Used to uproot weeds and harvest/plant trays."
@@ -537,6 +537,8 @@
 	if(istype(G))
 		G.update_outputs()
 
+//is broken, rift spawns but doesn't tp. pls fix
+
 /obj/item/integrated_circuit/manipulation/bluespace_rift
 	name = "bluespace rift generator"
 	desc = "This powerful circuit can open rifts to another realspace location through bluespace."
@@ -633,6 +635,14 @@
 		aicard = card
 		user.visible_message("\The [user] loads \the [card] into \the [src]'s device slot")
 		to_chat(L, "<span class='notice'>### IICC FIRMWARE LOADED ###</span>")
+
+/* ref code for when I try to fix pAI's not attaching ot the circuit. How did this fall between the lines? -Dr0ppy
+
+/obj/item/integrated_circuit/manipulation/grenade/proc/attach_grenade(var/obj/item/weapon/grenade/G)
+	attached_grenade = G
+	G.forceMove(src)
+	desc += " \An [attached_grenade] is attached to it!"
+*/
 
 /obj/item/integrated_circuit/manipulation/ai/proc/unload_ai()
 	if(!controlling)

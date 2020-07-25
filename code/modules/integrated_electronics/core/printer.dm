@@ -15,7 +15,7 @@
 	var/recycling = FALSE		// If an assembly is being emptied into this printer
 	var/list/program			// Currently loaded save, in form of list
 	var/materials = list(DEFAULT_WALL_MATERIAL = 0)
-	var/metal_max = 25 * SHEET_MATERIAL_AMOUNT
+	var/metal_max = 100 * SHEET_MATERIAL_AMOUNT
 
 /obj/item/device/integrated_circuit_printer/proc/check_interactivity(mob/user)
 	return CanUseTopic(user)

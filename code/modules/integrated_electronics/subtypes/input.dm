@@ -663,7 +663,7 @@
 	else
 		O.push_data()
 		activate_pin(3)
-
+/*
 /obj/item/integrated_circuit/input/signaler
 	name = "integrated signaler"
 	desc = "Signals from a signaler can be received with this, allowing for remote control. It can also send signals."
@@ -753,7 +753,150 @@
 //This only procs when a signal is valid.
 /obj/item/integrated_circuit/input/signaler/proc/treat_signal(var/datum/signal/signal)
 	activate_pin(3)
+*/
+/obj/item/integrated_circuit/input/signaler
+	name = "integrated signaler"
+	desc = "Signals from a signaler can be received with this, allowing for remote control.  Additionally, it can send signals as well."
+	extended_desc = "When a signal is received from another signaler, the 'on signal received' activator pin will be pulsed.  \
+	The two input pins are to configure the integrated signaler's settings.  Note that the frequency should not have a decimal in it.  \
+	Meaning the default frequency is expressed as 1457, not 145.7.  To send a signal, pulse the 'send signal' activator pin."
+	icon_state = "signal"
+	complexity = 4
+	inputs = list("frequency" = IC_PINTYPE_NUMBER,"code" = IC_PINTYPE_NUMBER)
+	outputs = list()
+	activators = list(
+		"send signal" = IC_PINTYPE_PULSE_IN,
+		"on signal sent" = IC_PINTYPE_PULSE_OUT,
+		"on signal received" = IC_PINTYPE_PULSE_OUT)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_MAGNET = 2)
+	power_draw_idle = 5
+	power_draw_per_use = 40
 
+	var/frequency = 1457
+	var/code = 30
+	var/datum/radio_frequency/radio_connection
+
+/obj/item/integrated_circuit/input/signaler/Initialize()
+	. = ..()
+	set_frequency(frequency)
+	// Set the pins so when someone sees them, they won't show as null
+	set_pin_data(IC_INPUT, 1, frequency)
+	set_pin_data(IC_INPUT, 2, code)
+	push_data()
+
+/obj/item/integrated_circuit/input/signaler/Destroy()
+	if(radio_controller)
+		radio_controller.remove_object(src,frequency)
+	frequency = 0
+	. = ..()
+
+/obj/item/integrated_circuit/input/signaler/on_data_written()
+	var/new_freq = get_pin_data(IC_INPUT, 1)
+	var/new_code = get_pin_data(IC_INPUT, 2)
+	if(isnum(new_freq) && new_freq > 0)
+		set_frequency(new_freq)
+	if(isnum(new_code))
+		code = new_code
+
+
+/obj/item/integrated_circuit/input/signaler/do_work() // Sends a signal.
+	if(!radio_connection)
+		return
+
+	var/datum/signal/signal = new()
+	signal.source = src
+	signal.encryption = code
+	signal.data["message"] = "ACTIVATE"
+	radio_connection.post_signal(src, signal)
+	activate_pin(2)
+
+/obj/item/integrated_circuit/input/signaler/proc/set_frequency(new_frequency)
+	if(!frequency)
+		return
+	if(!radio_controller)
+		sleep(20)
+	if(!radio_controller)
+		return
+	radio_controller.remove_object(src, frequency)
+	frequency = new_frequency
+	radio_connection = radio_controller.add_object(src, frequency, RADIO_CHAT)
+
+/obj/item/integrated_circuit/input/signaler/receive_signal(datum/signal/signal)
+	var/new_code = get_pin_data(IC_INPUT, 2)
+	var/code = 0
+
+	if(isnum(new_code))
+		code = new_code
+	if(!signal)
+		return 0
+	if(signal.encryption != code)
+		return 0
+	if(signal.source == src) // Don't trigger ourselves.
+		return 0
+
+	activate_pin(3)
+
+	if(loc)
+		for(var/mob/O in hearers(1, get_turf(src)))
+			O.show_message("[bicon(src)] *beep* *beep*", 3, "*beep* *beep*", 2)
+
+/obj/item/integrated_circuit/input/EPv2
+	name = "\improper EPv2 circuit"
+	desc = "Enables the sending and receiving of messages on the Exonet with the EPv2 protocol."
+	extended_desc = "An EPv2 address is a string with the format of XXXX:XXXX:XXXX:XXXX.  Data can be send or received using the \
+	second pin on each side, with additonal data reserved for the third pin.  When a message is received, the second activaiton pin \
+	will pulse whatever's connected to it.  Pulsing the first activation pin will send a message.\
+	\
+	When messaging Communicators, you must set data to send to the string `text` to avoid errors in reception."
+	icon_state = "signal"
+	complexity = 4
+	inputs = list(
+		"target EPv2 address"	= IC_PINTYPE_STRING,
+		"data to send"			= IC_PINTYPE_STRING,
+		"secondary text"		= IC_PINTYPE_STRING
+		)
+	outputs = list(
+		"address received"			= IC_PINTYPE_STRING,
+		"data received"				= IC_PINTYPE_STRING,
+		"secondary text received"	= IC_PINTYPE_STRING
+		)
+	activators = list("send data" = IC_PINTYPE_PULSE_IN, "on data received" = IC_PINTYPE_PULSE_OUT)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_MAGNET = 2, TECH_BLUESPACE = 2)
+	power_draw_per_use = 50
+	var/datum/exonet_protocol/exonet = null
+
+/obj/item/integrated_circuit/input/EPv2/New()
+	..()
+	exonet = new(src)
+	exonet.make_address("EPv2_circuit-\ref[src]")
+	desc += "<br>This circuit's EPv2 address is: [exonet.address]"
+
+/obj/item/integrated_circuit/input/EPv2/Destroy()
+	if(exonet)
+		exonet.remove_address()
+		qdel(exonet)
+		exonet = null
+	return ..()
+
+/obj/item/integrated_circuit/input/EPv2/do_work()
+	var/target_address = get_pin_data(IC_INPUT, 1)
+	var/message = get_pin_data(IC_INPUT, 2)
+	var/text = get_pin_data(IC_INPUT, 3)
+
+	if(target_address && istext(target_address))
+		exonet.send_message(target_address, message, text)
+
+/obj/item/integrated_circuit/input/receive_exonet_message(var/atom/origin_atom, var/origin_address, var/message, var/text)
+	set_pin_data(IC_OUTPUT, 1, origin_address)
+	set_pin_data(IC_OUTPUT, 2, message)
+	set_pin_data(IC_OUTPUT, 3, text)
+
+	push_data()
+	activate_pin(2)
+
+/*
 /obj/item/integrated_circuit/input/signaler/advanced
 	name = "advanced integrated signaler"
 	icon_state = "signal_advanced"
@@ -788,6 +931,9 @@
 	set_pin_data(IC_OUTPUT,1,signal.data["command"])
 	push_data()
 	..()
+*/
+
+//doesn't actually work for some reason :/
 
 /obj/item/integrated_circuit/input/teleporter_locator
 	name = "teleporter locator"
@@ -849,7 +995,7 @@
 
 	push_data()
 	activate_pin(2)
-
+/*
 /obj/item/integrated_circuit/input/microphone
 	name = "microphone"
 	desc = "Useful for spying on people, or for voice-activated machines."
@@ -889,6 +1035,121 @@
 	activate_pin(1)
 	if(speaking && translated && !(speaking.name == LANGUAGE_GALCOM))
 		activate_pin(2)
+*/
+
+/obj/item/integrated_circuit/input/microphone
+	name = "microphone"
+	desc = "Useful for spying on people or for voice activated machines."
+	extended_desc = "This will automatically translate most languages it hears to Galactic Common.  \
+	The first activation pin is always pulsed when the circuit hears someone talk, while the second one \
+	is only triggered if it hears someone speaking a language other than Galactic Common."
+	icon_state = "recorder"
+	complexity = 8
+	inputs = list()
+	outputs = list(
+	"speaker" = IC_PINTYPE_STRING,
+	"message" = IC_PINTYPE_STRING
+	)
+	activators = list("on message received" = IC_PINTYPE_PULSE_OUT, "on translation" = IC_PINTYPE_PULSE_OUT)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	power_draw_per_use = 15
+
+/obj/item/integrated_circuit/input/microphone/New()
+	..()
+	listening_objects |= src
+
+/obj/item/integrated_circuit/input/microphone/Destroy()
+	listening_objects -= src
+	return ..()
+
+/obj/item/integrated_circuit/input/microphone/hear_talk(mob/M, list/message_pieces, verb)
+	var/msg = multilingual_to_message(message_pieces, requires_machine_understands = TRUE)
+
+	var/translated = FALSE
+	if(M && msg)
+		for(var/datum/multilingual_say_piece/S in message_pieces)
+			// S.speaking && here is not redundant, it's preventing `S.speaking = null` from flagging
+			// as a translation, when it is not.
+			if(S.speaking && !istype(S.speaking, /datum/language/common))
+				translated = TRUE
+		set_pin_data(IC_OUTPUT, 1, M.GetVoice())
+		set_pin_data(IC_OUTPUT, 2, msg)
+
+	push_data()
+	activate_pin(1)
+	if(translated)
+		activate_pin(2)
+
+/obj/item/integrated_circuit/input/microphone/sign
+	name = "sign-language translator"
+	desc = "Useful for spying on people or for sign activated machines."
+	extended_desc = "This will automatically translate galactic standard sign language it sees to Galactic Common.  \
+	The first activation pin is always pulsed when the circuit sees someone speak sign, while the second one \
+	is only triggered if it sees someone speaking a language other than sign language, which it will attempt to \
+	lip-read."
+	icon_state = "video_camera"
+	complexity = 12
+	inputs = list()
+	outputs = list(
+	"speaker" = IC_PINTYPE_STRING,
+	"message" = IC_PINTYPE_STRING
+	)
+	activators = list("on message received" = IC_PINTYPE_PULSE_OUT, "on translation" = IC_PINTYPE_PULSE_OUT)
+	spawn_flags = IC_SPAWN_RESEARCH
+	power_draw_per_use = 30
+
+	var/list/my_langs = list()
+	var/list/readable_langs = list(
+		LANGUAGE_GALCOM,
+		LANGUAGE_SOL_COMMON,
+		LANGUAGE_TRADEBAND,
+		LANGUAGE_GUTTER,
+		LANGUAGE_TERMINUS,
+		LANGUAGE_SIGN
+		)
+
+/obj/item/integrated_circuit/input/microphone/sign/Initialize()
+	..()
+	for(var/lang in readable_langs)
+		var/datum/language/newlang = GLOB.all_languages[lang]
+		my_langs |= newlang
+
+/obj/item/integrated_circuit/input/microphone/sign/hear_talk(mob/M, list/message_pieces, verb)
+	var/msg = multilingual_to_message(message_pieces)
+
+	var/translated = FALSE
+	if(M && msg)
+		for(var/datum/multilingual_say_piece/S in message_pieces)
+			if(S.speaking)
+				if(!((S.speaking.flags & NONVERBAL) || (S.speaking.flags & SIGNLANG)))
+					translated = TRUE
+					msg = stars(msg)
+					break
+		set_pin_data(IC_OUTPUT, 1, M.GetVoice())
+		set_pin_data(IC_OUTPUT, 2, msg)
+
+	push_data()
+	if(!translated)
+		activate_pin(1)
+	else
+		activate_pin(2)
+
+/obj/item/integrated_circuit/input/microphone/sign/hear_signlang(text, verb, datum/language/speaking, mob/M as mob)
+	var/translated = FALSE
+	if(M && text)
+		if(speaking)
+			if(!((speaking.flags & NONVERBAL) || (speaking.flags & SIGNLANG)))
+				translated = TRUE
+				text = speaking.scramble(text, my_langs)
+		set_pin_data(IC_OUTPUT, 1, M.GetVoice())
+		set_pin_data(IC_OUTPUT, 2, text)
+
+	push_data()
+	if(!translated)
+		activate_pin(1)
+	else
+		activate_pin(2)
+
 
 /obj/item/integrated_circuit/input/sensor
 	name = "sensor"
@@ -1194,3 +1455,182 @@
 	else
 		return FALSE
 	return TRUE
+
+/obj/item/integrated_circuit/input/pressure_sensor
+	name = "integrated pressure sensor"
+	desc = "A tiny pressure sensor module similar to that found in a PDA atmosphere analyser."
+	icon_state = "medscan_adv"
+	complexity = 3
+	inputs = list()
+	outputs = list(
+		"pressure"       = IC_PINTYPE_NUMBER
+	)
+	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
+	spawn_flags = IC_SPAWN_RESEARCH
+	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
+	power_draw_per_use = 20
+
+/obj/item/integrated_circuit/input/pressure_sensor/do_work()
+	var/turf/T = get_turf(src)
+	if(!istype(T)) //Invalid input
+		return
+	var/datum/gas_mixture/environment = T.return_air()
+
+	var/pressure = environment.return_pressure()
+	var/total_moles = environment.total_moles
+
+	if (total_moles)
+		set_pin_data(IC_OUTPUT, 1, pressure)
+	else
+		set_pin_data(IC_OUTPUT, 1, 0)
+	push_data()
+	activate_pin(2)
+
+/obj/item/integrated_circuit/input/temperature_sensor
+	name = "integrated temperature sensor"
+	desc = "A tiny temperature sensor module similar to that found in a PDA atmosphere analyser."
+	icon_state = "medscan_adv"
+	complexity = 3
+	inputs = list()
+	outputs = list(
+		"temperature"       = IC_PINTYPE_NUMBER
+	)
+	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
+	spawn_flags = IC_SPAWN_RESEARCH
+	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
+	power_draw_per_use = 20
+
+/obj/item/integrated_circuit/input/temperature_sensor/do_work()
+	var/turf/T = get_turf(src)
+	if(!istype(T)) //Invalid input
+		return
+	var/datum/gas_mixture/environment = T.return_air()
+
+	var/total_moles = environment.total_moles
+
+	if (total_moles)
+		set_pin_data(IC_OUTPUT, 1, round(environment.temperature-T0C,0.1))
+	else
+		set_pin_data(IC_OUTPUT, 1, -273.15)
+	push_data()
+	activate_pin(2)
+
+/obj/item/integrated_circuit/input/oxygen_sensor
+	name = "integrated oxygen sensor"
+	desc = "A tiny oxygen sensor module similar to that found in a PDA atmosphere analyser."
+	icon_state = "medscan_adv"
+	complexity = 3
+	inputs = list()
+	outputs = list(
+		"oxygen"       = IC_PINTYPE_NUMBER
+	)
+	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
+	spawn_flags = IC_SPAWN_RESEARCH
+	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
+	power_draw_per_use = 20
+
+/obj/item/integrated_circuit/input/oxygen_sensor/do_work()
+	var/turf/T = get_turf(src)
+	if(!istype(T)) //Invalid input
+		return
+	var/datum/gas_mixture/environment = T.return_air()
+
+	var/total_moles = environment.total_moles
+
+	if (total_moles)
+		var/o2_level = environment.gas["oxygen"]/total_moles
+		set_pin_data(IC_OUTPUT, 1, round(o2_level*100,0.1))
+	else
+		set_pin_data(IC_OUTPUT, 1, 0)
+	push_data()
+	activate_pin(2)
+
+/obj/item/integrated_circuit/input/co2_sensor
+	name = "integrated co2 sensor"
+	desc = "A tiny carbon dioxide sensor module similar to that found in a PDA atmosphere analyser."
+	icon_state = "medscan_adv"
+	complexity = 3
+	inputs = list()
+	outputs = list(
+		"co2"       = IC_PINTYPE_NUMBER
+	)
+	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
+	spawn_flags = IC_SPAWN_RESEARCH
+	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
+	power_draw_per_use = 20
+
+/obj/item/integrated_circuit/input/co2_sensor/do_work()
+	var/turf/T = get_turf(src)
+	if(!istype(T)) //Invalid input
+		return
+	var/datum/gas_mixture/environment = T.return_air()
+
+	var/total_moles = environment.total_moles
+
+	if (total_moles)
+		var/co2_level = environment.gas["carbon_dioxide"]/total_moles
+		set_pin_data(IC_OUTPUT, 1, round(co2_level*100,0.1))
+	else
+		set_pin_data(IC_OUTPUT, 1, 0)
+	push_data()
+	activate_pin(2)
+
+/obj/item/integrated_circuit/input/nitrogen_sensor
+	name = "integrated nitrogen sensor"
+	desc = "A tiny nitrogen sensor module similar to that found in a PDA atmosphere analyser."
+	icon_state = "medscan_adv"
+	complexity = 3
+	inputs = list()
+	outputs = list(
+		"nitrogen"       = IC_PINTYPE_NUMBER
+	)
+	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
+	spawn_flags = IC_SPAWN_RESEARCH
+	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
+	power_draw_per_use = 20
+
+/obj/item/integrated_circuit/input/nitrogen_sensor/do_work()
+	var/turf/T = get_turf(src)
+	if(!istype(T)) //Invalid input
+		return
+	var/datum/gas_mixture/environment = T.return_air()
+
+	var/total_moles = environment.total_moles
+
+	if (total_moles)
+		var/n2_level = environment.gas["nitrogen"]/total_moles
+		set_pin_data(IC_OUTPUT, 1, round(n2_level*100,0.1))
+	else
+		set_pin_data(IC_OUTPUT, 1, 0)
+	push_data()
+	activate_pin(2)
+
+/obj/item/integrated_circuit/input/phoron_sensor
+	name = "integrated phoron sensor"
+	desc = "A tiny phoron gas sensor module similar to that found in a PDA atmosphere analyser."
+	icon_state = "medscan_adv"
+	complexity = 3
+	inputs = list()
+	outputs = list(
+		"phoron"       = IC_PINTYPE_NUMBER
+	)
+	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
+	spawn_flags = IC_SPAWN_RESEARCH
+	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
+	power_draw_per_use = 20
+
+/obj/item/integrated_circuit/input/phoron_sensor/do_work()
+	var/turf/T = get_turf(src)
+	if(!istype(T)) //Invalid input
+		return
+	var/datum/gas_mixture/environment = T.return_air()
+
+	var/total_moles = environment.total_moles
+
+	if (total_moles)
+		var/phoron_level = environment.gas["phoron"]/total_moles
+		set_pin_data(IC_OUTPUT, 1, round(phoron_level*100,0.1))
+	else
+		set_pin_data(IC_OUTPUT, 1, 0)
+	push_data()
+	activate_pin(2)
