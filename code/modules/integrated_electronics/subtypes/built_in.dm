@@ -1,3 +1,4 @@
+/*
 /obj/item/integrated_circuit/built_in
 	name = "integrated circuit"
 	desc = "It's a tiny chip!  This one doesn't seem to do much, however."
@@ -37,3 +38,5 @@
 
 /obj/item/integrated_circuit/built_in/action_button/do_work()
 	activate_pin(1)
+
+*/

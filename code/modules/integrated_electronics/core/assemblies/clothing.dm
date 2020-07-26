@@ -1,3 +1,4 @@
+/*
 
 // The base subtype for assemblies that can be worn. Certain pieces will have more or less capabilities
 // E.g. Glasses have less room than something worn over the chest.
@@ -179,3 +180,4 @@
 /obj/item/clothing/suit/circuitry/Initialize()
 	setup_integrated_circuit(/obj/item/device/electronic_assembly/clothing/large)
 	return ..()
+*/
