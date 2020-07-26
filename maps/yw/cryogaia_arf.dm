@@ -22,6 +22,7 @@
 		#include "arfs/cryogaia-03-transit.dmm" //transit level
 		#include "arfs/cryogaia-04-maintenance.dmm" //lowerlevel
 		#include "arfs/cryogaia-05-main.dmm" //main level
+		#include "arfs/cryogaia-06-upper.dmm" //upper level
 
 		#include "residential/residential_arf.dmm" //residential level
 	#endif
