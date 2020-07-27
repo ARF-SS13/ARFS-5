@@ -397,23 +397,3 @@
 
 /atom/proc/create_reagents(var/max_vol)
 	reagents = new/datum/reagents(max_vol, src)
-
-//bayadd
-
-/datum/reagents/proc/trans_type_to(var/atom/target, var/type, var/amount = 1, var/multiplier = 1)
-	if (!target || !target.reagents || !target.simulated)
-		return
-
-	amount = min(amount, get_reagent_amount(type))
-
-	if(!amount)
-		return
-
-	var/datum/reagents/F = new /datum/reagents(amount, /*GLOB.temp_reagents_holder*/)
-	var/tmpdata = get_data(type)
-	F.add_reagent(type, amount, tmpdata)
-	remove_reagent(type, amount)
-
-	. = F.trans_to(target, amount, multiplier) // Let this proc check the atom's type
-
-	qdel(F)
