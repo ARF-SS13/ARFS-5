@@ -52,7 +52,7 @@
 
 /datum/supply_pack/sci/integrated_circuit_printer_upgrade
 	name = "Integrated circuit printer upgrade - advanced designs"
-	contains = list(/obj/item/disk/integrated_circuit/upgrade/advanced)
+	contains = list(/obj/item/disk/integrated_circuit/upgrade/advanced) //arfs edit, bay circuitry
 	cost = 30
 	containertype = /obj/structure/closet/crate
 	containername = "Integrated circuit crate"

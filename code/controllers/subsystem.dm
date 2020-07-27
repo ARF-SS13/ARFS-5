@@ -32,7 +32,6 @@
 
 	var/static/list/failure_strikes //How many times we suspect a subsystem type has crashed the MC, 3 strikes and you're out!
 
-//bayadd start
 //Do not override
 ///datum/controller/subsystem/New()
 
@@ -217,6 +216,7 @@
 /datum/controller/subsystem/proc/wake()
 	can_fire = TRUE
 
+//bayadd
 /datum/controller/subsystem/proc/enable()
 	if (!can_fire)
 		next_fire = world.time + wait
