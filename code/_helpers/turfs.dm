@@ -179,6 +179,7 @@
 	return TRUE
 
 //bayadd
+//removed will fix when teleporter is fix
 /*
 /proc/get_random_turf_in_range(var/atom/origin, var/outer_range, var/inner_range)
 	origin = get_turf(origin)

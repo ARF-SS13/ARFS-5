@@ -1,3 +1,5 @@
+//This is from bay due to circuitry
+
 #define isWrench(A)      (A && A.iswrench())
 #define isWelder(A)      (A && A.iswelder())
 #define isCoil(A)        (A && A.iscoil())

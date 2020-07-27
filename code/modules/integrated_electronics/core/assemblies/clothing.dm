@@ -1,4 +1,4 @@
-/*
+
 // The base subtype for assemblies that can be worn. Certain pieces will have more or less capabilities
 // E.g. Glasses have less room than something worn over the chest.
 // Note that the electronic assembly is INSIDE the object that actually gets worn, in a similar way to implants.
@@ -8,7 +8,7 @@
 	icon_state = "circuitry" // Needs to match the clothing's base icon_state.
 	desc = "It's a case, for building machines attached to clothing."
 	w_class = ITEMSIZE_SMALL
-	max_components = IC_MAX_SIZE_BASE
+	max_components = IC_COMPONENTS_BASE
 	max_complexity = IC_COMPLEXITY_BASE
 	var/obj/item/clothing/clothing = null
 
@@ -25,13 +25,13 @@
 
 // This is 'small' relative to the size of regular clothing assemblies.
 /obj/item/device/electronic_assembly/clothing/small
-	max_components = IC_MAX_SIZE_BASE / 2
+	max_components = IC_COMPONENTS_BASE / 2
 	max_complexity = IC_COMPLEXITY_BASE / 2
 	w_class = ITEMSIZE_TINY
 
 // Ditto.
 /obj/item/device/electronic_assembly/clothing/large
-	max_components = IC_MAX_SIZE_BASE * 2
+	max_components = IC_COMPONENTS_BASE * 2
 	max_complexity = IC_COMPLEXITY_BASE * 2
 	w_class = ITEMSIZE_NORMAL
 
@@ -179,4 +179,3 @@
 /obj/item/clothing/suit/circuitry/Initialize()
 	setup_integrated_circuit(/obj/item/device/electronic_assembly/clothing/large)
 	return ..()
-*/

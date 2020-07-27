@@ -3,13 +3,15 @@
 	name = "string pin"
 
 /datum/integrated_io/string/ask_for_pin_data(mob/user)
-	var/new_data = input(user, "Please type in a string.", "[src] string writing")
-	new_data = sanitize(new_data)
-	if(holder.check_interactivity(user) )
-		to_chat(user, "<span class='notice'>You input [new_data ? "[new_data]" : "NULL"] into the pin.</span>")
+	var/new_data = input("Please type in a string.","[src] string writing") as null|text
+	new_data = sanitizeSafe(new_data, MAX_MESSAGE_LEN, 0, 0)
+
+	if(new_data && holder.check_interactivity(user) )
+		to_chat(user, "<span class='notice'>You input [new_data ? "new_data" : "NULL"] into the pin.</span>")
 		write_data_to_pin(new_data)
 
 /datum/integrated_io/string/write_data_to_pin(var/new_data)
+	new_data = sanitizeSafe(new_data, MAX_MESSAGE_LEN, 0, 0)
 	if(isnull(new_data) || istext(new_data))
 		data = new_data
 		holder.on_data_written()
@@ -18,10 +20,12 @@
 /datum/integrated_io/string/scramble()
 	if(!is_valid())
 		return
-	var/list/options = list("!","@","#","$","%","^","&","*","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+	var/string_length = length(data)
+	var/list/options = list("!","@","#","$","%","^","&","*") + alphabet_uppercase
 	var/new_data = ""
-	for(var/i in 1 to length(data))
+	while(string_length)
 		new_data += pick(options)
+		string_length--
 	push_data()
 
 /datum/integrated_io/string/display_pin_type()

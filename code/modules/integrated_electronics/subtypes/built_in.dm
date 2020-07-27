@@ -1,4 +1,3 @@
-
 /obj/item/integrated_circuit/built_in
 	name = "integrated circuit"
 	desc = "It's a tiny chip!  This one doesn't seem to do much, however."
@@ -16,7 +15,7 @@
 
 /obj/item/integrated_circuit/built_in/device_input/do_work()
 	activate_pin(1)
-/*
+
 /obj/item/integrated_circuit/built_in/device_output
 	name = "assembly out"
 	desc = "A built in chip for pulsing attached assembly items."
@@ -27,7 +26,7 @@
 	if(istype(assembly, /obj/item/device/electronic_assembly/device))
 		var/obj/item/device/electronic_assembly/device/device = assembly
 		device.holder.pulse()
-*/
+
 // Triggered when clothing assembly's hud button is clicked (or used inhand).
 /obj/item/integrated_circuit/built_in/action_button
 	name = "external trigger circuit"
@@ -38,4 +37,3 @@
 
 /obj/item/integrated_circuit/built_in/action_button/do_work()
 	activate_pin(1)
-
