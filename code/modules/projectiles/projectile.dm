@@ -813,7 +813,7 @@
 			volume = 5
 		playsound(A, hitsound_wall, volume, 1, -1)
 
-//bayadd
+//bayadd arf
 #define SEGMENT_DELETION_DELAY 5
 
 /obj/item/projectile/proc/launch(atom/target, var/target_zone, var/x_offset=0, var/y_offset=0, var/angle_offset=0)

@@ -109,4 +109,4 @@
 	build_path = /obj/item/weapon/implant/integrated_circuit
 	sort_string = "UDAAF"
 */
-//turned it off
+//turned it off, arfs
