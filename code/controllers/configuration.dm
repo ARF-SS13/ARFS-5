@@ -127,9 +127,7 @@ var/list/gamemode_cache = list()
 	var/static/githuburl
 	var/static/rulesurl
 	var/static/mapurl
-//bayadd
-	var/allow_ic_printing = TRUE //Whether players should be allowed to print IC circuits from scripts.
-//bayadd end
+
 	//Alert level description
 	var/static/alert_desc_green = "All threats to the station have passed. Security may not have weapons visible, privacy laws are once again fully enforced."
 	var/static/alert_desc_yellow_upto = "A minor security emergency has developed. Security personnel are to report to their supervisor for orders and may have weapons visible on their person. Privacy laws are still enforced."

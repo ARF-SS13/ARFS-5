@@ -1,5 +1,5 @@
 // This SS manages circuit components; there is another SS that handles power use and init.
-//From bay!
+//From bay! Arfs
 
 SUBSYSTEM_DEF(circuit_components)
 	name = "Circuit Components"

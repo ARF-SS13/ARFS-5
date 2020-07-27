@@ -36,11 +36,6 @@
 	}\
 }
 
-//ported from bay
-/datum/controller/subsystem/proc/disable()
-	can_fire = FALSE
-//endport
-
 // SS runlevels
 
 #define RUNLEVEL_INIT 0			// "Initialize Only" - Used for subsystems that should never be fired (Should also have SS_NO_FIRE set)
