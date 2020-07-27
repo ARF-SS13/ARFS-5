@@ -10,7 +10,6 @@
 	used for power or data transmission."
 	icon = 'icons/obj/assemblies/electronic_tools.dmi'
 	icon_state = "wirer-wire"
-	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	w_class = ITEMSIZE_SMALL
 	var/datum/integrated_io/selected_io = null
 	var/mode = WIRE

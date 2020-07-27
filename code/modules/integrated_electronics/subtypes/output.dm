@@ -243,7 +243,7 @@
 		)
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 1)
-
+/*
 /obj/item/integrated_circuit/output/text_to_speech
 	name = "text-to-speech circuit"
 	desc = "Takes any string as an input and will make the device say the string when pulsed."
@@ -267,7 +267,26 @@
 			log_say("[assembly] \ref[assembly] : [sanitized_text]")
 		else
 			log_say("[name] ([type]) : [sanitized_text]")
+*/
 
+/obj/item/integrated_circuit/output/text_to_speech
+	name = "text-to-speech circuit"
+	desc = "A miniature speaker is attached to this component. It is able to transpose any valid text to speech."
+	extended_desc = "This will emit an audible message to anyone who can hear the assembly."
+	icon_state = "speaker"
+	complexity = 12
+	cooldown_per_use = 4 SECONDS
+	inputs = list("text" = IC_PINTYPE_STRING)
+	outputs = list()
+	activators = list("to speech" = IC_PINTYPE_PULSE_IN)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	power_draw_per_use = 60
+
+/obj/item/integrated_circuit/output/text_to_speech/do_work()
+	text = get_pin_data(IC_INPUT, 1)
+	if(!isnull(text))
+		var/obj/O = assembly ? loc : assembly
+		audible_message("[bicon(O)] \The [O.name] states, \"[text]\"")
 
 /obj/item/integrated_circuit/output/text_to_speech/advanced
 	name = "advanced text-to-speech circuit"

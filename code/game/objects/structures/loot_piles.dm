@@ -398,7 +398,7 @@ Loot piles can be depleted, if loot_depleted is turned on.  Note that players wh
 		/obj/item/weapon/smes_coil/super_capacity,
 		/obj/item/weapon/smes_coil/super_io,
 		/obj/item/weapon/cartridge/captain,
-//		/obj/item/weapon/disk/integrated_circuit/upgrade/advanced,
+		/obj/item/disk/integrated_circuit/upgrade/advanced,
 		/obj/item/device/tvcamera,
 		/obj/item/device/universal_translator,
 		/obj/item/device/aicard,

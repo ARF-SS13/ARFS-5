@@ -46,6 +46,7 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define PASSBLOB				(1<<3)
 #define PASSMOB					(1<<4)
 //bay add
+/*
 #define ITEM_FLAG_NO_BLUDGEON            0x0001 // When an item has this it produces no "X has been hit by Y with Z" message with the default handler.
 
 #define OBJ_FLAG_CONDUCTIBLE             0x0002 // Conducts electricity. (metal etc.)
@@ -57,3 +58,4 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define ATOM_FLAG_OPEN_CONTAINER         0x0010 // Is an open container for chemistry purposes.
 #define ATOM_FLAG_INITIALIZED            0x0020 // Has this atom been initialized
 #define ATOM_FLAG_NO_TEMP_CHANGE         0x0040 // Reagents do not cool or heat to ambient temperature in this container.
+*/

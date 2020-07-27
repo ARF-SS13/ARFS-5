@@ -3,7 +3,6 @@
 	desc = "This tool can scan an assembly and generate code necessary to recreate it in a circuit printer."
 	icon = 'icons/obj/assemblies/electronic_tools.dmi'
 	icon_state = "analyzer"
-	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	w_class = ITEMSIZE_SMALL
 	matter = list(MATERIAL_ALUMINIUM = 1500, MATERIAL_STEEL = 1000, MATERIAL_GLASS = 500, MATERIAL_PLASTIC = 500)
 

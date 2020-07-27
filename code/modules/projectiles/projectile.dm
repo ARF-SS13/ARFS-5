@@ -835,7 +835,7 @@
 
 /obj/item/projectile/proc/finalize_launch(var/turf/curloc, var/turf/targloc, var/x_offset, var/y_offset, var/angle_offset)
 	setup_trajectory(curloc, targloc, x_offset, y_offset, angle_offset) //plot the initial trajectory
-	Process()
+	process()
 	spawn(SEGMENT_DELETION_DELAY) //running this from a proc wasn't working.
 		QDEL_NULL_LIST(segments)
 

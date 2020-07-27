@@ -7,7 +7,6 @@
 	w_class = ITEMSIZE_SMALL
 	icon = 'icons/obj/assemblies/electronic_setups.dmi'
 	icon_state = "setup_small"
-	item_flags = ITEM_FLAG_NO_BLUDGEON
 	matter = list()		// To be filled later
 	var/list/assembly_components = list()
 	var/list/ckeys_allowed_to_scan = list() // Players who built the circuit can scan it as a ghost.
@@ -751,14 +750,6 @@
 				pixel_y = 0
 				M.Turn(90)
 		transform = M
-
-/obj/item/device/electronic_assembly/proc/on_anchored()
-	for(var/obj/item/integrated_circuit/IC in contents)
-		IC.on_anchored()
-
-/obj/item/device/electronic_assembly/proc/on_unanchored()
-	for(var/obj/item/integrated_circuit/IC in contents)
-		IC.on_unanchored()
 
 /obj/item/device/electronic_assembly/proc/resolve_nano_host()
 	return src
