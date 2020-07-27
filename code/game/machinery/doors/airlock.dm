@@ -999,6 +999,13 @@ About the new airlock wires panel:
 
 				qdel(src)
 				return
+		else if(istype(C, /obj/item/weapon/tool/crowbar/power) && arePowerSystemsOn() && !locked)
+			visible_message("<span class='warning'>\The [user] begins prying open \the [src]!</span>")
+			if(do_after(user,5 SECONDS,src))
+				visible_message("<span class='warning'>\The [user] has pried the \the [src] open!</span>")
+				spawn(0)
+					open(1)
+				return ..()
 		else if(arePowerSystemsOn())
 			to_chat(user, "<span class='notice'>The airlock's motors resist your efforts to force it.</span>")
 		else if(locked)
