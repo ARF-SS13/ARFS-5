@@ -250,5 +250,4 @@
 	display_name = "Mansion keys"
 	description = "residential"
 	ckeywhitelist = list("andyman105", "dameonowen", "lukevale", "secondattemps", "thingpony", "hagawaga")
-	character_name = list("Dameon Owen", "Amber Owen", "Jake Owen", "Lilith Owen", "Luna", "Iris Miller", "Brian Owen", "Percy Owen", "Ruby Flare", "Zephyr Sharpe", "Peter Sharpe
-", "Eve", "Ashlyn", "Agalon", "Lana Xavier")
+	character_name = list("Dameon Owen", "Amber Owen", "Jake Owen", "Lilith Owen", "Luna", "Iris Miller", "Brian Owen", "Percy Owen", "Ruby Flare", "Zephyr Sharpe", "Peter Sharpe", "Eve", "Ashlyn", "Agalon", "Lana Xavier")
