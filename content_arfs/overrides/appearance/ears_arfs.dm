@@ -255,7 +255,7 @@
 	name = "raichu head, non-colorable."
 	icon = 'content_arfs/icons/mob/player/ears_arfs.dmi'
 	icon_state = "raichuhead"
-
+/*
 /datum/sprite_accessory/ears/lopunnybody
 	name = "Lopunny body"
 	desc = ""
@@ -263,7 +263,7 @@
 	icon_state = "lopunnybody"
 	do_colouration = 0
 	ckeys_allowed = list("killbow")
-
+*/
 /datum/sprite_accessory/ears/leaf
 	name = "Leaf ears"
 	desc = ""
