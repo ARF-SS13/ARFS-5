@@ -489,7 +489,4 @@
 	for(var/g in gas)
 		. += gas[g] * gas_data.molar_mass[g] * group_multiplier
 
-//bayadd
-/datum/gas_mixture/proc/get_total_moles()
-	return total_moles * group_multiplier
 

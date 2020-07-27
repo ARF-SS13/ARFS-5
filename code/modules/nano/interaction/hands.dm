@@ -1,6 +1,8 @@
 /*
 	This state only checks if user is conscious.
 */
+//From bay!
+
 GLOBAL_DATUM_INIT(hands_state, /datum/topic_state/hands, new)
 
 /datum/topic_state/hands/can_use_topic(src_object, mob/user)

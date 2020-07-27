@@ -19,8 +19,10 @@
 	id = "ic_printer_upgrade_adv"
 	req_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 2000)
-	build_path = /obj/item/disk/integrated_circuit/upgrade/advanced
+	build_path = /obj/item/disk/integrated_circuit/upgrade/advanced //changed path, bay
 	sort_string = "UBAAA"
+
+//Whole new disk!
 
 /datum/design/item/integrated_circuitry/custom_circuit_printer_upgrade_clone
 	name = "Integrated circuit printer upgrade - Fast Cloning"
