@@ -48,4 +48,4 @@
 /obj/item/weapon/implant/integrated_circuit/attack_self(mob/user)
 	IC.attack_self(user)
 */
-//doesn't work.
+//doesn't work. Removed. Arfs.

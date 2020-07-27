@@ -14,7 +14,7 @@
 	path = /obj/item/clothing/ears/circuitry
 
 */
-//Edited, no longer exists for now
+//Edited, no longer exists for now. Arfs.
 /datum/gear/ears/earrings
 	display_name = "earring selection"
 	description = "A selection of eye-catching earrings."

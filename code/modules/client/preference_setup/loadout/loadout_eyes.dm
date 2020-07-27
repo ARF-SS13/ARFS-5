@@ -126,7 +126,7 @@
 	display_name = "goggles, circuitry (empty)"
 	path = /obj/item/clothing/glasses/circuitry
 */
-//edited, doesn't exist for now
+//edited, doesn't exist for now. Arfs.
 /datum/gear/eyes/glasses/rimless
 	display_name = "Glasses, rimless"
 	path = /obj/item/clothing/glasses/rimless

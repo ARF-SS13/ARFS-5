@@ -685,4 +685,3 @@ var/global/image/backplane
 		return
 
 	item.screen_loc = screen_place
-

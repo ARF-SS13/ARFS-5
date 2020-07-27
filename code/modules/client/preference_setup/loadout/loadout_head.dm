@@ -360,7 +360,7 @@
 	display_name = "headwear, circuitry (empty)"
 	path = /obj/item/clothing/head/circuitry
 */
-//no longer existo
+//no longer existo. Arfs
 /datum/gear/head/maangtikka
 	display_name = "maang tikka"
 	path = /obj/item/clothing/head/maangtikka

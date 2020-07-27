@@ -142,6 +142,7 @@
 		/obj/item/clothing/suit/circuitry,
 		/obj/item/weapon/implant/integrated_circuit,
 		*/
+		//arfs removed
 		/obj/item/integrated_circuit
 
 		)

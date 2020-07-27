@@ -1,7 +1,7 @@
 /*
 	This state only checks if user is conscious.
 */
-//From bay!
+//From bay! Arfs
 
 GLOBAL_DATUM_INIT(hands_state, /datum/topic_state/hands, new)
 

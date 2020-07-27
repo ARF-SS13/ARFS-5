@@ -13,9 +13,10 @@
 	hitsound = 'sound/weapons/pierce.ogg'
 	var/hitsound_wall = null // Played when something hits a wall, or anything else that isn't a mob.
 
-	//Bay projectile system
+	//Bay projectile system, ARFS add
 	var/list/segments = list() //For hitscan projectiles with tracers.
 	var/current = null
+	//Bay port end
 	////TG PROJECTILE SYTSEM
 	//Projectile stuff
 	var/range = 50

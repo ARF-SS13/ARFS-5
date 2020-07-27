@@ -50,7 +50,7 @@
 
 	update_icon()
 */
-			//removed this, why is this here anyway.
+			//Removed, ARFS
 	return ..()
 /*
 /obj/item/device/multitool/proc/mode_switch(mob/living/user)
@@ -66,7 +66,7 @@
 
 	return
 */
-//really. WHY is this here. We have a tool for this.
+//Removed, ARFS
 /obj/item/device/multitool/is_multitool()
 	return TRUE
 

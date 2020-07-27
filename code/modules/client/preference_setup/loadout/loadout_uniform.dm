@@ -486,7 +486,7 @@
 	display_name = "jumpsuit, circuitry (empty)"
 	path = /obj/item/clothing/under/circuitry
 */
-//no exist 4 now
+//no exist 4 now. ARfs
 /datum/gear/uniform/sleekoverall
 	display_name = "sleek overalls"
 	path = /obj/item/clothing/under/overalls/sleek
