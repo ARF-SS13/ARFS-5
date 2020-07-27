@@ -65,10 +65,15 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	return
 
 /obj/item/integrated_circuit/proc/check_interactivity(mob/user)
+//	to_chat(world,"circtuit check")
 	if(assembly)
+//		to_chat(world,"circtuit check to assembly")
 		return assembly.check_interactivity(user)
-	else
-		return CanUseTopic(user)
+	else if(!CanInteract(user, physical_state))
+//		to_chat(world,"circtuit check false")
+		return 0
+//	to_chat(world,"circuit check true")
+	return 1
 
 /obj/item/integrated_circuit/Initialize()
 	displayed_name = name

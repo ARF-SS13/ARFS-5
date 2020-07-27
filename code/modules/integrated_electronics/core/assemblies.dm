@@ -76,7 +76,12 @@
 */
 
 /obj/item/device/electronic_assembly/proc/check_interactivity(mob/user)
-	return (!user.incapacitated() && CanUseTopic(user))
+//	to_chat(world,"assembly check")
+	if(!CanInteract(user, physical_state))
+//		to_chat(world,"assembly check false")
+		return 0
+//	to_chat(world,"assembly check true")
+	return 1
 
 /obj/item/device/electronic_assembly/GetAccess()
 	. = list()
@@ -264,6 +269,7 @@
 
 
 	interact(usr) // To refresh the UI.
+	return TOPIC_REFRESH
 
 /obj/item/device/electronic_assembly/proc/rename()
 	var/mob/M = usr
