@@ -3797,6 +3797,7 @@
 #include "content_arfs\code\loadout\custom_items.dm"
 #include "content_arfs\code\loadout\loadout_accessories.dm"
 #include "content_arfs\code\loadout\loadout_general.dm"
+#include "content_arfs\code\machinery\airlock_arfs.dm"
 #include "content_arfs\code\machinery\cryopod_arfs.dm"
 #include "content_arfs\code\machinery\vending.dm"
 #include "content_arfs\code\mob\mobs.dm"
