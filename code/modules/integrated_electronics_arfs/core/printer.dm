@@ -72,7 +72,7 @@
 			to_chat(user, "<span class='warning'>You insert [M.material.display_name] into \the [src].</span>")
 			if(user)
 				attack_self(user) // We're really bad at refreshing the UI, so this is the best we've got.
-	if(istype(O, /obj/item/disk/integrated_circuit/upgrade/advanced))
+	if(istype(O, /obj/item/disk/weapon/integrated_circuit/upgrade/advanced))
 		if(upgraded)
 			to_chat(user, "<span class='warning'>[src] already has this upgrade. </span>")
 			return TRUE
@@ -82,7 +82,7 @@
 			attack_self(user)
 		return TRUE
 
-	if(istype(O, /obj/item/disk/integrated_circuit/upgrade/clone))
+	if(istype(O, /obj/item/weapon/disk/integrated_circuit/upgrade/clone))
 		if(fast_clone)
 			to_chat(user, "<span class='warning'>[src] already has this upgrade. </span>")
 			return TRUE
@@ -338,11 +338,11 @@
 	item_state = "card-id"
 	w_class = ITEMSIZE_SMALL
 
-/obj/item/disk/integrated_circuit/upgrade/advanced
+/obj/item/disk/weapon/integrated_circuit/upgrade/advanced
 	name = "integrated circuit printer upgrade disk - advanced designs"
 	desc = "Install this into your integrated circuit printer to enhance it.  This one adds new, advanced designs to the printer."
 
-/obj/item/disk/integrated_circuit/upgrade/clone
+/obj/item/weapon/disk/integrated_circuit/upgrade/clone
 	name = "integrated circuit printer upgrade disk - instant cloner"
 	desc = "Install this into your integrated circuit printer to enhance it.  This one allows the printer to duplicate assemblies instantaneously."
 	icon_state = "upgrade_disk_clone"

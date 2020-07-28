@@ -19,7 +19,7 @@
 	id = "ic_printer_upgrade_adv"
 	req_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 2000)
-	build_path = /obj/item/disk/integrated_circuit/upgrade/advanced //changed path, bay, arfs
+	build_path = /obj/item/disk/weapon/integrated_circuit/upgrade/advanced //changed path, bay, arfs
 	sort_string = "UBAAA"
 
 //Whole new disk! arfs
@@ -30,7 +30,7 @@
 	id = "ic_printer_upgrade_cln"
 	req_tech = list(TECH_ENGINEERING = 4, TECH_DATA = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 2000)
-	build_path = /obj/item/disk/integrated_circuit/upgrade/clone
+	build_path = /obj/item/weapon/disk/integrated_circuit/upgrade/clone
 	sort_string = "UBBBB"
 
 /datum/design/item/integrated_circuitry/wirer

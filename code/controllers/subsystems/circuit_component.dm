@@ -15,7 +15,7 @@ SUBSYSTEM_DEF(circuit_components)
 
 /datum/controller/subsystem/circuit_components/fire(resumed = FALSE)
 	if(paused_ticks >= 10) // The likeliest fail mode, due to the fast tick rate, is that it can never clear the full queue, running resumed every tick and accumulating a backlog.
-		disable()          // As this SS deals with optional and potentially abusable content, it will autodisable if overtaxing the server.
+		suspend()          // As this SS deals with optional and potentially abusable content, it will autodisable if overtaxing the server.
 		return
 
 	var/list/queued_components = src.queued_components
@@ -45,7 +45,7 @@ SUBSYSTEM_DEF(circuit_components)
 	queued_components.Cut()
 	log_and_message_admins("Circuit component processing has been disabled.")
 
-/datum/controller/subsystem/circuit_components/enable()
+/datum/controller/subsystem/circuit_components/wake()
 	..()
 	log_and_message_admins("Circuit component processing has been enabled.")
 
