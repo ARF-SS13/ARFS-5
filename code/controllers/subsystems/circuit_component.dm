@@ -40,7 +40,7 @@ SUBSYSTEM_DEF(circuit_components)
 			break
 	position = null
 
-/datum/controller/subsystem/circuit_components/disable()
+/datum/controller/subsystem/circuit_components/suspend()
 	..()
 	queued_components.Cut()
 	log_and_message_admins("Circuit component processing has been disabled.")
