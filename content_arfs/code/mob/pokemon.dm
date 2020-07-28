@@ -186,6 +186,8 @@
 			src.max_tox += 199 //can survive in phoron up to 200 moles
 		if(P_TYPE_DARK)
 			src.see_in_dark = 5
+		if(P_TYPE_PSYCH)
+			src.verbs |= /mob/living/simple_mob/animal/passive/pokemon/proc/move_telepathy
 		else
 			return FALSE
 
@@ -227,6 +229,34 @@
 			P.anchored = 0
 	else
 		return
+
+/mob/living/simple_mob/animal/passive/pokemon/proc/move_telepathy()
+	set name = "Telepathy"
+	set desc = "Speak directly to someone you can see, through their mind."
+	set category = "Abilities"
+
+	var/mob/living/simple_mob/animal/passive/pokemon/P = src
+	if(P.stat)
+		to_chat(src, "You can't do that right now!")
+		return
+	var/list/nearby_mobs = list()
+	for(var/mob/living/M in view(P.loc))
+		if(isliving(M) && M != P && M.alpha > EFFECTIVE_INVIS)//Living mobs nearby who aren't cloaked/invisible.
+			nearby_mobs |= M
+	if(!LAZYLEN(nearby_mobs))
+		to_chat(P,"<span class='alien'>You focus on your telepathy, but there's nobody nearby to speak to.</span>")
+		return
+	var/mob/living/T = input(P, "Who would you like to speak telepathically to?", "Choose Target") as null|anything in nearby_mobs
+	if(isnull(T) || !isliving(T))
+		return
+	var/message = sanitize(input(P,"What would you like to say to [T]?", "Telepathic Message") as message|null)
+	if(!message)
+		return
+	if(get_dist(P, T) > world.view)
+		to_chat(P,"<span class='alien'>You focus on your telepathy, but your target has moved too far away for them to hear you.</span>")
+		return
+	visible_message("[P]'s head glows with telepathic energy.", "<span class='alien'><b>You telepathically say to [T]:</b> <i>[message]</i></span>", "<span class='notice'>You hear a quiet humming sound.</span>")
+	to_chat(T,"<span class='alien'><b>You hear [P]'s voice in your head:</b> <i>[message]</i></span>")
 
 //Override to stop attacking while grabbing
 /mob/living/simple_mob/animal/passive/pokemon/UnarmedAttack(var/atom/A, var/proximity)
@@ -601,6 +631,7 @@
 	icon_living = "ninetales"
 	icon_dead = "ninetales_d"
 	p_types = list(P_TYPE_FIRE)
+	additional_moves = list(/mob/living/simple_mob/animal/passive/pokemon/proc/move_telepathy)
 
 /mob/living/simple_mob/animal/passive/pokemon/ponyta
 	name = "ponyta"
@@ -653,7 +684,7 @@
 	icon_state = "magicarp"
 	icon_living = "magicarp"
 	icon_dead = "magicarp_d"
-	movement_cooldown = 4
+	movement_cooldown = 5
 	p_types = list(P_TYPE_WATER)
 	additional_moves = list(/mob/living/proc/hide)
 
