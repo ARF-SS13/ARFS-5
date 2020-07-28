@@ -22,4 +22,4 @@
 	implant.icon_state = icon_state
 
 */
-//This doesn't work, sadly.
+//This doesn't work, sadly. Arfs removal.
