@@ -55,6 +55,25 @@
     reinforced = get_material_by_name("wood")
     ..()
 
+/obj/machinery/alarm/cold/Initialize(mapload)
+	. = ..()
+	TLV["temperature"] = list(233.15, 253.15, 303, 323.15) // K
+	target_temperature = 273.15 //0C
+
+/obj/machinery/power/thermoregulator/zeroc
+	name = "\improper Thermal Regulator - Cold"
+	desc = "A mass produced thermal regulator designed to heat up or cool down the room it's installed in. This one is set to cool the room to 0 Celsius."
+	icon = 'icons/obj/machines/wallthermal.dmi'
+	icon_state = "lasergen"
+	density = 0
+	anchored = 1
+	use_power = 0 //is powered directly from cables
+	active_power_usage = 25 KILOWATTS  //Low Power
+	idle_power_usage = 250
+	target_temp = T0C
+	circuit = null
+
+
 // Spawn points
 
 var/global/list/latejoin_residential = list()
