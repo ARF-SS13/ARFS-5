@@ -999,6 +999,17 @@ About the new airlock wires panel:
 
 				qdel(src)
 				return
+		else if(istype(C, /obj/item/weapon/tool/crowbar/power) && arePowerSystemsOn() && !locked)
+			visible_message("<span class='warning'>\The [user] begins prying open \the [src]!</span>")
+			message_admins("[key_name_admin(user)] is attempting to open [src] with the jaws of life at ([src.x],[src.y],[src.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
+			log_game("[user.ckey]/([user]) is attempting to open [src] with the jaws of life at ([src.x],[src.y],[src.z])")
+			if(do_after(user,5 SECONDS,src))
+				visible_message("<span class='warning'>\The [user] has pried the \the [src] open!</span>")
+				message_admins("[key_name_admin(user)] has opened [src] with the jaws of life at ([src.x],[src.y],[src.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
+				log_game("[user.ckey]/([user]) has opened [src] with the jaws of life at ([src.x],[src.y],[src.z])")
+				spawn(0)
+					open(1)
+				return ..()
 		else if(arePowerSystemsOn())
 			to_chat(user, "<span class='notice'>The airlock's motors resist your efforts to force it.</span>")
 		else if(locked)
