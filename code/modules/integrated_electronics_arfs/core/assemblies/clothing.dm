@@ -1,3 +1,4 @@
+//bugged currently.
 /*
 // The base subtype for assemblies that can be worn. Certain pieces will have more or less capabilities
 // E.g. Glasses have less room than something worn over the chest.

@@ -1,5 +1,6 @@
 // Note that this is contained inside an actual implant subtype.
 // See code/game/objects/items/weapons/implants/implantcircuits.dm for where this gets held.
+//removed due to UI update issues
 /*
 /obj/item/device/electronic_assembly/implant
 	name = "electronic implant"
