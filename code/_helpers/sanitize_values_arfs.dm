@@ -1,4 +1,4 @@
-//from bay
+//from bay. Arfs addition. Sanitizes circuitry input.
 
 /proc/is_valid_index(input, list/given_list)
 	if(!isnum(input))

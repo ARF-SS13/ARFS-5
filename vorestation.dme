@@ -134,7 +134,7 @@
 #include "code\_helpers\text_arfs.dm"
 #include "code\_helpers\text_vr.dm"
 #include "code\_helpers\time.dm"
-#include "code\_helpers\tools.dm"
+#include "code\_helpers\tools_arfs.dm"
 #include "code\_helpers\turfs.dm"
 #include "code\_helpers\type2type.dm"
 #include "code\_helpers\type2type_vr.dm"
