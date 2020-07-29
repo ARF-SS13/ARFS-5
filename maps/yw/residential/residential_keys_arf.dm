@@ -170,6 +170,13 @@
 	ckeywhitelist = list("aruis")
 	character_name = list("Chance", "Sloan Lokhartt")
 
+/datum/gear/fluff/res_key_rm4
+	path = /obj/item/weapon/card/id/residential/rm4
+	display_name = "RM4 keys"
+	description = "residential"
+	ckeywhitelist = list("igni")
+	character_name = list("Sheila Frost", "Jake Frost")
+
 /datum/gear/fluff/res_key_rm5
 	path = /obj/item/weapon/card/id/residential/rm5
 	display_name = "RM5 keys"
@@ -177,19 +184,19 @@
 	ckeywhitelist = list("theamazingdaito")
 	character_name = list("Madalyn Rose", "Kitsuno Harume")
 
-/datum/gear/fluff/res_key_rm10
-	path = /obj/item/weapon/card/id/residential/rm10
-	display_name = "RM10 keys"
-	description = "residential"
-	ckeywhitelist = list("tk420634")
-	character_name = list("Sugar Song")
-
 /datum/gear/fluff/res_key_rm6
 	path = /obj/item/weapon/card/id/residential/rm6
 	display_name = "RM6 keys"
 	description = "residential"
 	ckeywhitelist = list("disguiser")
 	character_name = list("Rak Woodrow")
+
+/datum/gear/fluff/res_key_rm10
+	path = /obj/item/weapon/card/id/residential/rm10
+	display_name = "RM10 keys"
+	description = "residential"
+	ckeywhitelist = list("tk420634")
+	character_name = list("Sugar Song")
 
 // SMALL KEYS
 
@@ -241,3 +248,13 @@
 	description = "residential"
 	ckeywhitelist = list("secondattemps")
 	character_name = list("Alexandria Marlow")
+
+
+//Mansion
+
+/datum/gear/fluff/res_key_mansion
+	path = /obj/item/weapon/card/id/residential/mansion
+	display_name = "Mansion keys"
+	description = "residential"
+	ckeywhitelist = list("andyman105", "dameonowen", "lukevale", "secondattemps", "thingpony", "hagawaga")
+	character_name = list("Dameon Owen", "Amber Owen", "Jake Owen", "Lilith Owen", "Luna", "Iris Miller", "Brian Owen", "Percy Owen", "Ruby Flare", "Zephyr Sharpe", "Peter Sharpe", "Eve", "Ashlyn", "Agalon", "Lana Xavier")
