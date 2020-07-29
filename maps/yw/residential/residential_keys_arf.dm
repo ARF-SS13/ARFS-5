@@ -175,7 +175,7 @@
 	display_name = "RM4 keys"
 	description = "residential"
 	ckeywhitelist = list("igni")
-	character_name = list("Sheila Frost")
+	character_name = list("Sheila Frost", "Jake Frost")
 
 /datum/gear/fluff/res_key_rm5
 	path = /obj/item/weapon/card/id/residential/rm5
