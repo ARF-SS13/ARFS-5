@@ -6,7 +6,7 @@
 	path = /obj/item/weapon/disk/nifsoft/sizechange/andy
 	display_name = "Size Change NIFSoft"
 	description = "A specialized size change NIFSoft"
-	ckeywhitelist = list("andyman105", "dameonowen")
+	ckeywhitelist = list("andyman105", "dameonowen", "lukevale")
 	character_name = null
 
 /datum/gear/fluff/dameon_3
@@ -22,14 +22,3 @@
 	description = "An enhanced GPS device for communicators"
 	ckeywhitelist = list("andyman105", "dameonowen")
 	character_name = null
-
-//L
-
-//Lulevale
-
-/datum/gear/fluff/luna_size
-	path = /obj/item/weapon/disk/nifsoft/sizechange/andy
-	display_name = "Size Change NIFSoft"
-	description = "A specialized size change NIFSoft"
-	ckeywhitelist = list("lukevale")
-	character_name = list("Luna")
