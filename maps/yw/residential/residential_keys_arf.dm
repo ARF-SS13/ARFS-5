@@ -160,8 +160,8 @@
 	path = /obj/item/weapon/card/id/residential/rm2
 	display_name = "RM2 keys"
 	description = "residential"
-	ckeywhitelist = list("lukevale", "cebutris", "gremlingss")
-	character_name = list("Luna", "Elizabeth Nayala", "Abby Gliese")
+	ckeywhitelist = list("lukevale", "cebutris", "gremlingss", "disguiser")
+	character_name = list("Luna", "Elizabeth Nayala", "Abby Gliese", "Rak Woodrow")
 
 /datum/gear/fluff/res_key_rm3
 	path = /obj/item/weapon/card/id/residential/rm3
@@ -188,8 +188,15 @@
 	path = /obj/item/weapon/card/id/residential/rm6
 	display_name = "RM6 keys"
 	description = "residential"
-	ckeywhitelist = list("disguiser")
-	character_name = list("Rak Woodrow")
+	ckeywhitelist = list("disguiser", "lukevale")
+	character_name = list("Rak Woodrow", "Luna")
+
+/datum/gear/fluff/res_key_rm9
+	path = /obj/item/weapon/card/id/residential/rm9
+	display_name = "RM9 keys"
+	description = "residential"
+	ckeywhitelist = list("siorkillbow", "lukevale")
+	character_name = list("Hepsie Mull", "Luna")
 
 /datum/gear/fluff/res_key_rm10
 	path = /obj/item/weapon/card/id/residential/rm10
@@ -225,8 +232,8 @@
 	path = /obj/item/weapon/card/id/residential/rs7
 	display_name = "RS7 keys"
 	description = "residential"
-	ckeywhitelist = list("gremlingss")
-	character_name = list("Kyle Seeger")
+	ckeywhitelist = list("gremlingss", "truedark")
+	character_name = list("Kyle Seeger", "Ssavethas")
 
 /datum/gear/fluff/res_key_rs8
 	path = /obj/item/weapon/card/id/residential/rs8
