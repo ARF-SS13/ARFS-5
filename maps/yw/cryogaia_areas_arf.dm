@@ -580,4 +580,4 @@
 	icon_state = "escape"
 
 /area/crew_quarters/kitchen/dinner
-	name = "\improper Dinner"
+	name = "\improper Diner"
