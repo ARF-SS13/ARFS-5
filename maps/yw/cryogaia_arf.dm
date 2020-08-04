@@ -7,7 +7,7 @@
 	#include "job/outfits_yw.dm"
 	#include "cryogaia_things.dm"
 	#include "tether_phoronlock.dm"
-	#include "cryogaia_areas.dm"
+	#include "cryogaia_areas_arf.dm"
 	#include "cryogaia_shuttle_defs.dm"
 	#include "cryogaia_shuttles.dm"
 	#include "cryogaia_telecomms.dm"
