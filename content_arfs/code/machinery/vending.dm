@@ -634,3 +634,32 @@
 	/mob/living/simple_mob/animal/passive/pokemon/aerodactyl =200,/mob/living/simple_mob/animal/passive/pokemon/lickitung =200,
 	/mob/living/simple_mob/animal/passive/pokemon/cubone =200,/mob/living/simple_mob/animal/passive/pokemon/mewtwo =500,
 	/mob/living/simple_mob/animal/passive/pokemon/snorlax =200)
+
+
+/obj/machinery/vending/bedsheet
+	name = "Bedsheet Selector"
+	desc = "For all your bedsheet needs"
+	icon = 'icons/obj/structures.dmi'
+	icon_state = "linenbin-full"
+	products = list(/obj/item/weapon/bedsheet/blue = 5, /obj/item/weapon/bedsheet/bluedouble =5,
+	/obj/item/weapon/bedsheet/green =5, /obj/item/weapon/bedsheet/greendouble =5,
+	/obj/item/weapon/bedsheet/orange =5, /obj/item/weapon/bedsheet/orangedouble =5,
+	/obj/item/weapon/bedsheet/purple =5, /obj/item/weapon/bedsheet/purpledouble =5,
+	/obj/item/weapon/bedsheet/rainbow =5, /obj/item/weapon/bedsheet/rainbowdouble =5,
+	/obj/item/weapon/bedsheet/red =5, /obj/item/weapon/bedsheet/reddouble =5,
+	/obj/item/weapon/bedsheet/yellow =5, /obj/item/weapon/bedsheet/yellowdouble =5,
+	/obj/item/weapon/bedsheet/mime =5, /obj/item/weapon/bedsheet/mimedouble =5,
+	/obj/item/weapon/bedsheet/clown =5, /obj/item/weapon/bedsheet/clowndouble =5,
+	/obj/item/weapon/bedsheet/captain =5, /obj/item/weapon/bedsheet/captaindouble =5,
+	/obj/item/weapon/bedsheet/rd =5, /obj/item/weapon/bedsheet/rddouble =5,
+	/obj/item/weapon/bedsheet/medical =5,
+	/obj/item/weapon/bedsheet/hos =5, /obj/item/weapon/bedsheet/hosdouble =5,
+	/obj/item/weapon/bedsheet/hop =5, /obj/item/weapon/bedsheet/hopdouble =5,
+	/obj/item/weapon/bedsheet/ce =5, /obj/item/weapon/bedsheet/cedouble =5,
+	/obj/item/weapon/bedsheet/brown =5, /obj/item/weapon/bedsheet/browndouble =5,
+	/obj/item/weapon/bedsheet/ian =5, /obj/item/weapon/bedsheet/iandouble =5,
+	/obj/item/weapon/bedsheet/double =5, /obj/item/weapon/bedsheet/transpride =5,
+	/obj/item/weapon/bedsheet/panpride =5, /obj/item/weapon/bedsheet/nonbinpride =5,
+	/obj/item/weapon/bedsheet/bipride =5, /obj/item/weapon/bedsheet/italianflag =5,
+	/obj/item/weapon/bedsheet/canadaflag =5,/obj/item/weapon/bedsheet/deer =5,
+	/obj/item/weapon/bedsheet/doubledeer =5, /obj/item/weapon/bedsheet/UKflag =5)
