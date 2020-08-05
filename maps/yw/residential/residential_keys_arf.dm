@@ -181,8 +181,8 @@
 	path = /obj/item/weapon/card/id/residential/rm5
 	display_name = "RM5 keys"
 	description = "residential"
-	ckeywhitelist = list("theamazingdaito")
-	character_name = list("Madalyn Rose", "Kitsuno Harume")
+	ckeywhitelist = list("theamazingdaito", "thingpony")
+	character_name = list("Madalyn Rose", "Kitsuno Harume", "Dawn Rani")
 
 /datum/gear/fluff/res_key_rm6
 	path = /obj/item/weapon/card/id/residential/rm6
