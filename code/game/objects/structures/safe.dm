@@ -24,10 +24,12 @@ FLOOR SAFES
 
 /obj/structure/safe/New()
 	tumbler_1_pos = rand(0, 72)
-	tumbler_1_open = rand(0, 72)
+	if(!tumbler_1_open) // if tumbler_1_open is already set
+		tumbler_1_open = rand(0, 72)
 
 	tumbler_2_pos = rand(0, 72)
-	tumbler_2_open = rand(0, 72)
+	if(!tumbler_2_open) // if tumbler_2_open is already set
+		tumbler_2_open = rand(0, 72)
 
 
 /obj/structure/safe/Initialize()

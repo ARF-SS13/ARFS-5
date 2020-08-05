@@ -242,6 +242,13 @@
 	ckeywhitelist = list("gozulio")
 	character_name = list("Eira Glitterpaws", "Jessie Glitterpaws")
 
+/datum/gear/fluff/res_key_rs9
+	path = /obj/item/weapon/card/id/residential/rs9
+	display_name = "RS9 keys"
+	description = "residential"
+	ckeywhitelist = list("0hobojesus")
+	character_name = list("Raigearra GerrTaLa")
+
 /datum/gear/fluff/res_key_rs11
 	path = /obj/item/weapon/card/id/residential/rs11
 	display_name = "RS11 keys"
