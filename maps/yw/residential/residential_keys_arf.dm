@@ -181,8 +181,8 @@
 	path = /obj/item/weapon/card/id/residential/rm5
 	display_name = "RM5 keys"
 	description = "residential"
-	ckeywhitelist = list("theamazingdaito")
-	character_name = list("Madalyn Rose", "Kitsuno Harume")
+	ckeywhitelist = list("theamazingdaito", "thingpony")
+	character_name = list("Madalyn Rose", "Kitsuno Harume", "Dawn Rani")
 
 /datum/gear/fluff/res_key_rm6
 	path = /obj/item/weapon/card/id/residential/rm6
@@ -241,6 +241,13 @@
 	description = "residential"
 	ckeywhitelist = list("gozulio")
 	character_name = list("Eira Glitterpaws", "Jessie Glitterpaws")
+
+/datum/gear/fluff/res_key_rs9
+	path = /obj/item/weapon/card/id/residential/rs9
+	display_name = "RS9 keys"
+	description = "residential"
+	ckeywhitelist = list("0hobojesus")
+	character_name = list("Raigearra GerrTaLa")
 
 /datum/gear/fluff/res_key_rs11
 	path = /obj/item/weapon/card/id/residential/rs11
