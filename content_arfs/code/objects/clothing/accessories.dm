@@ -28,3 +28,40 @@
 	name = "Security Collar"
 	desc = "A durable collar made of synthetic leather died red, a mark of one's willingness to keep the peace. A black platinum badge hangs from it, embedded with a red gem"
 	icon_state = "collar_sec"
+
+// Bedsheets
+/obj/item/weapon/bedsheet/transpride
+	icon = 'content_arfs/icons/obj/bedsheet_arfs.dmi'
+	icon_state = "transpride"
+
+/obj/item/weapon/bedsheet/panpride
+	icon = 'content_arfs/icons/obj/bedsheet_arfs.dmi'
+	icon_state = "panpride"
+
+/obj/item/weapon/bedsheet/nonbinpride
+	icon = 'content_arfs/icons/obj/bedsheet_arfs.dmi'
+	icon_state = "nonbinpride"
+
+/obj/item/weapon/bedsheet/bipride
+	icon = 'content_arfs/icons/obj/bedsheet_arfs.dmi'
+	icon_state = "bipride"
+
+/obj/item/weapon/bedsheet/italianflag
+	icon = 'content_arfs/icons/obj/bedsheet_arfs.dmi'
+	icon_state = "italianflag"
+
+/obj/item/weapon/bedsheet/canadaflag
+	icon = 'content_arfs/icons/obj/bedsheet_arfs.dmi'
+	icon_state = "canadaflag"
+
+/obj/item/weapon/bedsheet/deer
+	icon = 'content_arfs/icons/obj/bedsheet_arfs.dmi'
+	icon_state = "deer"
+
+/obj/item/weapon/bedsheet/doubledeer
+	icon = 'content_arfs/icons/obj/bedsheet_arfs.dmi'
+	icon_state = "deer_double"
+
+/obj/item/weapon/bedsheet/UKflag
+	icon = 'content_arfs/icons/obj/bedsheet_arfs.dmi'
+	icon_state = "britishflagK"
