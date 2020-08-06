@@ -4,9 +4,10 @@ jobs:
   Compile:
     runs-on: ubuntu-latest
     container: 
-      image: tgstation/byond:513.1527
+      image: tgstation/byond:513.1528
     strategy:
       fail-fast: false
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
     steps:
     - name: Checkout
       uses: actions/checkout@v1
