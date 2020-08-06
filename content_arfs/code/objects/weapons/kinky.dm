@@ -115,3 +115,90 @@
 	icon_state = "chemkit"
 	item_state = "chemkit"
 	force = 0
+
+//Just placing the plushies in here, least for now.
+
+/obj/item/toy/plushie/bubblegum
+	name = "bubblegum plushie"
+	icon_state = "bubbleplush"
+	icon = 'content_arfs/icons/obj/misc.dmi'
+	pokephrase = "rwer"
+
+/obj/item/toy/plushie/plushvar
+	name = "Ragvar plushie"
+	icon_state = "plushvar"
+	icon = 'content_arfs/icons/obj/misc.dmi'
+	pokephrase = "rwer"
+
+
+/obj/item/toy/plushie/narplush
+	name = "narsie plushie"
+	icon_state = "narplush"
+	icon = 'content_arfs/icons/obj/misc.dmi'
+	pokephrase = "rwer"
+
+/obj/item/toy/plushie/snakeplush
+	name = "snake plush"
+	icon_state = "plush_snake"
+	icon = 'content_arfs/icons/obj/misc.dmi'
+	pokephrase = "hiss"
+
+/obj/item/toy/plushie/securityk9
+	name = "security k9 plush"
+	icon_state = "securityk9"
+	icon = 'content_arfs/icons/obj/misc.dmi'
+	pokephrase = "halt!"
+
+/obj/item/toy/plushie/drake
+	name = "drake plush"
+	icon_state = "drake"
+	icon = 'content_arfs/icons/obj/misc.dmi'
+	pokephrase = "rawr"
+
+/obj/item/toy/plushie/chibifox
+	name = "fox"
+	icon_state = "fox"
+	icon = 'content_arfs/icons/obj/misc.dmi'
+	pokephrase = "geck"
+
+/obj/item/toy/plushie/lamp
+	name = "lamp plushie"
+	icon_state = "plush_lamp"
+	icon = 'content_arfs/icons/obj/misc.dmi'
+	pokephrase = "click"
+
+/obj/item/toy/plushie/medihound
+	name = "medihound plush"
+	icon_state = "medihound"
+	icon = 'content_arfs/icons/obj/misc.dmi'
+	pokephrase = "arf"
+
+/obj/item/toy/plushie/scubpuppy
+	name = "janitorborg plushie"
+	icon_state = "scrubpuppy"
+	icon = 'content_arfs/icons/obj/misc.dmi'
+	pokephrase = "arf"
+
+/obj/item/toy/plushie/slaggy
+	name = "slaggy"
+	icon_state = "slaggy"
+	icon = 'content_arfs/icons/obj/misc.dmi'
+	pokephrase = "arf"
+
+/obj/item/toy/plushie/bucketplush
+	name = "mr.bucket"
+	icon_state = "mr_buckety"
+	icon = 'content_arfs/icons/obj/misc.dmi'
+	pokephrase = "arf"
+
+/obj/item/toy/plushie/scanner
+	name = "scanner plushie"
+	icon_state = "dr_scanny"
+	icon = 'content_arfs/icons/obj/misc.dmi'
+	pokephrase = "arf"
+
+/obj/item/toy/plushie/fermis
+	name = "fermis"
+	icon_state = "fermis"
+	icon = 'content_arfs/icons/obj/misc.dmi'
+	pokephrase = "arf"
