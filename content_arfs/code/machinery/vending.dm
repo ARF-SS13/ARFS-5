@@ -636,3 +636,14 @@
 	/obj/item/weapon/bedsheet/bipride =5, /obj/item/weapon/bedsheet/italianflag =5,
 	/obj/item/weapon/bedsheet/canadaflag =5,/obj/item/weapon/bedsheet/deer =5,
 	/obj/item/weapon/bedsheet/doubledeer =5, /obj/item/weapon/bedsheet/UKflag =5)
+
+/obj/machinery/smartfridge/food
+	name = "\improper Food Showcase"
+	desc = "A refrigerated storage unit for tasty tasty food. Keeps cold foods cold and warm foods warm."
+	icon_state = "fridge_drinks"
+	icon_base = "fridge_drinks"
+	icon_contents = "drink"
+
+/obj/machinery/smartfridge/food/accept_check(var/obj/item/O as obj)
+	if(istype(O,/obj/item/weapon/reagent_containers/food) || istype(O,/obj/item/weapon/reagent_containers/food/snacks) || istype(O,/obj/item/weapon/reagent_containers/food/condiment))
+		return 1
