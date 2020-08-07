@@ -195,7 +195,7 @@
 	path = /obj/item/weapon/card/id/residential/rm9
 	display_name = "RM9 keys"
 	description = "residential"
-	ckeywhitelist = list("siorkillbow", "lukevale")
+	ckeywhitelist = list("killbow", "lukevale")
 	character_name = list("Hepsie Mull", "Luna")
 
 /datum/gear/fluff/res_key_rm10
