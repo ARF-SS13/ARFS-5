@@ -64,4 +64,4 @@
 
 /obj/item/weapon/bedsheet/UKflag
 	icon = 'content_arfs/icons/obj/bedsheet_arfs.dmi'
-	icon_state = "britishflagK"
+	icon_state = "britishflag"
