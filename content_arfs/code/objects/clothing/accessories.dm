@@ -65,3 +65,19 @@
 /obj/item/weapon/bedsheet/UKflag
 	icon = 'content_arfs/icons/obj/bedsheet_arfs.dmi'
 	icon_state = "britishflag"
+
+/obj/item/weapon/bedsheet/transflagdouble
+	icon = 'content_arfs/icons/obj/bedsheet_arfs.dmi'
+	icon_state = "doubletranspride"
+
+/obj/item/weapon/bedsheet/doublepanpride
+	icon = 'content_arfs/icons/obj/bedsheet_arfs.dmi'
+	icon_state = "doublepanpride"
+
+/obj/item/weapon/bedsheet/doublenonbinpride
+	icon = 'content_arfs/icons/obj/bedsheet_arfs.dmi'
+	icon_state = "doublenonbinpride"
+
+/obj/item/weapon/bedsheet/doublebipride
+	icon = 'content_arfs/icons/obj/bedsheet_arfs.dmi'
+	icon_state = "doublebipride"
