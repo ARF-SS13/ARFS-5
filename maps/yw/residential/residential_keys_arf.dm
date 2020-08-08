@@ -1,3 +1,34 @@
+/obj/item/weapon/storage/wallet/residential
+	desc = "It can hold a few small and personal things. This has more slots to accomadate keys."
+	storage_slots = 30
+	starts_with = list(
+		/obj/item/weapon/card/id/residential/rs1,
+		/obj/item/weapon/card/id/residential/rs2,
+		/obj/item/weapon/card/id/residential/rs3,
+		/obj/item/weapon/card/id/residential/rs4,
+		/obj/item/weapon/card/id/residential/rs5,
+		/obj/item/weapon/card/id/residential/rs6,
+		/obj/item/weapon/card/id/residential/rs7,
+		/obj/item/weapon/card/id/residential/rs8,
+		/obj/item/weapon/card/id/residential/rs9,
+		/obj/item/weapon/card/id/residential/rs10,
+		/obj/item/weapon/card/id/residential/rs11,
+		/obj/item/weapon/card/id/residential/rs12,
+		/obj/item/weapon/card/id/residential/rs13,
+		/obj/item/weapon/card/id/residential/rs14,
+		/obj/item/weapon/card/id/residential/rm1,
+		/obj/item/weapon/card/id/residential/rm2,
+		/obj/item/weapon/card/id/residential/rm3,
+		/obj/item/weapon/card/id/residential/rm4,
+		/obj/item/weapon/card/id/residential/rm5,
+		/obj/item/weapon/card/id/residential/rm6,
+		/obj/item/weapon/card/id/residential/rm7,
+		/obj/item/weapon/card/id/residential/rm8,
+		/obj/item/weapon/card/id/residential/rm9,
+		/obj/item/weapon/card/id/residential/rm10,
+		/obj/item/weapon/card/id/residential/mansion,
+		)
+
 /obj/item/weapon/card/id/residential
 	name = "generic residential key"
 	desc = "A keyring with a small steel key, and a blue fob."
@@ -85,19 +116,19 @@
 	access = list(8106)
 
 /obj/item/weapon/card/id/residential/rm7
-	name = "RM6 residential key"
+	name = "RM7 residential key"
 	access = list(8107)
 
 /obj/item/weapon/card/id/residential/rm8
-	name = "RM6 residential key"
+	name = "RM8 residential key"
 	access = list(8108)
 
 /obj/item/weapon/card/id/residential/rm9
-	name = "RM6 residential key"
+	name = "RM9 residential key"
 	access = list(8109)
 
 /obj/item/weapon/card/id/residential/rm10
-	name = "RM6 residential key"
+	name = "RM10 residential key"
 	access = list(8110)
 
 /obj/item/weapon/card/id/residential/mansion
@@ -153,15 +184,15 @@
 	path = /obj/item/weapon/card/id/residential/rm1
 	display_name = "RM1 keys"
 	description = "residential"
-	ckeywhitelist = list("thingpony", "siorkillbow", "cebutris", "lukevale")
-	character_name = list("Iris Miller", "Elizabeth Nayala", "Hepsie Mull", "Luna")
+	ckeywhitelist = list("thingpony", "siorkillbow", "cebutris")
+	character_name = list("Iris Miller", "Elizabeth Nayala", "Hepsie Mull")
 
 /datum/gear/fluff/res_key_rm2
 	path = /obj/item/weapon/card/id/residential/rm2
 	display_name = "RM2 keys"
 	description = "residential"
-	ckeywhitelist = list("lukevale", "cebutris", "gremlingss", "disguiser", "siorkillbow")
-	character_name = list("Luna", "Elizabeth Nayala", "Abby Gliese", "Rak Woodrow", "Hoi Blackburn", "Hepsie Mull")
+	ckeywhitelist = list("cebutris", "gremlingss", "disguiser", "siorkillbow")
+	character_name = list("Elizabeth Nayala", "Abby Gliese", "Rak Woodrow", "Hoi Blackburn", "Hepsie Mull")
 
 /datum/gear/fluff/res_key_rm3
 	path = /obj/item/weapon/card/id/residential/rm3
@@ -188,15 +219,15 @@
 	path = /obj/item/weapon/card/id/residential/rm6
 	display_name = "RM6 keys"
 	description = "residential"
-	ckeywhitelist = list("disguiser", "lukevale")
-	character_name = list("Rak Woodrow", "Luna")
+	ckeywhitelist = list("disguiser")
+	character_name = list("Rak Woodrow")
 
 /datum/gear/fluff/res_key_rm9
 	path = /obj/item/weapon/card/id/residential/rm9
 	display_name = "RM9 keys"
 	description = "residential"
-	ckeywhitelist = list("siorkillbow", "lukevale")
-	character_name = list("Hepsie Mull", "Luna")
+	ckeywhitelist = list("killbow")
+	character_name = list("Hepsie Mull")
 
 /datum/gear/fluff/res_key_rm10
 	path = /obj/item/weapon/card/id/residential/rm10
@@ -218,7 +249,7 @@
 	path = /obj/item/weapon/card/id/residential/rs2
 	display_name = "RS2 keys"
 	description = "residential"
-	ckeywhitelist = list("siorkillbow")
+	ckeywhitelist = list("killbow")
 	character_name = list("Hoi Blackburn")
 
 /datum/gear/fluff/res_key_rs5
@@ -270,5 +301,12 @@
 	path = /obj/item/weapon/card/id/residential/mansion
 	display_name = "Mansion keys"
 	description = "residential"
-	ckeywhitelist = list("andyman105", "dameonowen", "lukevale", "secondattemps", "thingpony", "hagawaga")
-	character_name = list("Dameon Owen", "Amber Owen", "Jake Owen", "Lilith Owen", "Luna", "Iris Miller", "Brian Owen", "Percy Owen", "Ruby Flare", "Zephyr Sharpe", "Peter Sharpe", "Eve", "Ashlyn", "Agalon", "Lana Xavier")
+	ckeywhitelist = list("andyman105", "dameonowen", "secondattemps", "thingpony", "hagawaga")
+	character_name = list("Dameon Owen", "Amber Owen", "Jake Owen", "Lilith Owen", "Iris Miller", "Brian Owen", "Percy Owen", "Ruby Flare", "Zephyr Sharpe", "Peter Sharpe", "Eve", "Ashlyn", "Agalon", "Lana Xavier")
+
+/datum/gear/fluff/res_key_wallet
+	path = /obj/item/weapon/storage/wallet/residential
+	display_name = "KEEEEEYS"
+	description = "residential"
+	ckeywhitelist = list("lukevale")
+	character_name = list("Luna")
