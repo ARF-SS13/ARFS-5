@@ -1,23 +1,6 @@
 //Pokemon!
 
-#define P_TYPE_FIRE 	"fire"
-#define P_TYPE_WATER 	"water"
-#define P_TYPE_ICE 		"ice"
-#define P_TYPE_FLY 		"flying"
-#define P_TYPE_PSYCH 	"psychic"
-#define P_TYPE_NORM 	"normal"
-#define P_TYPE_DARK 	"dark"
-#define P_TYPE_FAIRY	"fairy"
-#define P_TYPE_GRASS	"grass"
-#define P_TYPE_DRAGON	"dragon"
-#define P_TYPE_GROUND	"ground"
-#define P_TYPE_ROCK		"rock"
-#define P_TYPE_FIGHT	"fighting"
-#define P_TYPE_GHOST	"ghost"
-#define P_TYPE_STEEL	"steel"
-#define P_TYPE_ELEC		"electric"
-#define P_TYPE_POISON	"poison"
-#define P_TYPE_BUG		"bug"
+//defines moved to arfs_defines.dm
 
 /mob/living/simple_mob/animal/passive/pokemon
 	name = "eevee"
@@ -55,7 +38,7 @@
 	verbs |= /mob/living/proc/set_ooc_notes
 	icon_rest = "[icon_state]_rest"
 	if(!tt_desc)
-		tt_desc = "[initial(icon_state)]"//icon_state will be the species if tt_desc isn't set
+		tt_desc = "[capitalize(initial(icon_state))]"//icon_state will be the species if tt_desc isn't set
 	voice_name = name
 	init_vore()
 	add_language(LANGUAGE_GALCOM)
@@ -67,6 +50,14 @@
 			give_moves(T)
 
 /mob/living/simple_mob/animal/passive/pokemon/Life()
+	..()
+	rest_regeneration()//Do healing
+	updatehealth()//Update health overlay
+	if(stat >= DEAD)
+		return FALSE
+	return TRUE
+
+/mob/living/simple_mob/animal/passive/pokemon/proc/rest_regeneration()
 	if(resting && stat < DEAD && health < maxHealth)
 		var/heal_amt = rand(0,resting_heal_max)//Average of 1 health per second for normal pmon. 2 for legendaries.
 		adjustBruteLoss(-heal_amt)
@@ -74,7 +65,8 @@
 		adjustFireLoss(-heal_amt)
 		if(health > maxHealth)
 			health = maxHealth
-	. = ..()
+		return TRUE
+	return FALSE
 
 /mob/living/simple_mob/animal/passive/pokemon/Topic(href, href_list)
 	if(href_list["ooc_notes"])
@@ -121,7 +113,7 @@
 
 /mob/living/simple_mob/animal/passive/pokemon/proc/simple_lay_down()
 	set name = "Rest"
-	set category = "IC"
+	set category = "Abilities"
 	set desc = "Lie down and rest in order to slowly heal or just relax."
 	if(src.flying)
 		to_chat(src,"<span class='warning'>You need to land if you want to rest.</span>")
@@ -143,8 +135,7 @@
 	set desc = "Edit your roleplaying preferences; your OOC notes."
 	if(usr != src)
 		to_chat(usr, "No.")
-	var/msg = sanitize(input(usr,"Set the OOC notes in your 'examine' verb. Not every mob type displays them.","OOC Notes",html_decode(ooc_notes)) as message|null, extra = 0)
-
+	var/msg = sanitize(input(usr,"Set your OOC notes. This should contain your roleplaying preferences.","OOC Notes",html_decode(ooc_notes)) as message|null, extra = 0)
 	if(msg != null)
 		ooc_notes = msg
 
@@ -155,7 +146,6 @@
 	if(usr != src)
 		to_chat(usr, "No.")
 	var/msg = sanitize(input(usr,"Set your character's flavortext; a detailed description of their physical appearance.","Flavortext",html_decode(flavor_text)) as message|null, extra = 0)
-
 	if(msg != null)
 		flavor_text = msg
 
@@ -257,6 +247,7 @@
 		return
 	visible_message("[P]'s head glows with telepathic energy.", "<span class='alien'><b>You telepathically say to [T]:</b> <i>[message]</i></span>", "<span class='notice'>You hear a quiet humming sound.</span>")
 	to_chat(T,"<span class='alien'><b>You hear [P]'s voice in your head:</b> <i>[message]</i></span>")
+	log_say("(POKETELEPATHY to [key_name(T)]) [message]", src)
 
 //Override to stop attacking while grabbing
 /mob/living/simple_mob/animal/passive/pokemon/UnarmedAttack(var/atom/A, var/proximity)
@@ -367,7 +358,7 @@
 	icon_state = "alolanvulpix"
 	icon_living = "alolanvulpix"
 	icon_dead = "alolanvulpix_d"
-	tt_desc = "alolan vulpix"
+	tt_desc = "Alolan Vulpix"
 	p_types = list(P_TYPE_ICE)
 	additional_moves = list(/mob/living/proc/hide)
 
