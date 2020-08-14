@@ -34,6 +34,7 @@
 #include "code\__defines\admin.dm"
 #include "code\__defines\admin_vr.dm"
 #include "code\__defines\appearance.dm"
+#include "code\__defines\arfs_defines.dm"
 #include "code\__defines\atmos.dm"
 #include "code\__defines\belly_modes_vr.dm"
 #include "code\__defines\callbacks.dm"
