@@ -3803,6 +3803,7 @@
 #include "content_arfs\code\machinery\airlock_arfs.dm"
 #include "content_arfs\code\machinery\cryopod_arfs.dm"
 #include "content_arfs\code\machinery\vending.dm"
+#include "content_arfs\code\mob\alien.dm"
 #include "content_arfs\code\mob\mobs.dm"
 #include "content_arfs\code\mob\pokemon.dm"
 #include "content_arfs\code\mob\sprite_accessories_arf.dm"
