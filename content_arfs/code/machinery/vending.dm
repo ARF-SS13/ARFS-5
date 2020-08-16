@@ -636,8 +636,60 @@
 	/obj/item/weapon/bedsheet/bipride =5, /obj/item/weapon/bedsheet/italianflag =5,
 	/obj/item/weapon/bedsheet/canadaflag =5,/obj/item/weapon/bedsheet/deer =5,
 	/obj/item/weapon/bedsheet/doubledeer =5, /obj/item/weapon/bedsheet/UKflag =5,
-	/obj/item/weapon/bedsheet/transflagdouble=5,/obj/item/weapon/bedsheet/doublepanpride=5,
+	/obj/item/weapon/bedsheet/transpridedouble=5,/obj/item/weapon/bedsheet/doublepanpride=5,
 	/obj/item/weapon/bedsheet/doublenonbinpride=5)
+
+/obj/machinery/vending/bedsheet/big
+	name = "Large Bedsheet Selector"
+	desc = "For all your large bedsheet needs"
+	products = list(
+	/obj/item/weapon/bedsheet/bluedouble/big =5,
+	/obj/item/weapon/bedsheet/greendouble/big =5,
+	/obj/item/weapon/bedsheet/orangedouble/big =5,
+	/obj/item/weapon/bedsheet/purpledouble/big =5,
+	/obj/item/weapon/bedsheet/rainbowdouble/big =5,
+	/obj/item/weapon/bedsheet/reddouble/big =5,
+	/obj/item/weapon/bedsheet/yellowdouble/big =5,
+	/obj/item/weapon/bedsheet/mimedouble/big =5,
+	/obj/item/weapon/bedsheet/clowndouble/big =5,
+	/obj/item/weapon/bedsheet/captaindouble/big =5,
+	/obj/item/weapon/bedsheet/rddouble/big =5,
+	/obj/item/weapon/bedsheet/hosdouble/big =5,
+	/obj/item/weapon/bedsheet/hopdouble/big =5,
+	/obj/item/weapon/bedsheet/cedouble/big =5,
+	/obj/item/weapon/bedsheet/browndouble/big =5,
+	/obj/item/weapon/bedsheet/iandouble/big =5,
+	/obj/item/weapon/bedsheet/doubledeer/big =5,
+	/obj/item/weapon/bedsheet/transpridedouble/big=5,
+	/obj/item/weapon/bedsheet/doublepanpride/big=5,
+	/obj/item/weapon/bedsheet/doublenonbinpride/big=5
+	)
+
+/obj/machinery/vending/bedsheet/huge
+	name = "Huge Bedsheet Selector"
+	desc = "For all your huge bedsheet needs"
+	products = list(
+	/obj/item/weapon/bedsheet/bluedouble/huge =5,
+	/obj/item/weapon/bedsheet/greendouble/huge =5,
+	/obj/item/weapon/bedsheet/orangedouble/huge =5,
+	/obj/item/weapon/bedsheet/purpledouble/huge =5,
+	/obj/item/weapon/bedsheet/rainbowdouble/huge =5,
+	/obj/item/weapon/bedsheet/reddouble/huge =5,
+	/obj/item/weapon/bedsheet/yellowdouble/huge =5,
+	/obj/item/weapon/bedsheet/mimedouble/huge =5,
+	/obj/item/weapon/bedsheet/clowndouble/huge =5,
+	/obj/item/weapon/bedsheet/captaindouble/huge =5,
+	/obj/item/weapon/bedsheet/rddouble/huge =5,
+	/obj/item/weapon/bedsheet/hosdouble/huge =5,
+	/obj/item/weapon/bedsheet/hopdouble/huge =5,
+	/obj/item/weapon/bedsheet/cedouble/huge =5,
+	/obj/item/weapon/bedsheet/browndouble/huge =5,
+	/obj/item/weapon/bedsheet/iandouble/huge =5,
+	/obj/item/weapon/bedsheet/doubledeer/huge =5,
+	/obj/item/weapon/bedsheet/transpridedouble/huge=5,
+	/obj/item/weapon/bedsheet/doublepanpride/huge=5,
+	/obj/item/weapon/bedsheet/doublenonbinpride/huge=5
+	)
 
 /obj/machinery/smartfridge/food
 	name = "\improper Food Showcase"
