@@ -635,7 +635,9 @@
 	/obj/item/weapon/bedsheet/panpride =5, /obj/item/weapon/bedsheet/nonbinpride =5,
 	/obj/item/weapon/bedsheet/bipride =5, /obj/item/weapon/bedsheet/italianflag =5,
 	/obj/item/weapon/bedsheet/canadaflag =5,/obj/item/weapon/bedsheet/deer =5,
-	/obj/item/weapon/bedsheet/doubledeer =5, /obj/item/weapon/bedsheet/UKflag =5)
+	/obj/item/weapon/bedsheet/doubledeer =5, /obj/item/weapon/bedsheet/UKflag =5,
+	/obj/item/weapon/bedsheet/transflagdouble=5,/obj/item/weapon/bedsheet/doublepanpride=5,
+	/obj/item/weapon/bedsheet/doublenonbinpride=5)
 
 /obj/machinery/smartfridge/food
 	name = "\improper Food Showcase"

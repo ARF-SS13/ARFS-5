@@ -521,7 +521,6 @@
 	icon = 'content_arfs/icons/mob/player/tails_arfs.dmi'
 	icon_state = "leaf_tail"
 	do_colouration = 0
-	ckeys_allowed = list("alex123890")
 
 ///datum/sprite_accessory/tail/cyberdragon
 //	name = "cyberdragon tail"
@@ -558,3 +557,11 @@
 	do_colouration = 1
 	color_blend_mode = ICON_MULTIPLY
 	extra_overlay = "robot_nagac_1_s"
+
+/datum/sprite_accessory/tail/taur/eevee/color
+	name = "Eevee Taur (Colorable)"
+	icon_state = "eevee_taur_s"
+	icon = 'content_arfs/icons/mob/player/taur_arfs.dmi'
+	do_colouration = 1
+	color_blend_mode = ICON_MULTIPLY
+	extra_overlay = "eevee_taur_s_1"
