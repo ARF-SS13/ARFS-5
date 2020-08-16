@@ -35,7 +35,7 @@
 	icon_gib = "syndicate_gib"
 	icon_rest = "maid_sleep"
 	has_hands = TRUE
-	faction = "xeno"
+	faction = "neutral"
 	universal_understand = TRUE
 	movement_cooldown = 2.1
 	mob_class = MOB_CLASS_ABERRATION
@@ -57,7 +57,10 @@
 
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/xenomeat
 
-/mob/living/simple_mob/animal/space/alien/maid/New()
+/mob/living/simple_mob/animal/space/alien/maid/roxy
+	name = "Roxy"
+
+/mob/living/simple_mob/animal/space/alien/maid/Initialize()
 	..()
 
 	verbs += /mob/living/proc/ventcrawl
@@ -66,6 +69,15 @@
 	verbs += /mob/living/proc/smell
 	verbs += /mob/living/proc/shred_limb
 	verbs += /mob/living/simple_mob/proc/leap
+
+	can_enter_vent_with += /obj/item/device/radio
+
+	var/obj/item/device/radio/headset/mob_headset/R = new
+	R.forceMove(src)
+	mob_radio = R
+
+	voice_name = name
+	real_name = name
 
 /mob/living/simple_mob/animal/space/alien/maid/say_quote(var/message, var/datum/language/speaking = null)
 	var/verb = "hisses"
