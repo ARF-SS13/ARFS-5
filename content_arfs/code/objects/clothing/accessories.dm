@@ -176,6 +176,7 @@
 	icon_scale_y = 2.2
 
 /obj/item/weapon/bedsheet/cosmosdouble/big
+	icon_state = "dobulesheetcosmos"
 	icon_scale_x = 2.2
 	icon_scale_y = 2.2
 
@@ -273,6 +274,7 @@
 	icon_scale_y = 3.3
 
 /obj/item/weapon/bedsheet/cosmosdouble/huge
+	icon_state = "dobulesheetcosmos"
 	icon_scale_x = 3.3
 	icon_scale_y = 3.3
 
