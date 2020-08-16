@@ -8,7 +8,7 @@
 
 	tail = "tail"
 	icobase_tail = 1
-//	color_mult = 1
+	color_mult = 1
 //	color_blend = 0
 
 	blurb = "Spce eevee? Space eevee!"
@@ -23,7 +23,7 @@
 	health_hud_intensity = 2
 	num_alternate_languages = 3
 
-	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED
+	spawn_flags = SPECIES_CAN_JOIN
 	appearance_flags = HAS_HAIR_COLOR | HAS_UNDERWEAR | HAS_EYE_COLOR
 
 //	ckeyrestricted = "thingpony"

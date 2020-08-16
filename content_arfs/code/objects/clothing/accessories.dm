@@ -67,43 +67,43 @@
 
 /obj/item/weapon/bedsheet/UKflag
 	icon = 'content_arfs/icons/obj/bedsheet_arfs.dmi'
-	icon_state = "britishflagK"
+	icon_state = "britishflag"
+
+/obj/item/weapon/bedsheet/transpridedouble
+	icon = 'content_arfs/icons/obj/bedsheet_arfs.dmi'
+	icon_state = "doubletranspride"
+
+/obj/item/weapon/bedsheet/doublepanpride
+	icon = 'content_arfs/icons/obj/bedsheet_arfs.dmi'
+	icon_state = "doublepanpride"
+
+/obj/item/weapon/bedsheet/doublenonbinpride
+	icon = 'content_arfs/icons/obj/bedsheet_arfs.dmi'
+	icon_state = "doublenonbinpride"
+
+/obj/item/weapon/bedsheet/doublebipride
+	icon = 'content_arfs/icons/obj/bedsheet_arfs.dmi'
+	icon_state = "doublebipride"
 
 
 //Big Bedsheets
-/obj/item/weapon/bedsheet/transpride/big
+/obj/item/weapon/bedsheet/transpridedouble/big
 	icon_scale_x = 2.2
 	icon_scale_y = 2.2
 
-/obj/item/weapon/bedsheet/panpride/big
+/obj/item/weapon/bedsheet/doublepanpride/big
 	icon_scale_x = 2.2
 	icon_scale_y = 2.2
 
-/obj/item/weapon/bedsheet/nonbinpride/big
+/obj/item/weapon/bedsheet/doublenonbinpride/big
 	icon_scale_x = 2.2
 	icon_scale_y = 2.2
 
-/obj/item/weapon/bedsheet/bipride/big
-	icon_scale_x = 2.2
-	icon_scale_y = 2.2
-
-/obj/item/weapon/bedsheet/italianflag/big
-	icon_scale_x = 2.2
-	icon_scale_y = 2.2
-
-/obj/item/weapon/bedsheet/canadaflag/big
-	icon_scale_x = 2.2
-	icon_scale_y = 2.2
-
-/obj/item/weapon/bedsheet/deer/big
+/obj/item/weapon/bedsheet/doublebipride/big
 	icon_scale_x = 2.2
 	icon_scale_y = 2.2
 
 /obj/item/weapon/bedsheet/doubledeer/big
-	icon_scale_x = 2.2
-	icon_scale_y = 2.2
-
-/obj/item/weapon/bedsheet/UKflag/big
 	icon_scale_x = 2.2
 	icon_scale_y = 2.2
 
@@ -184,39 +184,23 @@
 	icon_scale_y = 2.2
 
 //Huge Bedsheets
-/obj/item/weapon/bedsheet/transpride/huge
+/obj/item/weapon/bedsheet/transpridedouble/huge
 	icon_scale_x = 3.3
 	icon_scale_y = 3.3
 
-/obj/item/weapon/bedsheet/panpride/huge
+/obj/item/weapon/bedsheet/doublepanpride/huge
 	icon_scale_x = 3.3
 	icon_scale_y = 3.3
 
-/obj/item/weapon/bedsheet/nonbinpride/huge
+/obj/item/weapon/bedsheet/doublenonbinpride/huge
 	icon_scale_x = 3.3
 	icon_scale_y = 3.3
 
-/obj/item/weapon/bedsheet/bipride/huge
-	icon_scale_x = 3.3
-	icon_scale_y = 3.3
-
-/obj/item/weapon/bedsheet/italianflag/huge
-	icon_scale_x = 3.3
-	icon_scale_y = 3.3
-
-/obj/item/weapon/bedsheet/canadaflag/huge
-	icon_scale_x = 3.3
-	icon_scale_y = 3.3
-
-/obj/item/weapon/bedsheet/deer/huge
+/obj/item/weapon/bedsheet/doublebipride/huge
 	icon_scale_x = 3.3
 	icon_scale_y = 3.3
 
 /obj/item/weapon/bedsheet/doubledeer/huge
-	icon_scale_x = 3.3
-	icon_scale_y = 3.3
-
-/obj/item/weapon/bedsheet/UKflag/huge
 	icon_scale_x = 3.3
 	icon_scale_y = 3.3
 
