@@ -633,9 +633,9 @@
 	/obj/item/weapon/bedsheet/ian =5, /obj/item/weapon/bedsheet/iandouble =5,
 	/obj/item/weapon/bedsheet/double =5, /obj/item/weapon/bedsheet/transpride =5,
 	/obj/item/weapon/bedsheet/panpride =5, /obj/item/weapon/bedsheet/nonbinpride =5,
-	/obj/item/weapon/bedsheet/bipride =5, /obj/item/weapon/bedsheet/italianflag =5,
-	/obj/item/weapon/bedsheet/canadaflag =5,/obj/item/weapon/bedsheet/deer =5,
-	/obj/item/weapon/bedsheet/doubledeer =5, /obj/item/weapon/bedsheet/UKflag =5,
+	/obj/item/weapon/bedsheet/bipride =5, /obj/item/weapon/bedsheet/italian =5,
+	/obj/item/weapon/bedsheet/canada =5,/obj/item/weapon/bedsheet/deer =5,
+	/obj/item/weapon/bedsheet/doubledeer =5, /obj/item/weapon/bedsheet/british =5,
 	/obj/item/weapon/bedsheet/transpridedouble=5,/obj/item/weapon/bedsheet/doublepanpride=5,
 	/obj/item/weapon/bedsheet/doublenonbinpride=5)
 
@@ -662,7 +662,9 @@
 	/obj/item/weapon/bedsheet/doubledeer/big =5,
 	/obj/item/weapon/bedsheet/transpridedouble/big=5,
 	/obj/item/weapon/bedsheet/doublepanpride/big=5,
-	/obj/item/weapon/bedsheet/doublenonbinpride/big=5
+	/obj/item/weapon/bedsheet/doublenonbinpride/big=5,
+	/obj/item/weapon/bedsheet/canadadouble/big=5,
+	/obj/item/weapon/bedsheet/italiandouble/big=5
 	)
 
 /obj/machinery/vending/bedsheet/huge
@@ -688,7 +690,9 @@
 	/obj/item/weapon/bedsheet/doubledeer/huge =5,
 	/obj/item/weapon/bedsheet/transpridedouble/huge=5,
 	/obj/item/weapon/bedsheet/doublepanpride/huge=5,
-	/obj/item/weapon/bedsheet/doublenonbinpride/huge=5
+	/obj/item/weapon/bedsheet/doublenonbinpride/huge=5,
+	/obj/item/weapon/bedsheet/canadadouble/huge=5,
+	/obj/item/weapon/bedsheet/italiandouble/huge=5
 	)
 
 /obj/machinery/smartfridge/food

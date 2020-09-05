@@ -3811,6 +3811,7 @@
 #include "content_arfs\code\mob\sprite_accessories_arf.dm"
 #include "content_arfs\code\mob\verbs_arf.dm"
 #include "content_arfs\code\objects\balls.dm"
+#include "content_arfs\code\objects\bedsheet_arfs.dm"
 #include "content_arfs\code\objects\custombed.dm"
 #include "content_arfs\code\objects\signs.dm"
 #include "content_arfs\code\objects\clothing\accessories.dm"
