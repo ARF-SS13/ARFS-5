@@ -1494,7 +1494,7 @@
 "aCL" = (/obj/structure/mirror{dir = 4; pixel_x = 28; pixel_y = 0},/turf/simulated/floor/carpet/purcarpet,/area/residential/mroom2bed2)
 "aCM" = (/obj/effect/floor_decal/corner_kafel/purple/full{dir = 4},/turf/simulated/floor/tiled/kafel_full,/area/residential/mroom5)
 "aCN" = (/obj/structure/table/woodentable,/obj/random/pizzabox,/obj/item/weapon/reagent_containers/food/drinks/bottle/small/cider{pixel_x = -6; pixel_y = 13},/obj/effect/floor_decal/spline/plain{dir = 1},/turf/simulated/floor/lino,/area/residential/room7)
-"aCO" = (/obj/structure/closet/cabinet,/obj/item/clothing/under/rank/janitor,/obj/item/clothing/under/rank/internalaffairs,/obj/item/clothing/under/librarian,/obj/item/clothing/under/suit_jacket/charcoal,/turf/simulated/floor/wood,/area/residential/mansion)
+"aCO" = (/obj/item/clothing/under/rank/janitor,/obj/item/clothing/under/rank/internalaffairs,/obj/item/clothing/under/librarian,/obj/item/clothing/under/suit_jacket/charcoal,/obj/structure/closet/cabinet,/turf/simulated/floor/wood,/area/residential/mansion)
 "aCP" = (/obj/machinery/light{dir = 1; icon_state = "tube1"; pixel_y = 0},/obj/structure/dogbed{name = "Cookie's Bed"},/turf/simulated/floor/wood,/area/residential/mansion)
 "aCQ" = (/turf/simulated/floor/plating,/area/residential/room10)
 "aCR" = (/obj/machinery/alarm{frequency = 1441; pixel_y = 22},/turf/simulated/floor/wood,/area/residential/mansion)
