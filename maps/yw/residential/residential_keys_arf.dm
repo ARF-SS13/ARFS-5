@@ -161,6 +161,10 @@
 	name = "S6 residential key"
 	access = list(8206)
 
+/obj/item/weapon/card/id/residential/s7
+	name = "S7 residential key"
+	access = list(8207)
+
 
 //FLUFF SPAWNS
 
@@ -178,14 +182,20 @@
 	ckeywhitelist = list("truedark")
 	character_name = list("Squawks")
 
+/datum/gear/fluff/res_key_s7
+	path = /obj/item/weapon/card/id/residential/s7
+	display_name = "S7 keys"
+	description = "residential"
+	ckeywhitelist = list("truedark")
+
 // MEDIUM KEYS
 
 /datum/gear/fluff/res_key_rm1
 	path = /obj/item/weapon/card/id/residential/rm1
 	display_name = "RM1 keys"
 	description = "residential"
-	ckeywhitelist = list("thingpony", "siorkillbow", "cebutris")
-	character_name = list("Iris Miller", "Elizabeth Nayala", "Hepsie Mull")
+	ckeywhitelist = list("thingpony", "siorkillbow", "cebutris", "dameonowen")
+	character_name = list("Iris Miller", "Elizabeth Nayala", "Hepsie Mull", "Amber Owen")
 
 /datum/gear/fluff/res_key_rm2
 	path = /obj/item/weapon/card/id/residential/rm2
