@@ -27,6 +27,7 @@
 		/obj/item/weapon/card/id/residential/rm9,
 		/obj/item/weapon/card/id/residential/rm10,
 		/obj/item/weapon/card/id/residential/mansion,
+		/obj/item/weapon/card/id/residential/rm11,
 		)
 
 /obj/item/weapon/card/id/residential
@@ -130,6 +131,10 @@
 /obj/item/weapon/card/id/residential/rm10
 	name = "RM10 residential key"
 	access = list(8110)
+
+/obj/item/weapon/card/id/residential/rm11
+	name = "RM10 residential key"
+	access = list(8111)
 
 /obj/item/weapon/card/id/residential/mansion
 	name = "Mansion residential key"
@@ -245,6 +250,13 @@
 	description = "residential"
 	ckeywhitelist = list("tk420634")
 	character_name = list("Sugar Song")
+
+/datum/gear/fluff/res_key_rm11
+	path = /obj/item/weapon/card/id/residential/rm11
+	display_name = "RM11 keys"
+	description = "residential"
+	ckeywhitelist = list("thingpony", "cebutris", "liujr")
+	character_name = list("Tye Riggle", "Kai Woodsmith", "Lywarra Lichtut")
 
 // SMALL KEYS
 
