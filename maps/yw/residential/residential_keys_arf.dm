@@ -255,8 +255,8 @@
 	path = /obj/item/weapon/card/id/residential/rm11
 	display_name = "RM11 keys"
 	description = "residential"
-	ckeywhitelist = list("thingpony", "cebutris", "liujr")
-	character_name = list("Tye Riggle", "Kai Woodsmith", "Lywarra Lichtut")
+	ckeywhitelist = list("thingpony", "cebutris", "liujr", "truedark")
+	character_name = list("Tye Riggle", "Kaibus Wordsmith", "Lywarra Lichtut", "Yalnisho Rhirrie")
 
 // SMALL KEYS
 
