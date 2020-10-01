@@ -581,3 +581,7 @@
 
 /area/crew_quarters/kitchen/dinner
 	name = "\improper Diner"
+
+/area/maintenance/shelter4
+	name = "Pulsar Radiation Shelter"
+	icon_state = "amaint"
