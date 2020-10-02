@@ -212,6 +212,13 @@
 	icon_state = "rattatatail_s"
 	do_colouration = 0
 
+/datum/sprite_accessory/tail/charmander
+	name = "Charmander"
+	desc = ""
+	icon = 'content_arfs/icons/mob/player/tails_arfs.dmi'
+	icon_state = "charmander"
+	do_colouration = 0
+
 /datum/sprite_accessory/tail/pikachu
 	name = "Pikachu"
 	desc = ""

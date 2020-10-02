@@ -245,6 +245,8 @@ var/global/list/latejoin_residential = list()
 
 /area/residential/mroom10
 	name = "\improper Residential - Medium Room 10"
+/area/residential/mroom11
+	name = "\improper Residential - Medium Room 11"
 
 /area/residential/mansion
 	name = "\improper Residential -  Mansion"
