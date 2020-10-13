@@ -57,24 +57,40 @@ var/global/list/pokemon_pods = list()//List of pods that ghosts can spawn at
 
 /obj/structure/ghost_pod/ghost_activated/pokemon/create_occupant(var/mob/M)
 	var/m_ckey = M.ckey
+	var/client/C
+	var/datum/preferences/Prefs
+	if(M.client)
+		C = M.client
+		Prefs = C.prefs
 	var/turf/T
 	var/area/A
+	var/newname
+	var/new_gender
+	var/new_flavor_text
+	var/new_ooc_notes
 	var/p_choice = input(M, "What would you like to spawn in as?", "[src.name]") as null|anything in pokemon_choices_list
 	if(!p_choice || isnull(p_choice))
 		to_chat(M, "<span class='notice'>Spawning aborted.</span>")
 		return
 	p_choice = pokemon_choices_list["[p_choice]"]
-	var/newname = input(M, "Would you like to change your name or use the default one? Enter nothing to use the default name. Canceling will stop the spawning process.", "Name Change") as null|text
-	if(isnull(newname))
+	//Ask if they have a character slot set up for this.
+	var/import_from_slot = input(M, "Would you like to import your currently selected character slot's information for this mob? This will apply their name, gender, vore preferences, flavor text, and OOC notes to your Pokemon character (Limb-based flavor text not supported). Select no to configure them manually. Select cancel to abort spawning process.", "[src.name]") as null|anything in list("Yes","No")
+	if(isnull(import_from_slot))
 		to_chat(M, "<span class='notice'>Spawning aborted.</span>")
 		return
-	newname = sanitize(newname, MAX_NAME_LEN)//Sanitize the name afterwards, so we know if they hit cancel or input an empty string
-	var/new_gender = input(M, "Choose your Pokemon's gender:", "Character Preference", "neuter") as null|anything in list("neuter", "male", "female")
-	if(isnull(new_gender))
-		to_chat(M, "<span class='notice'>Spawning aborted.</span>")
-		return
-	var/new_flavor_text = sanitize(input(M,"Set your character's flavortext; a detailed description of their physical appearance.","Flavortext", null) as message|null, extra = 0)
-	var/new_ooc_notes = sanitize(input(M,"Set your OOC notes. This should contain your roleplaying preferences.","OOC Notes", null) as message|null, extra = 0)
+	if(import_from_slot == "No")
+		newname = input(M, "Would you like to change your name or use the default one? Enter nothing to use the default name. Canceling will stop the spawning process.", "Name Change") as null|text
+		if(isnull(newname))
+			to_chat(M, "<span class='notice'>Spawning aborted.</span>")
+			return
+		newname = sanitize(newname, MAX_NAME_LEN)//Sanitize the name afterwards, so we know if they hit cancel or input an empty string
+		new_gender = input(M, "Choose your Pokemon's gender:", "Character Preference", "neuter") as null|anything in list("neuter", "male", "female")
+		if(isnull(new_gender))
+			to_chat(M, "<span class='notice'>Spawning aborted.</span>")
+			return
+		new_flavor_text = sanitize(input(M,"Set your character's flavortext; a detailed description of their physical appearance.","Flavortext", null) as message|null, extra = 0)
+		new_ooc_notes = sanitize(input(M,"Set your OOC notes. This should contain your roleplaying preferences.","OOC Notes", null) as message|null, extra = 0)
+		//End mob configuration
 	var/announce_choice = FALSE
 	if(do_announcement)
 		announce_choice = input(M, "Would you like to announce your arrival over the common radio channel? Select cancel to abort spawning process.", "[src.name]") as null|anything in list("Yes","No")
@@ -86,6 +102,12 @@ var/global/list/pokemon_pods = list()//List of pods that ghosts can spawn at
 	T = get_turf(src)
 	A = T.loc
 	var/mob/living/simple_mob/animal/passive/pokemon/P = new p_choice(T)
+	if(import_from_slot == "Yes")//If importing, set the needed vars now
+		newname = Prefs.real_name
+		new_gender = Prefs.identifying_gender
+		new_ooc_notes = Prefs.metadata
+		new_flavor_text = Prefs.flavor_texts["general"] //Limb flavor text not supported
+
 	if(newname)//Still not empty after sanitization
 		P.name = newname
 		P.voice_name = P.name
@@ -100,6 +122,9 @@ var/global/list/pokemon_pods = list()//List of pods that ghosts can spawn at
 		M.mind.transfer_to(P)
 	if(m_ckey)
 		P.ckey = m_ckey
+
+	if(import_from_slot == "Yes")
+		P.copy_from_prefs_vr()//Copy vore prefs over once they're in the mob
 
 	var/obj/item/device/radio/headset/mob_headset/R = new
 	R.forceMove(P)
