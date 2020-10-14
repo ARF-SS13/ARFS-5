@@ -133,7 +133,7 @@
 	access = list(8110)
 
 /obj/item/weapon/card/id/residential/rm11
-	name = "RM10 residential key"
+	name = "RM11 residential key"
 	access = list(8111)
 
 /obj/item/weapon/card/id/residential/mansion
@@ -192,6 +192,7 @@
 	display_name = "S7 keys"
 	description = "residential"
 	ckeywhitelist = list("truedark")
+	character_name = list("Vakshhas")
 
 // MEDIUM KEYS
 
@@ -301,6 +302,13 @@
 	description = "residential"
 	ckeywhitelist = list("0hobojesus")
 	character_name = list("Raigearra GerrTaLa")
+
+/datum/gear/fluff/res_key_rs10
+	path = /obj/item/weapon/card/id/residential/rs10
+	display_name = "RS10 keys"
+	description = "residential"
+	ckeywhitelist = list("brimcon", "thingpony")
+	character_name = list("Scryden Sako", "Fleur Vert")
 
 /datum/gear/fluff/res_key_rs11
 	path = /obj/item/weapon/card/id/residential/rs11
