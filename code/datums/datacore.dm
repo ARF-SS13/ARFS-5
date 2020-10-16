@@ -280,7 +280,14 @@ var/global/list/PDA_Manifest = list()
 
 		bot[++bot.len] = list("name" = robot.real_name, "rank" = "[robot.modtype] [robot.braintype]", "active" = "Active")
 
-
+	//ARFS Edit
+	for(var/mob/living/simple_mob/animal/passive/pokemon/poke in mob_list)
+		if(poke.on_manifest)
+			if(poke.client)
+				misc[++misc.len] = list("name" = poke.real_name, "rank" = "[poke.tt_desc]", "active" = "Active")
+			else
+				misc[++misc.len] = list("name" = poke.real_name, "rank" = "[poke.tt_desc]", "active" = "Inactive")
+	//End ARFS Edit
 	PDA_Manifest = list(
 		list("cat" = "Command", "elems" = heads),
 		list("cat" = "Security", "elems" = sec),

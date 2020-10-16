@@ -21,3 +21,9 @@
 	else
 		user << browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY>[info][stamps]</BODY></HTML>", "window=[name]")
 		onclose(user, "[name]")
+
+//Lets mobs walk across these tables at the expense of a missing sprite if they flip them. Oh no.
+/obj/structure/table/darkglass
+	flipped = 0
+/obj/structure/table/fancyblack
+	flipped = 0
