@@ -117,6 +117,12 @@
 		if(!robot.scrambledcodes && !robot.shell && !(robot.module && robot.module.hide_on_manifest))
 			bot[robot.name] = "[robot.modtype] [robot.braintype]"
 
+	//ARFS Edit
+	for(var/mob/living/simple_mob/animal/passive/pokemon/poke in mob_list)
+		if(poke.on_manifest)
+			misc[poke.name] = "[poke.tt_desc]"
+			isactive[poke.name] = poke.client ? "Active": "Inactive"
+	//End ARFS Edit
 
 	if(heads.len > 0)
 		dat += "<tr><th colspan=3>Heads</th></tr>"
@@ -284,10 +290,11 @@ var/global/list/PDA_Manifest = list()
 	for(var/mob/living/simple_mob/animal/passive/pokemon/poke in mob_list)
 		if(poke.on_manifest)
 			if(poke.client)
-				misc[++misc.len] = list("name" = poke.real_name, "rank" = "[poke.tt_desc]", "active" = "Active")
+				misc[++misc.len] = list("name" = poke.name, "rank" = "[poke.tt_desc]", "active" = "Active")
 			else
-				misc[++misc.len] = list("name" = poke.real_name, "rank" = "[poke.tt_desc]", "active" = "Inactive")
+				misc[++misc.len] = list("name" = poke.name, "rank" = "[poke.tt_desc]", "active" = "Inactive")
 	//End ARFS Edit
+
 	PDA_Manifest = list(
 		list("cat" = "Command", "elems" = heads),
 		list("cat" = "Security", "elems" = sec),
