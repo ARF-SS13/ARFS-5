@@ -30,6 +30,7 @@
 	var/list/additional_moves = list()
 	var/resting_heal_max = 2
 	var/is_ditto_transformed = FALSE
+	var/on_manifest = FALSE
 
 /mob/living/simple_mob/animal/passive/pokemon/Initialize()
 	. = ..()

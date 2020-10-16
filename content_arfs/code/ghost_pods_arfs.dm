@@ -126,6 +126,10 @@ var/global/list/pokemon_pods = list()//List of pods that ghosts can spawn at
 	if(import_from_slot == "Yes")
 		P.copy_from_prefs_vr()//Copy vore prefs over once they're in the mob
 
+	P.on_manifest = TRUE //Have them show up on the crew manifest since they aren't wild
+	if(data_core)
+		data_core.ResetPDAManifest() //Reset the manifest
+
 	var/obj/item/device/radio/headset/mob_headset/R = new
 	R.forceMove(P)
 	P.mob_radio = R //Implant a mob radio on them so they can communicate over a distance and hear what's going on. Being left in the dark isn't fun.
