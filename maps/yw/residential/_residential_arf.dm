@@ -118,6 +118,9 @@ var/global/list/latejoin_residential = list()
 /area/residential
 	icon = 'icons/turf/areas_yw.dmi'
 	flags = RAD_SHIELDED
+	name = "\improper Residential"
+	requires_power = 0
+	flags = AREA_FLAG_IS_NOT_PERSISTENT
 
 /area/residential/docking_lobby
 	name = "\improper Residential - Docking Lobby"
