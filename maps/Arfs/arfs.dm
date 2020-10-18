@@ -3,19 +3,19 @@
 // 1 = Subdeck, 2 = Main Deck, 3 = Centcomm, 4 = Empty, 5 = Hotel, 6 = Mining
 
 
-	#include "arfs-1.dmm"
-	#include "arfs-2.dmm"
-	#include "arfs-3.dmm"
-	#include "arfs-4.dmm"
-	#include "arfs-5.dmm"
-	#include "arfs-6.dmm"
-	#include "arfs-7.dmm"
-	#include "arfs-8.dmm"
+	#include "arfs-1-deckone.dmm"
+	#include "arfs-2-decktwo.dmm"
+	#include "arfs-3-deckthree.dmm"
+	#include "arfs-4-centcom.dmm"
+	#include "arfs-5-space.dmm"
+	#include "arfs-6-asteroid.dmm"
+	#include "arfs-7-mining.dmm"
+	#include "arfs-8-underdark.dmm"
 
 	#include "arfs_defines.dm"
 	#include "arfs_misc.dm"
 	#include "arfs_areas.dm"
-//	#include "arfs_shuttles.dm"
+	#include "arfs_shuttles.dm"
 	#include "arfs_underdark.dm"
 	#include "arfs_telecomms.dm"
 

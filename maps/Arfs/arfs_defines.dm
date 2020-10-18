@@ -20,20 +20,20 @@
 	lobby_icon = 'icons/misc/title_vr.dmi'
 	lobby_screens = list("arfs")
 
-	station_name  = "A.R.F.S. Dallus"
+	station_name  = "ARFS Dallus"
 	station_short = "Dallus"
-	dock_name     = "the docking area"
+	dock_name     = "ARFS Flapjack"
 	boss_name     = "ARF - Command"
 	boss_short    = "ARF - Command"
 	company_name  = "Alliance of Racial Federations"
-	company_short = "A.R.F."
+	company_short = "ARF"
 	starsys_name  = "Canis Majoris - Watermelonus Cluster IV"
 
 	shuttle_docked_message = "The scheduled shuttle to the %dock_name% has docked with the ship at docks one and two. It will depart in approximately %ETD%."
 	shuttle_leaving_dock = "The Crew Transfer Shuttle has left the ship. Estimate %ETA% until the shuttle docks at %dock_name%."
 	shuttle_called_message = "A crew transfer to %Dock_name% has been scheduled. The shuttle has been called. Those leaving should procede to docks one and two in approximately %ETA%"
 	shuttle_recall_message = "The scheduled crew transfer has been cancelled."
-	emergency_shuttle_docked_message = "The Emergency Shuttle has docked with the ship at docks one and two. You have approximately %ETD% to board the Emergency Shuttle."
+	emergency_shuttle_docked_message = "The Emergency Shuttle has docked with the ship at dock one. You have approximately %ETD% to board the Emergency Shuttle."
 	emergency_shuttle_leaving_dock = "The Emergency Shuttle has left the ship. Estimate %ETA% until the shuttle docks at %dock_name%."
 	emergency_shuttle_called_message = "An emergency evacuation shuttle has been called. It will arrive at docks one and two in approximately %ETA%"
 	emergency_shuttle_recall_message = "The emergency shuttle has been recalled."
@@ -102,7 +102,7 @@
 	base_turf = /turf/simulated/open
 	transit_chance = 20
 
-/datum/map_z_level/arfs/ship.three
+/datum/map_z_level/arfs/ship/three
 	z= Z_LEVEL_ARFS_THREE
 	name = "ARFS Deck 3"
 	base_turf = /turf/simulated/open
