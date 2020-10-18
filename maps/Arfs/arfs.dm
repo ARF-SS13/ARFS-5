@@ -11,9 +11,9 @@
 	#include "arfs-6-asteroid.dmm"
 	#include "arfs-7-mining.dmm"
 	#include "arfs-8-underdark.dmm"
+	#include "residential/residential_arf.dmm"
 
 	#include "residential/_residential_arf.dm"
-	#include "residential/residential_arf.dmm"
 	#include "residential/residential_keys_arf.dm"
 	#include "arfs_defines.dm"
 	#include "arfs_misc.dm"
