@@ -82,6 +82,10 @@
 	name = "\improper Main Upper Hallway"
 /area/hallway/station/docks
 	name = "\improper Docks Hallway"
+/area/hallway/station/residentialdock
+	name = "\improper Residential Dock"
+	icon_state = "gutsdorms"
+	icon = 'maps/Arfs/arfs_areas.dmi'
 
 //MAINT
 
