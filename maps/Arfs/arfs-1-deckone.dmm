@@ -1234,7 +1234,7 @@
 "xN" = (/obj/effect/floor_decal/corner/mauve{dir = 4; icon_state = "corner_white"},/turf/simulated/floor/tiled/dark,/area/maintenance/guts)
 "xO" = (/obj/machinery/light/small{dir = 4; pixel_y = 0},/obj/effect/floor_decal/corner/mauve{dir = 5; icon_state = "corner_white"},/obj/effect/floor_decal/corner/mauve,/turf/simulated/floor/tiled/dark,/area/maintenance/guts)
 "xP" = (/obj/effect/floor_decal/industrial/danger,/turf/simulated/floor/plating,/area/maintenance/guts)
-"xQ" = (/obj/structure/grille,/obj/machinery/door/firedoor,/obj/structure/window/reinforced/full,/obj/machinery/atmospherics/pipe/simple/hidden{dir = 1; icon_state = "intact"; tag = "icon-intact (NORTH)"},/obj/machinery/door/firedoor,/turf/simulated/floor/plating,/area/maintenance/guts/eva)
+"xQ" = (/obj/structure/grille,/obj/machinery/door/firedoor,/obj/structure/window/reinforced/full,/obj/machinery/atmospherics/pipe/simple/hidden{dir = 1; icon_state = "intact"; tag = "icon-intact (NORTH)"},/turf/simulated/floor/plating,/area/maintenance/guts/eva)
 "xR" = (/obj/machinery/access_button/airlock_exterior{master_tag = "gutseva"; pixel_x = -24},/turf/simulated/floor/airless,/area/maintenance/guts/eva)
 "xS" = (/obj/effect/floor_decal/corner/mauve{dir = 9; icon_state = "corner_white"},/turf/simulated/floor/tiled/dark,/area/maintenance/guts)
 "xT" = (/obj/random/technology_scanner,/turf/simulated/floor/tiled/dark,/area/maintenance/guts)
@@ -1254,7 +1254,7 @@
 "yh" = (/obj/machinery/light/small,/obj/effect/floor_decal/corner/yellow,/obj/effect/floor_decal/corner/yellow{dir = 9},/turf/simulated/floor/tiled/dark,/area/maintenance/guts/eva)
 "yi" = (/obj/effect/floor_decal/corner/yellow{dir = 10},/obj/machinery/atmospherics/unary/vent_pump/high_volume{dir = 1; frequency = 1379; id_tag = "gutspump"},/turf/simulated/floor/tiled/dark,/area/maintenance/guts/eva)
 "yj" = (/obj/effect/floor_decal/corner/yellow{dir = 6},/obj/effect/floor_decal/corner/yellow{dir = 8; icon_state = "corner_white"; tag = "icon-corner_white (WEST)"},/obj/machinery/atmospherics/unary/vent_pump/high_volume{dir = 1; frequency = 1379; id_tag = "gutspump"},/turf/simulated/floor/tiled/dark,/area/maintenance/guts/eva)
-"yk" = (/obj/structure/grille,/obj/machinery/door/firedoor,/obj/structure/window/reinforced/full,/obj/machinery/door/firedoor,/turf/simulated/floor/plating,/area/maintenance/guts/eva)
+"yk" = (/obj/structure/grille,/obj/machinery/door/firedoor,/obj/structure/window/reinforced/full,/turf/simulated/floor/plating,/area/maintenance/guts/eva)
 "yl" = (/turf/simulated/floor/airless,/area/maintenance/guts/eva)
 "ym" = (/obj/random/trash_pile,/obj/effect/floor_decal/corner/mauve{dir = 6; icon_state = "corner_white"},/turf/simulated/floor/tiled/dark,/area/maintenance/guts)
 "yn" = (/obj/machinery/door/airlock/maintenance{icon_state = "door_locked"; locked = 1},/obj/item/tape/police,/turf/simulated/floor/tiled/dark,/area/maintenance/guts)
@@ -1363,9 +1363,9 @@
 "Am" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 1},/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white,/area/maintenance/guts/jani)
 "An" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/blood/oil,/turf/simulated/floor/tiled/white,/area/maintenance/guts/jani)
 "Ao" = (/obj/machinery/door/airlock/maintenance,/obj/machinery/door/firedoor,/turf/simulated/floor/plating,/area/maintenance/guts/jani)
-"Ap" = (/obj/structure/grille,/obj/machinery/door/firedoor,/obj/structure/window/reinforced/full,/obj/machinery/door/firedoor,/turf/simulated/floor/plating,/area/maintenance/guts/arcade)
+"Ap" = (/obj/structure/grille,/obj/machinery/door/firedoor,/obj/structure/window/reinforced/full,/turf/simulated/floor/plating,/area/maintenance/guts/arcade)
 "Aq" = (/turf/simulated/wall/r_wall,/area/maintenance/guts/jani)
-"Ar" = (/obj/structure/grille,/obj/machinery/door/firedoor,/obj/structure/window/reinforced/full,/obj/machinery/door/firedoor,/turf/simulated/floor/plating,/area/maintenance/guts/jani)
+"Ar" = (/obj/structure/grille,/obj/machinery/door/firedoor,/obj/structure/window/reinforced/full,/turf/simulated/floor/plating,/area/maintenance/guts/jani)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
