@@ -8,8 +8,8 @@
 	landmark_offsite = "residential_residential"
 	landmark_station = "residential_station"
 	landmark_transition = "residential_transit"
-	warmup_time = 3 SECONDS //30 seconds actually (SECONDS is multiplying it by 10)
-	move_time = 12 SECONDS //270 seconds actually (SECONDS is multiplying it by 10)
+	warmup_time = 5 //seconds
+	move_time = 30 //seconds
 	var/announcer = "Automated Traffic Control"
 
 
