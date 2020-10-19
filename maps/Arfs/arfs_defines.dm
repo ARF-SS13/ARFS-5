@@ -73,7 +73,7 @@
 
 	return 1
 
-/datum/map/arfs/get_map_levels(var/srcz, var/long_range = TRUE)
+/datum/map/arfs/get_map_levels(srcz, long_range = TRUE, om_range = DEFAULT_OVERMAP_RANGE)
 	if (long_range && (srcz in map_levels))
 		return map_levels
 	else if (srcz >= Z_LEVEL_MINING_ARFS && srcz <= Z_LEVEL_MINING_DANGER_ARFS)
