@@ -22,12 +22,16 @@
 	id = "Asteroid Interior Relay"
 	listening_level = Z_LEVEL_MINING_DANGER_ARFS
 	autolinkers = list("mining_low")
+/obj/machinery/telecomms/relay/preset/arfs/residential
+	id = "NCS Serenity Residential Relay"
+	listening_level = Z_LEVEL_RESIDENTIAL_ARFS
+	autolinkers = list("residential")
 
 /obj/machinery/telecomms/hub/preset/arfs
 	id = "Hub"
 	network = "tcommsat"
 	autolinkers = list("hub",
-		"arfs_1_relay", "arfs_2_relay", "arfs_3_relay", "mining_high", "mining_low",
+		"arfs_1_relay", "arfs_2_relay", "arfs_3_relay", "mining_high", "mining_low", "residential",
 		"c_relay", "m_relay", "r_relay", "sci_o_relay", "ud_relay",
 		"science", "medical", "supply", "service", "common", "command", "engineering", "security", "explorer", "unused",
 		"hb_relay", "receiverA", "broadcasterA"
