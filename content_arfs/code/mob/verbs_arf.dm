@@ -1,6 +1,6 @@
 /mob/observer/dead/verb/spawn_as_pokemon()
 	set category = "Ghost"
-	set name = "Spawn as Pokemon"
+	set name = "Join as Pokemon"
 	set desc = "Spawn in as a pokemon from one of the resleevers on the map."
 
 	if(!istype(src, /mob/observer/dead))

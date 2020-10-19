@@ -53,6 +53,20 @@
 				html += "<a onclick='togglesection(\"[ckey(R.name)] [curID] ooc\")'>OOC notes</a>"
 				html += "<p class='uiContent' style='display:none' id='[ckey(R.name)] [curID] ooc'>[R.ooc_notes]</p>"
 			html += "</div>"
+		if(ispokemon(C.mob))
+			var/mob/living/simple_mob/animal/passive/pokemon/P = C.mob
+			if(!P.on_manifest)
+				continue
+			curID++
+			html += "<div class='block'>"
+			html += "<h3 class='uiContent highlight' style='font-size:16px'>[P.name] ([P.tt_desc], Pokemon)</h3><br>"
+			if(P.flavor_text)
+				html += "<a onclick='togglesection(\"[ckey(P.name)] [curID] flavor\")'>Flavor text</a>"
+				html += "<p class='uiContent' style='display:none' id='[ckey(P.name)] [curID] flavor'>[P.flavor_text]</p>"
+			if(P.ooc_notes)
+				html += "<a onclick='togglesection(\"[ckey(P.name)] [curID] ooc\")'>OOC notes</a>"
+				html += "<p class='uiContent' style='display:none' id='[ckey(P.name)] [curID] ooc'>[P.ooc_notes]</p>"
+			html += "</div>"
 	if(!curID)
 		html += "<p class='uiContent'>404: Station not found</p>"
 
