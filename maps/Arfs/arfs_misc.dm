@@ -137,3 +137,20 @@
 //Trash piles should be below the items you find in them
 /obj/structure/trash_pile
 	layer = 2.9
+//Dance pole
+/obj/structure/dancepole
+	name = "dance pole"
+	desc = "Engineered for your entertainment"
+	icon = 'icons/obj/objects_vr.dmi'
+	icon_state = "dancepole"
+	density = 0
+	anchored = 1
+
+/obj/structure/dancepole/attackby(var/obj/item/O as obj, var/mob/user as mob)
+	if(O.is_wrench())
+		anchored = !anchored
+		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
+		if(anchored)
+			to_chat(user, "<font color='blue'>You secure \the [src].</font>")
+		else
+			to_chat(user, "<font color='blue'>You unsecure \the [src].</font>")
