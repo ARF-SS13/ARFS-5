@@ -50,6 +50,19 @@
 	name = "\improper Dorm 7 Holodeck"
 	icon_state = "dk_yellow"
 
+/area/crew_quarters/locker/upper
+	name = "\improper Changing Room Foyer"
+	icon_state = "locker"
+	icon = 'icons/turf/areas.dmi'
+/area/crew_quarters/locker/upper/room1
+	name = "\improper Changing Room 1"
+	icon_state = "locker"
+	icon = 'icons/turf/areas.dmi'
+/area/crew_quarters/locker/upper/room2
+	name = "\improper Changing Room 2"
+	icon_state = "locker"
+	icon = 'icons/turf/areas.dmi'
+
 /area/holodeck/holodorm/source_basic
 	name = "\improper Holodeck Source"
 /area/holodeck/holodorm/source_desert
