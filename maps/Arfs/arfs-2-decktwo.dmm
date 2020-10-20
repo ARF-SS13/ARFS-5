@@ -1697,7 +1697,7 @@
 "aGJ" = (/obj/machinery/atmospherics/unary/vent_scrubber/on,/turf/simulated/floor/wood,/area/crew_quarters/bar)
 "aGK" = (/obj/machinery/atmospherics/unary/vent_pump/on,/obj/effect/landmark/start{name = "Bartender"},/turf/simulated/floor/wood,/area/crew_quarters/bar)
 "aGL" = (/obj/structure/sink/kitchen{dir = 8; icon_state = "sink_alt"; pixel_x = 20; tag = "icon-sink_alt (WEST)"},/turf/simulated/floor/wood,/area/crew_quarters/bar)
-"aGM" = (/obj/machinery/vending/boozeomat,/turf/simulated/floor/wood,/area/crew_quarters/kitchen)
+"aGM" = (/obj/machinery/vending/boozeomat,/turf/simulated/floor/wood,/area/crew_quarters/bar)
 "aGN" = (/obj/effect/floor_decal/corner/blue{dir = 1},/turf/simulated/floor/tiled/dark,/area/crew_quarters/kitchen)
 "aGO" = (/obj/machinery/door/airlock/glass{name = "Hydroponics Pasture"; req_access = list(28)},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/turf/simulated/floor/tiled/kafel_full/green,/area/hydroponics)
 "aGP" = (/obj/effect/floor_decal/corner/blue{dir = 1},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 6},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 6},/turf/simulated/floor/tiled/dark,/area/crew_quarters/kitchen)
