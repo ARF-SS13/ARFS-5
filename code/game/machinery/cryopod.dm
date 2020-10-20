@@ -483,14 +483,16 @@
 	//VOREStation Edit End - Resleeving.
 
 	//Handle job slot/tater cleanup.
-	var/job = to_despawn.mind.assigned_role
+	//ARFS Edit
+	if(to_despawn.mind)
+		var/job = to_despawn.mind.assigned_role
 
-	job_master.FreeRole(job)
+		job_master.FreeRole(job)
 
-	if(to_despawn.mind.objectives.len)
-		qdel(to_despawn.mind.objectives)
-		to_despawn.mind.special_role = null
-
+		if(to_despawn.mind.objectives.len)
+			qdel(to_despawn.mind.objectives)
+			to_despawn.mind.special_role = null
+	//ARFS Edit End
 	//else
 		//if(ticker.mode.name == "AutoTraitor")
 			//var/datum/game_mode/traitor/autotraitor/current_mode = ticker.mode
