@@ -207,3 +207,9 @@
 //underdark
 /area/outpost/mining_main/lower_outpost
 	name = "Lower Asteroid Outpost"
+
+//Engineering Gravity
+/area/engineering/gravity
+	name= "\improper Gravity Generator"
+	icon_state = "engineering"
+	icon = 'icons/turf/areas.dmi'
