@@ -26,7 +26,7 @@
 		"Maintenance Explorer",
 		"Masseuse","Massager",
 		"Test Subject",
-		"Fish Breeder",
+		"Fisher",
 		"Vidcam Model",
 		"Escort",
 		"Actor",
