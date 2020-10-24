@@ -1,5 +1,9 @@
 /datum/job/lawyer
 	alt_titles = list(
 		"Lawyer",
-		"Magistrate"
+		"Magistrate",
+		"Diplomat",
+		"Health Inspector",
+		"Public Defender",
+		"Inquisitor"
 		)
