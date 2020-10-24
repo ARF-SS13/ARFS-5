@@ -8,4 +8,4 @@
 	alt_titles = list ("Investigator")
 
 /datum/job/officer
-	alt_titles = list ("Security Secretary", "Deputy", "Commissar")
+	alt_titles = list ("Security Secretary", "Deputy", "Commissar", "Beepsky")
