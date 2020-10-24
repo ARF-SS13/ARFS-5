@@ -213,3 +213,13 @@
 	name= "\improper Gravity Generator"
 	icon_state = "engineering"
 	icon = 'icons/turf/areas.dmi'
+
+//Upstairs Kitchen
+/area/crew_quarters/kitchen/upper
+	name= "\improper Upstairs Kitchen"
+	icon_state = "kitchen"
+	icon = 'icons/turf/areas.dmi'
+/area/crew_quarters/dining_hall/upper
+	name= "\improper Upstairs Dining Hall"
+	icon_state = "cafeteria"
+	icon = 'icons/turf/areas.dmi'
