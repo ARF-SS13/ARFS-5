@@ -307,8 +307,8 @@
 	path = /obj/item/weapon/card/id/residential/rs10
 	display_name = "RS10 keys"
 	description = "residential"
-	ckeywhitelist = list("brimcon", "thingpony")
-	character_name = list("Scryden Sako", "Fleur Vert")
+	ckeywhitelist = list("brimcon", "thingpony", "theilluminated1")
+	character_name = list("Scryden Sako", "Fleur Vert", "Ni'mira Allura")
 
 /datum/gear/fluff/res_key_rs11
 	path = /obj/item/weapon/card/id/residential/rs11
