@@ -4,5 +4,6 @@
 		"Magistrate",
 		"Diplomat",
 		"Health Inspector",
-		"Public Defender"
+		"Public Defender",
+		"Inquisitor"
 		)
