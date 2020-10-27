@@ -166,6 +166,14 @@ var/global/list/latejoin_residential = list()
 	name = "\improper Residential - Room 6"
 	icon_state = "room6"
 
+/area/residential/room6/bedroom
+	name = "\improper Residential Bedroom- Room 6"
+	icon_state = "room6"
+
+/area/residential/room6/bathroom
+	name = "\improper Residential Bathroom- Room 6"
+	icon_state = "room6"
+
 /area/residential/room7
 	name = "\improper Residential - Room 7"
 	icon_state = "room7"
