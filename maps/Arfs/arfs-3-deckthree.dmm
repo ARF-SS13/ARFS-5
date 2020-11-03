@@ -633,7 +633,7 @@
 "mL" = (/obj/structure/morgue,/obj/machinery/alarm{dir = 4; pixel_x = -25; pixel_y = 0},/turf/simulated/floor/wood,/area/chapel/chapel_morgue)
 "mM" = (/turf/simulated/floor/wood,/area/chapel/chapel_morgue)
 "mN" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/turf/simulated/floor/wood,/area/chapel/chapel_morgue)
-"mO" = (/obj/structure/morgue/crematorium,/turf/simulated/floor/wood,/area/chapel/chapel_morgue)
+"mO" = (/obj/structure/morgue/crematorium{dir = 8},/turf/simulated/floor/wood,/area/chapel/chapel_morgue)
 "mP" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 4},/turf/simulated/floor/wood,/area/chapel/chapel_morgue)
 "mQ" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 8; icon_state = "intact-scrubbers"},/turf/simulated/floor/wood,/area/chapel/chapel_morgue)
 "mR" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 9},/turf/simulated/floor/wood,/area/chapel/chapel_morgue)
