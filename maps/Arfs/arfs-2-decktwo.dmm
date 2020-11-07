@@ -1295,7 +1295,7 @@
 "ayX" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 5},/turf/simulated/floor/tiled/freezer,/area/crew_quarters/pool)
 "ayY" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/turf/simulated/floor/tiled/freezer,/area/crew_quarters/pool)
 "ayZ" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8},/turf/simulated/floor/tiled/freezer,/area/crew_quarters/pool)
-"aza" = (/obj/machinery/conveyor,/turf/simulated/floor/plating,/area/maintenance/disposal)
+"aza" = (/obj/machinery/conveyor{id = "garbage"},/turf/simulated/floor/plating,/area/maintenance/disposal)
 "azb" = (/obj/machinery/vending/fitness,/turf/simulated/floor/tiled/freezer,/area/crew_quarters/pool)
 "azc" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/turf/simulated/floor/tiled/steel_grid,/area/security/range)
 "azd" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 5},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 9},/turf/simulated/floor/tiled/steel_grid,/area/security/range)
