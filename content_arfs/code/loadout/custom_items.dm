@@ -29,3 +29,10 @@
 //	description = "An enhanced GPS device for communicators"
 //	ckeywhitelist = list("andyman105", "dameonowen")
 //	character_name = null
+
+/datum/gear/fluff/thing_1
+	path = /obj/item/weapon/implanter/blindsight
+	display_name = "Blindsight Implant"
+	description = "A customized implant to help the seeing impaired, created by OWEN Industries"
+	ckeywhitelist = list("thingpony")
+	character_name = null

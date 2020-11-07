@@ -1,6 +1,7 @@
-var/list/playerpowers = list(/datum/power/changeling/absorb_dna, /datum/power/changeling/darksight, /datum/power/changeling/extractdnaplayer, /datum/power/changeling/self_respiration, \
-						     /datum/power/changeling/player_transform, /datum/power/changeling/augmented_eyesight, /datum/power/changeling/fleshmend, /datum/power/changeling/panacea, \
-						     /datum/power/changeling/endoarmor, /datum/power/changeling/EngorgedGlands, /datum/power/changeling/metaextractdna)
+var/list/playerpowers = list(/datum/power/changeling/arm_blade, /datum/power/changeling/darksight, /datum/power/changeling/extractdnaplayer, /datum/power/changeling/metaextractdna, \
+						     /datum/power/changeling/player_transform, /datum/power/changeling/fleshmend, /datum/power/changeling/panacea, /datum/power/changeling/rapid_regen, \
+						     /datum/power/changeling/endoarmor, /datum/power/changeling/EngorgedGlands, /datum/power/changeling/self_respiration, /datum/power/changeling/space_suit, \
+						     /datum/power/changeling/visible_camouflage, /datum/power/changeling/recursive_enhancement)
 var/list/datum/power/changeling/playerpowerinstances = list()
 
 
