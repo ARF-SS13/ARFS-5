@@ -4,7 +4,7 @@ jobs:
   Compile:
     runs-on: ubuntu-latest
     container: 
-      image: tgstation/byond:513.1536
+      image: ghcr.io/dameonowen/byond:513.1536
     strategy:
       fail-fast: false
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
