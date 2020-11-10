@@ -36,17 +36,3 @@
 	description = "A customized implant to help the seeing impaired, created by OWEN Industries"
 	ckeywhitelist = list("thingpony")
 	character_name = null
-
-/datum/gear/fluff/dameon_6
-	path = /datum/gear/utility/bagofholding/duffle
-	display_name = "Duffle of holding"
-	description = "A Dufflebag of Holding!"
-	ckeywhitelist = list("andyman105", "dameonowen")
-	character_name = null
-
-/datum/gear/fluff/dameon_7
-	path = /datum/gear/utility/bagofholding/belt
-	display_name = "belt of holding"
-	description = "A belt of Holding!"
-	ckeywhitelist = list("andyman105", "dameonowen")
-	character_name = null
