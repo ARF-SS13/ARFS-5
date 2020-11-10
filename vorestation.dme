@@ -3802,6 +3802,7 @@
 #include "content_arfs\code\loadout\loadout_accessories.dm"
 #include "content_arfs\code\loadout\loadout_fluffclothing_arf.dm"
 #include "content_arfs\code\loadout\loadout_general.dm"
+#include "content_arfs\code\loadout\loadout_utitlity .dm"
 #include "content_arfs\code\machinery\airlock_arfs.dm"
 #include "content_arfs\code\machinery\bluelotus.dm"
 #include "content_arfs\code\machinery\cryopod_arfs.dm"
