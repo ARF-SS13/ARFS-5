@@ -159,6 +159,11 @@
 		return TRUE
 	return ..()
 
+/mob/living/simple_mob/animal/passive/pokemon/can_ztravel()
+	if(M_GHOSTED in active_moves)
+		return TRUE
+	return ..()
+
 /mob/living/simple_mob/animal/passive/pokemon/proc/give_moves(var/typetogive)
 	if(!typetogive)
 		if(!LAZYLEN(additional_moves))
