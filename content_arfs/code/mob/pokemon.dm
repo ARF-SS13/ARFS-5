@@ -554,6 +554,7 @@
 	icon_living = "gallade"
 	icon_dead = "gallade_d"
 	p_types = list(P_TYPE_PSYCH, P_TYPE_FIGHT)
+	additional_moves = list(/mob/living/proc/hide)
 
 /mob/living/simple_mob/animal/passive/pokemon/gardevoir
 	name = "gardevoir"
@@ -561,6 +562,7 @@
 	icon_living = "gardevoir"
 	icon_dead = "gardevoir_d"
 	p_types = list(P_TYPE_PSYCH, P_TYPE_FAIRY)
+	additional_moves = list(/mob/living/proc/hide)
 
 /mob/living/simple_mob/animal/passive/pokemon/gastly
 	name = "gastly"
@@ -644,6 +646,7 @@
 	icon_living = "kirlia"
 	icon_dead = "kirlia_d"
 	p_types = list(P_TYPE_PSYCH, P_TYPE_FAIRY)
+	additional_moves = list(/mob/living/proc/hide)
 
 /mob/living/simple_mob/animal/passive/pokemon/larvitar
 	name = "larvitar"
