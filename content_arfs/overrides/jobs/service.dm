@@ -9,7 +9,7 @@
 	alt_titles = list("Baker", "Sous Chef","Teppanyaki Chef","Pastery Chef","Fry Cook","Burger Flipper","Culinary Artist")
 
 /datum/job/librarian
-	alt_titles = list( "Professor", "Historian", "Writer", "Poet", "Cataloger", "Archivist", "Chronicler", "Reporter", "Game Master", "Dungeon Master", "Story Teller", "Bookkeeper")
+	alt_titles = list( "Professor", "Historian", "Writer", "Poet", "Cataloger", "Archivist", "Chronicler", "Reporter", "Game Master", "Dungeon Master", "Story Teller", "Bookkeeper", "Scribe")
 
 
 /datum/job/hydro
