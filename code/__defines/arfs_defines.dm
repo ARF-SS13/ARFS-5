@@ -21,3 +21,5 @@
 #define P_TYPE_ELEC		"electric"
 #define P_TYPE_POISON	"poison"
 #define P_TYPE_BUG		"bug"
+
+#define M_GHOSTED		"ghosted" //A ghost is using their phase move
