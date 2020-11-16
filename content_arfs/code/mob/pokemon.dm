@@ -31,10 +31,11 @@
 	var/resting_heal_max = 2
 	var/is_ditto_transformed = FALSE
 	var/on_manifest = FALSE
+	var/list/active_moves = list()
 
 /mob/living/simple_mob/animal/passive/pokemon/Initialize()
 	. = ..()
-	verbs |= /mob/living/simple_mob/animal/passive/pokemon/proc/simple_lay_down
+	verbs |= /mob/living/simple_mob/animal/passive/pokemon/proc/move_rest
 	verbs |= /mob/living/proc/set_flavor_text
 	verbs |= /mob/living/proc/set_ooc_notes
 	icon_rest = "[icon_state]_rest"
@@ -112,12 +113,15 @@
 
 	return msg
 
-/mob/living/simple_mob/animal/passive/pokemon/proc/simple_lay_down()
+/mob/living/simple_mob/animal/passive/pokemon/proc/move_rest()
 	set name = "Rest"
 	set category = "Abilities"
 	set desc = "Lie down and rest in order to slowly heal or just relax."
 	if(src.flying)
 		to_chat(src,"<span class='warning'>You need to land if you want to rest.</span>")
+		return
+	if(M_GHOSTED in active_moves)
+		to_chat(src,"<span class='warning'>You need to rematerialize to benefit from resting.</span>")
 		return
 	resting = !resting
 	to_chat(src,"<span class='notice'>You are now [resting ? "resting" : "getting up"].</span>")
@@ -150,6 +154,16 @@
 	if(msg != null)
 		flavor_text = msg
 
+/mob/living/simple_mob/animal/passive/pokemon/is_incorporeal()
+	if(M_GHOSTED in active_moves)
+		return TRUE
+	return ..()
+
+/mob/living/simple_mob/animal/passive/pokemon/can_ztravel()
+	if(M_GHOSTED in active_moves)
+		return TRUE
+	return ..()
+
 /mob/living/simple_mob/animal/passive/pokemon/proc/give_moves(var/typetogive)
 	if(!typetogive)
 		if(!LAZYLEN(additional_moves))
@@ -176,9 +190,12 @@
 		if(P_TYPE_POISON)
 			src.max_tox += 199 //can survive in phoron up to 200 moles
 		if(P_TYPE_DARK)
-			src.see_in_dark = 5
+			src.see_in_dark += 4
 		if(P_TYPE_PSYCH)
 			src.verbs |= /mob/living/simple_mob/animal/passive/pokemon/proc/move_telepathy
+		if(P_TYPE_GHOST)
+			src.see_in_dark += 6
+			src.verbs |= /mob/living/simple_mob/animal/passive/pokemon/proc/move_phase
 		else
 			return FALSE
 
@@ -249,6 +266,83 @@
 	visible_message("[P]'s head glows with telepathic energy.", "<span class='alien'><b>You telepathically say to [T]:</b> <i>[message]</i></span>", "<span class='notice'>You hear a quiet humming sound.</span>")
 	to_chat(T,"<span class='alien'><b>You hear [P]'s voice in your head:</b> <i>[message]</i></span>")
 	log_say("(POKETELEPATHY to [key_name(T)]) [message]", src)
+
+/mob/living/simple_mob/animal/passive/pokemon/proc/move_phase()
+	set name = "Phase Shift"
+	set desc = "Shift your body into an incorporeal state to pass through walls and other obstacles. Spooky!"
+	set category = "Abilities"
+
+	var/turf/T = get_turf(src)
+	if(!T.CanPass(src,T) || loc != T)
+		to_chat(src,"<span class='warning'>You can't use that here!</span>")
+		return FALSE
+	if(resting)
+		to_chat(src,"<span class='warning'>You can't do that while resting!</span>")
+		return
+	forceMove(T)
+	var/original_canmove = canmove
+	SetStunned(0)
+	SetWeakened(0)
+	if(buckled)
+		buckled.unbuckle_mob()
+	if(pulledby)
+		pulledby.stop_pulling()
+	stop_pulling()
+	canmove = FALSE
+
+	//Shifting in
+	if(M_GHOSTED in active_moves)
+		active_moves -= M_GHOSTED
+		mouse_opacity = 1
+		name = real_name
+		for(var/belly in vore_organs)
+			var/obj/belly/B = belly
+			B.escapable = initial(B.escapable)
+
+		//overlays.Cut()
+		invisibility = initial(invisibility)
+		see_invisible = initial(see_invisible)
+		incorporeal_move = initial(incorporeal_move)
+		density = initial(density)
+		force_max_speed = initial(force_max_speed)
+		update_icon()
+
+		//Cosmetics mostly
+		alpha = 0
+		custom_emote(1,"suddenly materializes.")
+		canmove = original_canmove
+		alpha = initial(alpha)
+
+		//Potential phase-in vore
+		if(can_be_drop_pred) //Toggleable in vore panel
+			var/list/potentials = living_mobs(0)
+			if(potentials.len)
+				var/mob/living/target = pick(potentials)
+				if(istype(target) && vore_selected)
+					target.forceMove(vore_selected)
+					to_chat(target,"<span class='warning'>\The [src] suddenly appears around you, [vore_selected.vore_verb]ing you into their [vore_selected.name]!</span>")
+	//Shifting out
+	else
+		active_moves |= M_GHOSTED
+		mouse_opacity = 0
+		custom_emote(1,"suddenly dematerializes.")
+		name = "Something"
+
+		for(var/belly in vore_organs)
+			var/obj/belly/B = belly
+			B.escapable = FALSE
+
+		alpha = 0
+		invisibility = INVISIBILITY_LEVEL_TWO
+		see_invisible = INVISIBILITY_LEVEL_TWO
+		//overlays.Cut()
+		update_icon()
+		alpha = 127
+
+		canmove = original_canmove
+		incorporeal_move = TRUE
+		density = FALSE
+		force_max_speed = TRUE
 
 //Override to stop attacking while grabbing
 /mob/living/simple_mob/animal/passive/pokemon/UnarmedAttack(var/atom/A, var/proximity)
@@ -454,6 +548,40 @@
 	p_types = list(P_TYPE_FIRE)
 	additional_moves = list(/mob/living/proc/hide)
 
+/mob/living/simple_mob/animal/passive/pokemon/gallade
+	name = "gallade"
+	icon_state = "gallade"
+	icon_living = "gallade"
+	icon_dead = "gallade_d"
+	p_types = list(P_TYPE_PSYCH, P_TYPE_FIGHT)
+	additional_moves = list(/mob/living/proc/hide)
+
+/mob/living/simple_mob/animal/passive/pokemon/gardevoir
+	name = "gardevoir"
+	icon_state = "gardevoir"
+	icon_living = "gardevoir"
+	icon_dead = "gardevoir_d"
+	p_types = list(P_TYPE_PSYCH, P_TYPE_FAIRY)
+	additional_moves = list(/mob/living/proc/hide)
+
+/mob/living/simple_mob/animal/passive/pokemon/gastly
+	name = "gastly"
+	desc = "Almost invisible, this gaseous Pokémon cloaks the target and puts it to sleep without notice."
+	icon_state = "gastly"
+	icon_living = "gastly"
+	icon_dead = "gastly_d"
+	p_types = list(P_TYPE_GHOST, P_TYPE_POISON)
+	additional_moves = list(/mob/living/proc/hide)
+
+/mob/living/simple_mob/animal/passive/pokemon/gengar
+	name = "gengar"
+	desc = "It hides in shadows. It is said that if Gengar is hiding, it cools the area by nearly 10 degrees F."
+	icon_state = "gengar"
+	icon_living = "gengar"
+	icon_dead = "gengar_d"
+	p_types = list(P_TYPE_GHOST, P_TYPE_POISON)
+	additional_moves = list(/mob/living/proc/hide)
+
 /mob/living/simple_mob/animal/passive/pokemon/glaceon
 	name = "glaceon"
 	desc = "By controlling its body heat, it can freeze the atmosphere around it to make a diamond-dust flurry."
@@ -461,6 +589,15 @@
 	icon_living = "glaceon"
 	icon_dead = "glaceon_d"
 	p_types = list(P_TYPE_ICE)
+	additional_moves = list(/mob/living/proc/hide)
+
+/mob/living/simple_mob/animal/passive/pokemon/haunter
+	name = "haunter"
+	desc = "If you get the feeling of being watched in darkness when nobody is around, Haunter may be there."
+	icon_state = "haunter"
+	icon_living = "haunter"
+	icon_dead = "haunter_d"
+	p_types = list(P_TYPE_GHOST, P_TYPE_POISON)
 	additional_moves = list(/mob/living/proc/hide)
 
 /mob/living/simple_mob/animal/passive/pokemon/jolteon
@@ -502,6 +639,14 @@
 
 /mob/living/simple_mob/animal/passive/pokemon/jolteon/bud
 	name = "Bud"
+
+/mob/living/simple_mob/animal/passive/pokemon/kirlia
+	name = "kirlia"
+	icon_state = "kirlia"
+	icon_living = "kirlia"
+	icon_dead = "kirlia_d"
+	p_types = list(P_TYPE_PSYCH, P_TYPE_FAIRY)
+	additional_moves = list(/mob/living/proc/hide)
 
 /mob/living/simple_mob/animal/passive/pokemon/larvitar
 	name = "larvitar"
@@ -726,6 +871,13 @@
 	p_types = list(P_TYPE_PSYCH)
 	additional_moves = list(/mob/living/simple_mob/animal/passive/pokemon/proc/move_fly,
 							/mob/living/simple_mob/animal/passive/pokemon/proc/move_hover)
+
+/mob/living/simple_mob/animal/passive/pokemon/ralts
+	name = "ralts"
+	icon_state = "ralts"
+	icon_living = "ralts"
+	icon_dead = "ralts_d"
+	p_types = list(P_TYPE_PSYCH, P_TYPE_FAIRY)
 
 /mob/living/simple_mob/animal/passive/pokemon/snorlax
 	name = "snorlax"
