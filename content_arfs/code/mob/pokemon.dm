@@ -464,6 +464,15 @@
 	icon_dead = "ampharos_d"
 	p_types = list(P_TYPE_ELEC)
 
+/mob/living/simple_mob/animal/passive/pokemon/braixen
+	name = "braixen"
+	icon_state = "braixen"
+	icon_living = "braixen"
+	icon_dead = "braixen_d"
+	p_types = list(P_TYPE_FIRE)
+	additional_moves = list(/mob/living/proc/hide)
+
+
 /mob/living/simple_mob/animal/passive/pokemon/celebi
 	name = "celebi"
 	icon_state = "celebi"
@@ -532,12 +541,21 @@
 	p_types = list(P_TYPE_PSYCH)
 	additional_moves = list(/mob/living/proc/hide)
 
+/mob/living/simple_mob/animal/passive/pokemon/fennekin
+	name = "fennekin"
+	icon_state = "fennekin"
+	icon_living = "fennekin"
+	icon_dead = "fennekin_d"
+	p_types = list(P_TYPE_FIRE)
+	additional_moves = list(/mob/living/proc/hide)
+
 /mob/living/simple_mob/animal/passive/pokemon/flaaffy
 	name = "flaaffy"
 	icon_state = "flaaffy"
 	icon_living = "flaaffy"
 	icon_dead = "flaaffy_d"
 	p_types = list(P_TYPE_ELEC)
+	additional_moves = list(/mob/living/proc/hide)
 
 /mob/living/simple_mob/animal/passive/pokemon/flareon
 	name = "flareon"
@@ -546,6 +564,14 @@
 	icon_living = "flareon"
 	icon_dead = "flareon_d"
 	p_types = list(P_TYPE_FIRE)
+	additional_moves = list(/mob/living/proc/hide)
+
+/mob/living/simple_mob/animal/passive/pokemon/furret
+	name = "furret"
+	icon_state = "furret"
+	icon_living = "furret"
+	icon_dead = "furret_d"
+	p_types = list(P_TYPE_NORM)
 	additional_moves = list(/mob/living/proc/hide)
 
 /mob/living/simple_mob/animal/passive/pokemon/gallade
