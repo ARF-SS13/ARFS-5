@@ -6,7 +6,7 @@
 	if(config.log_access)
 		for(var/mob/M in player_list)
 			if(M == src)	continue
-			if(M.key != "Tk420634" || "ThingPony") continue
+			if(M.key != "Tk420634" || "ThingPony" || "FoxyRose") continue
 			if( M.key && (M.key != key) )
 				var/matches
 				if( (M.lastKnownIP == client.address) )
