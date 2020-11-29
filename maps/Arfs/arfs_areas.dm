@@ -25,6 +25,8 @@
 
 /area/ai/foyer
 	name = "\improper AI Core Access"
+/area/ai/outside
+	name = "/improper AI Core Outside"
 
 // CREWQUARTERS/DORM
 
