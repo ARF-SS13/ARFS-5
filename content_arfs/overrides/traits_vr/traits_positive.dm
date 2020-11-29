@@ -136,3 +136,21 @@
 	desc = "Makes your nice clawed, scaled, hooved, armored, or otherwise just awfully calloused feet immune to glass shards."
 	cost = 1
 	var_changes = list("flags" = NO_MINOR_CUT) //Checked the flag is only used by shard stepping.
+
+/datum/trait/thermal_vision
+	name = "Thermal Vision"
+	desc = "Allows you to see heat. Neat!"
+	cost = 3
+
+/datum/trait/thermal_vision/apply(var/datum/species/S,var/mob/living/carbon/human/H)
+	..(S,H)
+	spawn(5) //Yay, race conditions
+		if(!H.vis_enabled)
+			H.vis_enabled = list()
+		if(H.plane_holder)
+			H.plane_holder.set_vis(1, TRUE) //VIS_FULLBRIGHT
+			H.plane_holder.set_vis(23, TRUE) //VIS_CLOAKED
+			H.vis_enabled += 1
+			H.vis_enabled += 23
+		if(H.species)
+			H.species.flash_mod = H.species.flash_mod += 1
