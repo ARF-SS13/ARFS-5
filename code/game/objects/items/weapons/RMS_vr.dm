@@ -168,7 +168,7 @@
 									10;new /obj/item/stack/material/snow,
 									5;new /obj/item/stack/material/phoron,
 									5;new /obj/item/stack/material/silver,
-									5;new /obj/item/stack/material/gold
+									5;new /obj/item/stack/material/gold,
 									1;new /obj/item/stack/material/diamond
 									)
 				if(overcharge && emagged)
